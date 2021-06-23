@@ -8,6 +8,7 @@
 ### Front-End Setup
 
 - #8.0 Create React App
+- #8.0.1 delete index-file
 
 ---
 
@@ -18,3 +19,7 @@ react quick start
 📌 `npx create-react-app my-app`
 
 typescript로 작업 시 뒤에 `--template typescript` 를 붙이자
+
+## #8.0.1 delete index-file
+
+`App.css` 등 index file 삭제..
