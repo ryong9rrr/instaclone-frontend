@@ -15,6 +15,7 @@ git config --global core.autocrlf true
 - #8.2 ~ 8.4 Router setup
 - #8.5 Login logic
 - #8.6 Reactive Variables
+- #8.7 styled-components
 
 ---
 
@@ -88,3 +89,7 @@ npm install @fortawesome/free-regular-svg-icons
 ## #8.6 Reactive Variables
 
 계속해서 props를 보내지않고 로그인 로그아웃등을 할 수 있는 로직 > Apollo client의 reactive variables
+
+## #8.7 styled-components
+
+(대충 styled components 사용하는 내용)
