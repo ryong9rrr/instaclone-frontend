@@ -12,6 +12,7 @@
 - #8.0 Create React App
 - #8.0.1 delete index-file
 - #8.1 Install Library
+- #8.2 ~ 8.4 Router setup
 
 ---
 
@@ -59,3 +60,15 @@ npm install @fortawesome/free-brands-svg-icons
 npm install @fortawesome/free-regular-svg-icons
 
 ```
+
+## #8.2 ~ 8.4 Router setup
+
+처음 app의 구성을 어떻게 할 것인지.. 아키텍처를 어떻게 설계할 것인지... 등의 깊은 고민이 매우 중요하다. (ex. dark-mode, router 등..)
+
+- Virtual DOM
+
+  `fucntion.. 이나 const..` 모양으로 만들 수 있음.
+
+- redirect
+
+  `<Redirect to= .. >` 할 수도 있지만 버그체크에 힘들 수 있음, 실제 인스타그램은 리다이렉트 하지 않음, router 고려사항이므로 필요할 때 고려해보자.
