@@ -16,6 +16,7 @@ git config --global core.autocrlf true
 - #8.5 Login logic
 - #8.6 Reactive Variables
 - #8.7 styled-components
+- #8.8 styled-components Theme
 
 ---
 
@@ -93,3 +94,9 @@ npm install @fortawesome/free-regular-svg-icons
 ## #8.7 styled-components
 
 (대충 styled components 사용하는 내용)
+
+## #8.8 styled-components Theme
+
+대충 styled-components 의 Theme과 reactive variables를 이용한 다크모드 로직구현.
+
+(하지만 새로고침을 하거나 하면 상태값이 사라지기 때문에 나중에 로컬스토리지를 이용해서 손을 좀 볼 것임)
