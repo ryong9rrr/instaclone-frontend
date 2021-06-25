@@ -13,8 +13,11 @@
 - #8.0.1 delete index-file
 - #8.1 Install Library
 - #8.2 ~ 8.4 Router setup
+- #8.5 Login logic
 
 ---
+
+# Front-End Setup
 
 ## #8.0 Create React App
 
@@ -65,6 +68,8 @@ npm install @fortawesome/free-regular-svg-icons
 
 처음 app의 구성을 어떻게 할 것인지.. 아키텍처를 어떻게 설계할 것인지... 등의 깊은 고민이 매우 중요하다. (ex. dark-mode, router 등..)
 
+모든 path 조건을 확인한 후 `<NotFound />`가 실행될 것이므로 가장 아래에 둬야함.
+
 - Virtual DOM
 
   `fucntion.. 이나 const..` 모양으로 만들 수 있음.
@@ -72,3 +77,9 @@ npm install @fortawesome/free-regular-svg-icons
 - redirect
 
   `<Redirect to= .. >` 할 수도 있지만 버그체크에 힘들 수 있음, 실제 인스타그램은 리다이렉트 하지 않음, router 고려사항이므로 필요할 때 고려해보자.
+
+## #8.5 Login logic
+
+간단히 생각하면 이러한 로직이지만 `isLoggedIn`의 값을 `<Home />` 아래로 계속 props를 모든 resolver로 보내줘야한다... 이 접근은 너무 비효율적임.
+
+따라서 Apollo-client를 이용해보자.
