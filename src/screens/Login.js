@@ -2,9 +2,7 @@ import { useState } from "react";
 import styled, { css } from "styled-components";
 import { darkModeVar, isLoggedInVar } from "../apollo";
 
-const Container = styled.section`
-  background-color: ${(props) => props.theme.bgColor};
-`;
+const Container = styled.section``;
 
 const Title = styled.h1`
   color: ${(props) => props.theme.fontColor};
