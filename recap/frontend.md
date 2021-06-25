@@ -1,4 +1,4 @@
-`git config --global core.autocrlf true`
+git config --global core.autocrlf true
 
 - react
 - react-native > expo / CLI, CLI는 기업에서 쓰인다. 둘다 배울거임
@@ -14,6 +14,7 @@
 - #8.1 Install Library
 - #8.2 ~ 8.4 Router setup
 - #8.5 Login logic
+- #8.6 Reactive Variables
 
 ---
 
@@ -83,3 +84,7 @@ npm install @fortawesome/free-regular-svg-icons
 간단히 생각하면 이러한 로직이지만 `isLoggedIn`의 값을 `<Home />` 아래로 계속 props를 모든 resolver로 보내줘야한다... 이 접근은 너무 비효율적임.
 
 따라서 Apollo-client를 이용해보자.
+
+## #8.6 Reactive Variables
+
+계속해서 props를 보내지않고 로그인 로그아웃등을 할 수 있는 로직 > Apollo client의 reactive variables
