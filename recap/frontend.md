@@ -22,6 +22,7 @@ git config --global core.autocrlf true
 ### Login and Sign-up
 
 - #10.1 Login UI
+- #10.2.1 refactoring - using theme
 
 ---
 
@@ -121,3 +122,7 @@ npm install @fortawesome/free-regular-svg-icons
 ## #10.1 Login UI
 
 Login UI
+
+## #10.2.1 refactoring - using theme
+
+원활한 darkmode 구현을 위해 `color`는 theme에 넣자.

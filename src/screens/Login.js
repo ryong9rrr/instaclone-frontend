@@ -19,7 +19,7 @@ const Wrapper = styled.section`
 const WhiteBox = styled.div`
   width: 100%;
   background-color: white;
-  border: 2px solid rgb(219, 219, 219);
+  border: 2px solid ${(props) => props.theme.borderColor};
 `;
 
 const TopBox = styled(WhiteBox)`
@@ -45,10 +45,9 @@ const TopBox = styled(WhiteBox)`
 
 const Input = styled.input`
   height: 40px;
-  background-color: #fafafa;
   width: 100%;
   padding: 7px 10px;
-  border: 0.5px solid rgb(219, 219, 219);
+  border: 0.5px solid ${(props) => props.theme.borderColor};
   border-radius: 3px;
   margin-top: 5px;
   box-sizing: border-box;
@@ -61,7 +60,7 @@ const Button = styled.input`
   width: 100%;
   border: none;
   border-radius: 5px;
-  background-color: #0095f6;
+  background-color: ${(props) => props.theme.accent};
   color: white;
   font-weight: 600;
   margin-top: 15px;
@@ -76,7 +75,7 @@ const BottomBox = styled(WhiteBox)`
   a {
     margin-left: 5px;
     font-weight: 600;
-    color: #0095f6;
+    color: ${(props) => props.theme.accent};
   }
 `;
 
@@ -88,19 +87,19 @@ const Separator = styled.div`
   justify-content: center;
   align-items: center;
   div {
-    background-color: rgb(219, 219, 219);
+    background-color: ${(props) => props.theme.borderColor};
     height: 1px;
     width: 100%;
   }
   span {
     margin: 0px 10px;
-    color: #8e8e8e;
+    color: ${(props) => props.theme.footerColor};
     font-weight: 600;
   }
 `;
 
 const FacebookLogin = styled.div`
-  color: #385285;
+  color: ${(props) => props.theme.facebookColor};
   margin-bottom: 25px;
   span {
     margin-left: 10px;
@@ -109,7 +108,7 @@ const FacebookLogin = styled.div`
 `;
 
 const LossPassword = styled.div`
-  color: #385285;
+  color: ${(props) => props.theme.facebookColor};
   font-size: 12px;
 `;
 
@@ -122,7 +121,7 @@ const DownLoadApp = styled.div`
 
 const Footer = styled.footer`
   div {
-    color: #8e8e8e;
+    color: ${(props) => props.theme.footerColor};
     text-align: center;
   }
 `;

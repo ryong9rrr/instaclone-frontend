@@ -2,13 +2,17 @@ import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
 export const lightTheme = {
-  bgColor: "#FAFAFA",
-  color: "#262626",
+  //blue
+  accent: "#0095f6",
+  borderColor: "rgb(219, 219, 219)",
+  facebookColor: "#385285",
+  footerColor: "#8e8e8e",
 };
 
 export const darkTheme = {
-  bgColor: "#262626",
-  color: "#FAFAFA",
+  //임시
+  accent: "red",
+  borderColor: "red",
 };
 
 export const GlobalStyles = createGlobalStyle`
@@ -20,6 +24,7 @@ export const GlobalStyles = createGlobalStyle`
 
     input {
       all: unset;
+      background-color: #fafafa;
     }
 
     a {
