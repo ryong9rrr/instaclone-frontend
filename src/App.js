@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { darkModeVar, isLoggedInVar } from "./apollo";
 import { ThemeProvider } from "styled-components";
 //DOM
+import NotFound from "./screens/NotFound";
 import Home from "./screens/Home";
 import Login from "./screens/Login";
-import NotFound from "./screens/NotFound";
 import { darkTheme, GlobalStyles, lightTheme } from "./styles";
 
 function App() {

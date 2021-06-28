@@ -19,6 +19,10 @@ git config --global core.autocrlf true
 - #8.8 styled-components Theme
 - #8.9 styled-components GlobalStyles and styled-reset
 
+### Login and Sign-up
+
+- #10.1 Login UI
+
 ---
 
 # Front-End Setup
@@ -109,3 +113,11 @@ npm install @fortawesome/free-regular-svg-icons
 - `reset.css`가 아닌 `styled-reset` 라이브러리를 이용해서 css를 0으로 만든다.
 
   📌 `npm i styled-reset`
+
+---
+
+# Login and Sign-up
+
+## #10.1 Login UI
+
+Login UI
