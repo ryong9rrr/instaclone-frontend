@@ -23,6 +23,7 @@ git config --global core.autocrlf true
 
 - #10.1 Login UI
 - #10.2.1 refactoring - using theme
+- #10.2.2 SignUp page - router setting
 
 ---
 
@@ -126,3 +127,9 @@ Login UI
 ## #10.2.1 refactoring - using theme
 
 원활한 darkmode 구현을 위해 `color`는 theme에 넣자.
+
+## #10.2.2 SignUp page - router setting
+
+sign-up page 세팅, 로그인 상태면 주소창에 입력해도 null이 뜨도록.
+
+`<Route path="경로">`와 `<Link to="경로">` 의 경로를 동일하게 해줘야함.
