@@ -25,6 +25,7 @@ git config --global core.autocrlf true
 - #10.2.1 refactoring - using theme
 - #10.2.2 SignUp page - router setting
 - #10.3 Shared Components
+- #10.4 SignUp UI
 
 ---
 
@@ -140,3 +141,11 @@ sign-up page 세팅, 로그인 상태면 주소창에 입력해도 null이 뜨�
 - route를 별도로 관리한다.
 
 - 자주쓰는 components들을 나눈다.
+
+## #10.4 SignUp UI
+
+- signUp UI css
+
+- prop type 유효성 검사를 위한 모듈설치
+
+`📌 npm install --save prop-types`

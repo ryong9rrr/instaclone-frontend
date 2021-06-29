@@ -7,6 +7,7 @@ export const lightTheme = {
   borderColor: "rgb(219, 219, 219)",
   facebookColor: "#385285",
   footerColor: "#8e8e8e",
+  subGray: "rgb(142,142,142)",
 };
 
 export const darkTheme = {

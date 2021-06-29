@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const SSeparator = styled.div`
-  margin: 20px 0px 30px 0px;
+  margin: 20px 0px;
   width: 100%;
   text-transform: uppercase;
   display: flex;

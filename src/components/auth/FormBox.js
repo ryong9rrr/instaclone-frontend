@@ -8,12 +8,7 @@ const Container = styled(BaseBox)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  h1 {
-    font-size: 50px;
-    letter-spacing: -5px;
-  }
   form {
-    margin-top: 35px;
     width: 100%;
     display: flex;
     flex-direction: column;

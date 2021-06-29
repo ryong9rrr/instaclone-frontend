@@ -4,17 +4,20 @@ import styled from "styled-components";
 import routes from "./routes";
 //components
 import AuthLayout from "../components/auth/AuthLayout";
-import Button from "../components/auth/Button";
 import Separator from "../components/auth/Separator";
-import Input from "../components/auth/Input";
-import Footer from "../components/auth/Footer";
+import Footer from "../components/Footer";
 import DownloadApp from "../components/auth/DownloadApp";
 import FormBox from "../components/auth/FormBox";
 import BottomBox from "../components/auth/BottomBox";
+import { TitleText, Button, Input } from "../components/shared";
+
+const Title = styled(TitleText)`
+  margin-bottom: 35px;
+`;
 
 const FacebookLogin = styled.div`
   color: ${(props) => props.theme.facebookColor};
-  margin-bottom: 25px;
+  margin: 10px 0px 25px;
   span {
     margin-left: 10px;
     font-weight: 600;
@@ -32,7 +35,7 @@ function Login() {
       <AuthLayout>
         <FormBox>
           <div>
-            <h1>𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓪𝓶</h1>
+            <Title>𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓪𝓶</Title>
           </div>
           <form>
             <Input type="text" placeholder="Phone number, username, or email" />
