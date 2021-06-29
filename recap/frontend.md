@@ -24,6 +24,7 @@ git config --global core.autocrlf true
 - #10.1 Login UI
 - #10.2.1 refactoring - using theme
 - #10.2.2 SignUp page - router setting
+- #10.3 Shared Components
 
 ---
 
@@ -133,3 +134,9 @@ Login UI
 sign-up page 세팅, 로그인 상태면 주소창에 입력해도 null이 뜨도록.
 
 `<Route path="경로">`와 `<Link to="경로">` 의 경로를 동일하게 해줘야함.
+
+## #10.3 Shared Components
+
+- route를 별도로 관리한다.
+
+- 자주쓰는 components들을 나눈다.
