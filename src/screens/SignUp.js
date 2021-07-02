@@ -10,6 +10,7 @@ import DownloadApp from "../components/auth/DownloadApp";
 import FormBox from "../components/auth/FormBox";
 import BottomBox from "../components/auth/BottomBox";
 import { SubTitleText, TitleText, Button, Input } from "../components/shared";
+import PageTitle from "../components/PageTitle";
 
 const SignUpButton = styled(Button)`
   margin-bottom: 20px;
@@ -35,6 +36,7 @@ function SignUp() {
   return (
     <div>
       <AuthLayout>
+        <PageTitle title="Sign up" />
         <FormBox>
           <div>
             <TitleText>𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓪𝓶</TitleText>

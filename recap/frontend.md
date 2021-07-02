@@ -26,6 +26,8 @@ git config --global core.autocrlf true
 - #10.2.2 SignUp page - router setting
 - #10.3 Shared Components
 - #10.4 SignUp UI
+- #10.5 before react-hook-form
+- #10.6 Helmet
 
 ---
 
@@ -149,3 +151,11 @@ sign-up page 세팅, 로그인 상태면 주소창에 입력해도 null이 뜨�
 - prop type 유효성 검사를 위한 모듈설치
 
 `📌 npm install --save prop-types`
+
+## #10.5 before react-hook-form
+
+> velog 참고
+
+## #10.6 Helmet - title
+
+Helmet component를 이용해서 `header` 제어하기

@@ -10,6 +10,7 @@ import DownloadApp from "../components/auth/DownloadApp";
 import FormBox from "../components/auth/FormBox";
 import BottomBox from "../components/auth/BottomBox";
 import { TitleText, Button, Input } from "../components/shared";
+import PageTitle from "../components/PageTitle";
 
 const Title = styled(TitleText)`
   margin-bottom: 35px;
@@ -33,6 +34,7 @@ function Login() {
   return (
     <div>
       <AuthLayout>
+        <PageTitle title="Login" />
         <FormBox>
           <div>
             <Title>𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓪𝓶</Title>

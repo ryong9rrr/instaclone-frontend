@@ -4,6 +4,7 @@ import reset from "styled-reset";
 export const lightTheme = {
   //blue
   accent: "#0095f6",
+  fontColor: "rgb(38, 38, 38)",
   borderColor: "rgb(219, 219, 219)",
   facebookColor: "#385285",
   footerColor: "#8e8e8e",
@@ -13,6 +14,7 @@ export const lightTheme = {
 export const darkTheme = {
   //임시
   accent: "red",
+  fontColor: "red",
   borderColor: "red",
 };
 
@@ -39,6 +41,7 @@ export const GlobalStyles = createGlobalStyle`
     body {
       background-color: #FAFAFA;
       font-size:14px;
-      color: rgb(38, 38, 38);
+      color: ${(props) =>
+        props.theme.darkMode ? darkTheme.fontColor : lightTheme.fontColor};
     }
 `;
