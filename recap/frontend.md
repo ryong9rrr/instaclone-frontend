@@ -27,7 +27,9 @@ git config --global core.autocrlf true
 - #10.3 Shared Components
 - #10.4 SignUp UI
 - #10.5 before react-hook-form
-- #10.6 Helmet
+- #10.6 Helmet - title
+- #10.6 ~ 10.7.1 react hook form 1
+- #10.7.2 react hook form 2
 
 ---
 
@@ -154,8 +156,18 @@ sign-up page 세팅, 로그인 상태면 주소창에 입력해도 null이 뜨�
 
 ## #10.5 before react-hook-form
 
-> velog 참고
+> https://velog.io/@ryong9rrr/React-react-hook-form-%EC%98%88%EC%A0%9C
 
 ## #10.6 Helmet - title
 
 Helmet component를 이용해서 `header` 제어하기
+
+## #10.7 ~ 10.8.1 react hook form 1
+
+react hook form 소개
+
+> https://velog.io/@ryong9rrr/React-react-hook-form-%EC%98%88%EC%A0%9C
+
+## #10.8.2 react hook form 2
+
+error를 UI로 보여주기

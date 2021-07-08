@@ -16,7 +16,8 @@ export const Button = styled.input`
   font-weight: 600;
   padding: 8px 0px;
   text-align: center;
-  cursor: pointer;
+  cursor: ${(props) => (props.disabled ? "auto" : "pointer")};
+  opacity: ${(props) => (props.disabled ? "0.4" : "1")};
 `;
 
 export const Input = styled.input`
@@ -24,11 +25,15 @@ export const Input = styled.input`
   height: 40px;
   width: 100%;
   padding: 7px 10px;
-  border: 0.5px solid ${(props) => props.theme.borderColor};
+  border: 0.5px solid
+    ${(props) => (props.hasError ? "tomato" : props.theme.borderColor)};
   border-radius: 3px;
   box-sizing: border-box;
   &::placeholder {
     font-size: 12px;
+  }
+  &:focus {
+    border-color: ${(props) => props.theme.fontColor};
   }
 `;
 
