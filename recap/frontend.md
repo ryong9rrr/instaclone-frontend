@@ -28,8 +28,9 @@ git config --global core.autocrlf true
 - #10.4 SignUp UI
 - #10.5 before react-hook-form
 - #10.6 Helmet - title
-- #10.6 ~ 10.7.1 react hook form 1
-- #10.7.2 react hook form 2
+- #10.7 ~ 10.8.1 react hook form 1
+- #10.8.2 react hook form 2
+- #10.9 Connecting Apollo client
 
 ---
 
@@ -171,3 +172,7 @@ react hook form 소개
 ## #10.8.2 react hook form 2
 
 error를 UI로 보여주기
+
+## #10.9 Connecting Apollo client
+
+Apollo client - Apollo-server 연결하기 (Apollo DOCS 참고)
