@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import routes from "./routes";
 import { useForm } from "react-hook-form";
+import { gql, useMutation } from "@apollo/client";
 //components
 import AuthLayout from "../components/auth/AuthLayout";
 import Separator from "../components/auth/Separator";
@@ -13,6 +14,7 @@ import BottomBox from "../components/auth/BottomBox";
 import { TitleText, Button, Input } from "../components/shared";
 import PageTitle from "../components/PageTitle";
 import FormError from "../components/auth/FormError";
+import { logUserIn } from "../apollo";
 
 const Title = styled(TitleText)`
   margin-bottom: 35px;
@@ -32,10 +34,58 @@ const LossPassword = styled.div`
   font-size: 12px;
 `;
 
-function Login() {
-  const { register, handleSubmit, formState } = useForm({ mode: "onChange" });
+const LOGIN_MUTATION = gql`
+  mutation login($userName: String!, $password: String!) {
+    login(userName: $userName, password: $password) {
+      ok
+      token
+      error
+    }
+  }
+`;
 
-  const onValid = (data) => console.log(data, "onValid");
+function Login() {
+  const {
+    register,
+    handleSubmit,
+    formState,
+    getValues,
+    setError,
+    clearErrors,
+  } = useForm({
+    mode: "onChange",
+  });
+
+  const onCompleted = (data) => {
+    const {
+      login: { ok, token, error },
+    } = data;
+    if (!ok) {
+      return setError("result", {
+        message: error,
+      });
+    }
+    if (token) {
+      logUserIn(token);
+    }
+  };
+
+  const [login, { loading, data, called }] = useMutation(LOGIN_MUTATION, {
+    onCompleted,
+  });
+
+  const onSubmitValid = (data) => {
+    //console.log(data, "onValid")
+    if (loading) {
+      return;
+    }
+    const { username, password } = getValues();
+    login({
+      variables: { userName: username, password },
+    });
+  };
+
+  const clearLoginError = () => clearErrors();
 
   return (
     <div>
@@ -45,18 +95,15 @@ function Login() {
           <div>
             <Title>𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓪𝓶</Title>
           </div>
-          <form onSubmit={handleSubmit(onValid)}>
+          <form onSubmit={handleSubmit(onSubmitValid)}>
             <Input
               {...register("username", {
                 required: "username is empty",
-                minLength: {
-                  value: 5,
-                  message: "username is too short",
-                },
               })}
               type="text"
               placeholder="Phone number, username, or email"
               hasError={Boolean(formState.errors?.username?.message)}
+              onFocus={clearLoginError}
             />
             <FormError message={formState.errors?.username?.message} />
             <Input
@@ -64,12 +111,14 @@ function Login() {
               type="password"
               placeholder="Password"
               hasError={Boolean(formState.errors?.password?.message)}
+              onFocus={clearLoginError}
             />
             <FormError message={formState.errors?.password?.message} />
+            <FormError message={formState.errors?.result?.message} />
             <Button
               type="submit"
-              value="Log In"
-              disabled={!formState.isValid}
+              value={loading ? "Loading..." : "Log In"}
+              disabled={!formState.isValid || loading}
             />
           </form>
           <Separator />
