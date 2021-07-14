@@ -32,6 +32,7 @@ git config --global core.autocrlf true
 - #10.8.2 react hook form 2
 - #10.9 Connecting Apollo client
 - #10.10 ~ 10.11 Login
+- check connecting server 1
 
 ---
 
@@ -181,3 +182,9 @@ Apollo client - Apollo-server 연결하기 (Apollo DOCS 참고)
 ## #10.10 ~ 10.11 Login
 
 login mutation 이용해서 데이터베이스에 연결하기, 로그인에 성공 시 얻어낸 token을 localstorage이용해서 로그인, 로그아웃까지 구현
+
+## check connecting server 1
+
+백앤드 서버에 연결체크해보기
+
+> https://www.apollographql.com/docs/react/api/link/introduction/
