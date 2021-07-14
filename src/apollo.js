@@ -21,6 +21,7 @@ export const logUserOut = () => {
   isLoggedInVar(false);
 };
 
+//network check
 const httpLink = new HttpLink({
   uri: "http://localhost:4000/graphql",
 });

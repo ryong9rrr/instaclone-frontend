@@ -185,6 +185,6 @@ login mutation 이용해서 데이터베이스에 연결하기, 로그인에 성
 
 ## check connecting server 1
 
-백앤드 서버에 연결체크해보기
+백앤드 서버에 연결체크
 
 > https://www.apollographql.com/docs/react/api/link/introduction/
