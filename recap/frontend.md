@@ -33,6 +33,7 @@ git config --global core.autocrlf true
 - #10.9 Connecting Apollo client
 - #10.10 ~ 10.11 Login
 - check connecting server 1
+- #10.12 create Account
 
 ---
 
@@ -188,3 +189,17 @@ login mutation 이용해서 데이터베이스에 연결하기, 로그인에 성
 백앤드 서버에 연결체크
 
 > https://www.apollographql.com/docs/react/api/link/introduction/
+
+## #10.12 create Account
+
+- mutation createAccount... 이후 리다이렉팅은 어떻게할까?
+
+- backend createAccount.resolvers 에서...
+
+```
+if (existingUser) {
+          throw new Error("This username or email is already taken");
+        }
+```
+
+이부분을 throw error가 아닌 return{ok:false, error: "이미 존재합니다."} 라고 하면 안되나?

@@ -34,7 +34,7 @@ const LossPassword = styled.div`
   font-size: 12px;
 `;
 
-const LOGIN_MUTATION = gql`
+const MUTATION_login = gql`
   mutation login($userName: String!, $password: String!) {
     login(userName: $userName, password: $password) {
       ok
@@ -70,7 +70,7 @@ function Login() {
     }
   };
 
-  const [login, { loading, data, called }] = useMutation(LOGIN_MUTATION, {
+  const [login, { loading, data, called }] = useMutation(MUTATION_login, {
     onCompleted,
   });
 
