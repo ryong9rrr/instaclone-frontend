@@ -15,6 +15,7 @@ import { TitleText, Button, Input } from "../components/shared";
 import PageTitle from "../components/PageTitle";
 import FormError from "../components/auth/FormError";
 import { logUserIn } from "../apollo";
+import { useHistory, useLocation } from "react-router-dom";
 
 const Title = styled(TitleText)`
   margin-bottom: 35px;
@@ -44,7 +45,16 @@ const MUTATION_login = gql`
   }
 `;
 
+const Notification = styled.div`
+  color: #27ae60;
+  font-weight: 600;
+`;
+
 function Login() {
+  const history = useHistory();
+  const location = useLocation();
+  //console.log(location);
+
   const {
     register,
     handleSubmit,
@@ -54,9 +64,14 @@ function Login() {
     clearErrors,
   } = useForm({
     mode: "onChange",
+    defaultValues: {
+      username: location?.state?.username || "",
+      password: location?.state?.password || "",
+    },
   });
 
   const onCompleted = (data) => {
+    const { username, password } = getValues();
     const {
       login: { ok, token, error },
     } = data;
@@ -66,7 +81,13 @@ function Login() {
       });
     }
     if (token) {
-      logUserIn(token);
+      logUserIn(token, history);
+      history.push({
+        state: {
+          username,
+          password,
+        },
+      });
     }
   };
 
@@ -95,6 +116,7 @@ function Login() {
           <div>
             <Title>𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓪𝓶</Title>
           </div>
+          <Notification>{location?.state?.message}</Notification>
           <form onSubmit={handleSubmit(onSubmitValid)}>
             <Input
               {...register("username", {

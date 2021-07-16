@@ -34,6 +34,7 @@ git config --global core.autocrlf true
 - #10.10 ~ 10.11 Login
 - check connecting server 1
 - #10.12 create Account
+- #10.13 Redirecting Users
 
 ---
 
@@ -194,12 +195,10 @@ login mutation 이용해서 데이터베이스에 연결하기, 로그인에 성
 
 - mutation createAccount... 이후 리다이렉팅은 어떻게할까?
 
-- backend createAccount.resolvers 에서...
+## #10.13 Redirecting Users
 
-```
-if (existingUser) {
-          throw new Error("This username or email is already taken");
-        }
-```
+1. `useHistory, useLocation`을 이용해서 회원가입 완료 시 message와 함께 id, pw를 input에 담아둠, message는 `<Notification>`이라는 컴포넌트를 만들어서 띄웠음.
 
-이부분을 throw error가 아닌 return{ok:false, error: "이미 존재합니다."} 라고 하면 안되나?
+2. `useHistory, useLocation`을 이용해서 로그인 시 id, pw를 담아둬서 로그아웃해도 id와 pw가 input에 남아있음
+
+- `useLocation`은 url이 바뀌면 증발하기때문에 id,pw가 저장된 상태에서 회원가입페이지로 넘어갔다가 다시 돌아오면 값이 증발함.
