@@ -14,6 +14,8 @@ import { useForm } from "react-hook-form";
 import { gql, useMutation } from "@apollo/client";
 import { useHistory } from "react-router-dom";
 import FormError from "../components/auth/FormError";
+import Notification from "../components/Notification";
+import { useState } from "react";
 
 const SignUpButton = styled(Button)`
   margin-bottom: 20px;
@@ -57,6 +59,7 @@ const MUTATION_createAccount = gql`
 `;
 
 function SignUp() {
+  const [notification, setNotification] = useState(false);
   const history = useHistory();
   //console.log(history);
 
@@ -84,11 +87,13 @@ function SignUp() {
         message: error,
       });
     }
-    history.push(routes.home, {
-      message: "Account created. Please log in.",
-      username: userName,
-      password,
-    });
+    setNotification(true);
+    setTimeout(() => {
+      history.push(routes.home, {
+        username: userName,
+        password,
+      });
+    }, 2000);
   };
 
   const [createAccount, { loading, data, called }] = useMutation(
@@ -189,6 +194,10 @@ function SignUp() {
         <DownloadApp />
       </AuthLayout>
       <Footer />
+      <Notification
+        state={notification}
+        message="Account created. Please log in."
+      />
     </div>
   );
 }

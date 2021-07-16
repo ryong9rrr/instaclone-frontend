@@ -35,6 +35,7 @@ git config --global core.autocrlf true
 - check connecting server 1
 - #10.12 create Account
 - #10.13 Redirecting Users
+- Redirecting UI 1
 
 ---
 
@@ -202,3 +203,9 @@ login mutation 이용해서 데이터베이스에 연결하기, 로그인에 성
 2. `useHistory, useLocation`을 이용해서 로그인 시 id, pw를 담아둬서 로그아웃해도 id와 pw가 input에 남아있음
 
 - `useLocation`은 url이 바뀌면 증발하기때문에 id,pw가 저장된 상태에서 회원가입페이지로 넘어갔다가 다시 돌아오면 값이 증발함.
+
+## Redirecting UI 1
+
+회원가입 성공시, 회원가입에 성공했다는 메세지를 2초간 보여준뒤 Login화면으로 리다이렉팅
+
+-> 단점: 성질이 급한 사람들은 2초도 기다리기 싫어할 수 있음.

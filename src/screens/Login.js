@@ -1,3 +1,4 @@
+import React from "react";
 import { faFacebookSquare } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
@@ -43,11 +44,6 @@ const MUTATION_login = gql`
       error
     }
   }
-`;
-
-const Notification = styled.div`
-  color: #27ae60;
-  font-weight: 600;
 `;
 
 function Login() {
@@ -109,14 +105,13 @@ function Login() {
   const clearLoginError = () => clearErrors();
 
   return (
-    <div>
+    <React.StrictMode>
       <AuthLayout>
         <PageTitle title="Login" />
         <FormBox>
           <div>
             <Title>𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓪𝓶</Title>
           </div>
-          <Notification>{location?.state?.message}</Notification>
           <form onSubmit={handleSubmit(onSubmitValid)}>
             <Input
               {...register("username", {
@@ -160,7 +155,7 @@ function Login() {
         <DownloadApp />
       </AuthLayout>
       <Footer />
-    </div>
+    </React.StrictMode>
   );
 }
 
