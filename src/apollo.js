@@ -7,17 +7,32 @@ import {
 } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
 
-export const isLoggedInVar = makeVar(Boolean(localStorage.getItem("token")));
+const TOKEN = "TOKEN";
+const DARK_MODE = "DARK_MODE";
 
-export const darkModeVar = makeVar(false);
+export const isLoggedInVar = makeVar(Boolean(localStorage.getItem(TOKEN)));
+
+export const darkModeVar = makeVar(
+  Boolean(localStorage.getItem(DARK_MODE) === "enabled")
+);
+
+export const enableDarkMode = () => {
+  localStorage.setItem(DARK_MODE, "enabled");
+  darkModeVar(true);
+};
+
+export const disableDarkMode = () => {
+  localStorage.removeItem(DARK_MODE);
+  darkModeVar(false);
+};
 
 export const logUserIn = (token) => {
-  localStorage.setItem("token", token);
+  localStorage.setItem(TOKEN, token);
   isLoggedInVar(true);
 };
 
 export const logUserOut = () => {
-  localStorage.removeItem("token");
+  localStorage.removeItem(TOKEN);
   isLoggedInVar(false);
 };
 

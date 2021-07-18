@@ -36,6 +36,7 @@ git config --global core.autocrlf true
 - #10.12 create Account
 - #10.13 Redirecting Users
 - Redirecting UI 1
+- #10.14 Dark Mode
 
 ---
 
@@ -209,3 +210,9 @@ login mutation 이용해서 데이터베이스에 연결하기, 로그인에 성
 회원가입 성공시, 회원가입에 성공했다는 메세지를 2초간 보여준뒤 Login화면으로 리다이렉팅
 
 -> 단점: 성질이 급한 사람들은 2초도 기다리기 싫어할 수 있음.
+
+## #10.14 Dark Mode
+
+`styled component` 의 `theme`과 `makeVar`를 이용한 다크모드 로직 구현
+
+다음에 할 것은 다크모드 시의 color 수정해야함
