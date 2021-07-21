@@ -1,25 +1,25 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
+const white = "#FFF";
+const black = "#000";
+
 export const lightTheme = {
-  //blue
+  gray: "rgb(142,142,142)",
   bgColor: "#FAFAFA",
   accent: "#0095f6",
   fontColor: "rgb(38, 38, 38)",
   borderColor: "rgb(219, 219, 219)",
   facebookColor: "#385285",
-  footerColor: "#8e8e8e",
-  subGray: "rgb(142,142,142)",
 };
 
 export const darkTheme = {
-  bgColor: "#2d3436",
+  gray: "rgb(142,142,142)",
+  bgColor: black,
   accent: "#0095f6",
-  fontColor: "#ecf0f1",
-  borderColor: "#ecf0f1",
+  fontColor: white,
+  borderColor: white,
   facebookColor: "#385285",
-  footerColor: "#8e8e8e",
-  subGray: "rgb(142,142,142)",
 };
 
 export const GlobalStyles = createGlobalStyle`
@@ -36,6 +36,7 @@ export const GlobalStyles = createGlobalStyle`
 
     a {
       text-decoration: none;
+      color: ${(props) => props.theme.accent};
     }
 
     * {

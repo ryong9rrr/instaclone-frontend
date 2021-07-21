@@ -37,6 +37,7 @@ git config --global core.autocrlf true
 - #10.13 Redirecting Users
 - Redirecting UI 1
 - #10.14 Dark Mode
+- color edit...
 
 ---
 
@@ -216,3 +217,10 @@ login mutation 이용해서 데이터베이스에 연결하기, 로그인에 성
 `styled component` 의 `theme`과 `makeVar`를 이용한 다크모드 로직 구현
 
 다음에 할 것은 다크모드 시의 color 수정해야함
+
+## color edit...
+
+라이트모드 - 다크모드의 원활한 색상관리를 위한 코드수정
+
+- `BaseBox`에서는 흰색-검은색 색상 고정
+- 거의 모든 경우에서 (basebox같은 경우를 제외한) **색상**은 `styles.js`에서 관리할 수 있도록 한다.

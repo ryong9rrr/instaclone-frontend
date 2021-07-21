@@ -1,8 +1,10 @@
 import styled from "styled-components";
+import { lightTheme } from "../styles";
 
 export const BaseBox = styled.div`
   width: 100%;
-  background-color: white;
+  background-color: ${(props) =>
+    props.theme === lightTheme ? "#FFF" : "#000"};
   border: 2px solid ${(props) => props.theme.borderColor};
 `;
 
@@ -47,5 +49,5 @@ export const SubTitleText = styled.h3`
   text-align: center;
   font-size: 17px;
   font-weight: 600;
-  color: ${(props) => props.theme.subGray};
+  color: ${(props) => props.theme.gray};
 `;
