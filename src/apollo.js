@@ -12,6 +12,7 @@ const DARK_MODE = "DARK_MODE";
 
 export const isLoggedInVar = makeVar(Boolean(localStorage.getItem(TOKEN)));
 
+//Boolean(localStorage.getItem(DARK_MODE))도 되는뎅;
 export const darkModeVar = makeVar(
   Boolean(localStorage.getItem(DARK_MODE) === "enabled")
 );

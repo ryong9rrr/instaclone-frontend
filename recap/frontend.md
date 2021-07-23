@@ -229,3 +229,13 @@ login mutation 이용해서 데이터베이스에 연결하기, 로그인에 성
 ## color edit 2
 
 - 상위 컴포넌트에서 다크모드시 font-color는 하얀색으로 변경시켰는데 `input` 배경색은 하얀색을 유지하므로 글자가 보이지 않았음. 따라서 `input`의 font-color는 black으로 고정시켰다.
+
+## 무슨 문제라도?
+
+Boolean(localStorage.getItem(DARK_MODE))도 되는뎅;
+
+```js
+export const darkModeVar = makeVar(
+  Boolean(localStorage.getItem(DARK_MODE) === "enabled")
+);
+```
