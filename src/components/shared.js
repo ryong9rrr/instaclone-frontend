@@ -23,6 +23,7 @@ export const Button = styled.input`
 `;
 
 export const Input = styled.input`
+  color: black;
   margin-top: 5px;
   height: 40px;
   width: 100%;
