@@ -9,7 +9,8 @@ import NotFound from "./screens/NotFound";
 import Home from "./screens/Home";
 import Login from "./screens/Login";
 import SignUp from "./screens/SignUp";
-import Navigation from "./components/navigation/Navigation";
+import Navigation from "./components/Navigation";
+import Layout from "./components/Layout";
 
 function App() {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
@@ -20,10 +21,15 @@ function App() {
       <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
         <GlobalStyles />
         <Router>
-          <Navigation />
           <Switch>
             <Route path={routes.home} exact>
-              {isLoggedIn ? <Home /> : <Login />}
+              {isLoggedIn ? (
+                <Layout>
+                  <Home />
+                </Layout>
+              ) : (
+                <Login />
+              )}
             </Route>
             {!isLoggedIn ? (
               <Route path={routes.signUp}>

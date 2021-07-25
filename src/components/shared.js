@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { lightTheme } from "../styles";
 
-export const LogoText = "𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓪𝓶";
-
 export const BaseBox = styled.div`
   width: 100%;
   background-color: ${(props) =>
@@ -26,24 +24,18 @@ export const Button = styled.input`
 
 export const Input = styled.input`
   color: black;
-  margin-top: 5px;
-  height: 40px;
-  width: 100%;
-  padding: 7px 10px;
   border: 0.5px solid
     ${(props) => (props.hasError ? "tomato" : props.theme.borderColor)};
   border-radius: 3px;
   box-sizing: border-box;
-  &::placeholder {
-    font-size: 12px;
-  }
   &:focus {
     border-color: ${(props) => props.theme.fontColor};
   }
 `;
 
-export const TitleText = styled.h1`
-  font-size: 50px;
+export const LogoText = "𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓪𝓶";
+
+export const Logo = styled.h1`
   letter-spacing: -5px;
 `;
 

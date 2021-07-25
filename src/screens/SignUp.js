@@ -10,10 +10,10 @@ import FormBox from "../components/auth/FormBox";
 import BottomBox from "../components/auth/BottomBox";
 import {
   SubTitleText,
-  TitleText,
   Button,
   Input,
   LogoText,
+  Logo,
 } from "../components/shared";
 import PageTitle from "../components/PageTitle";
 import { useForm } from "react-hook-form";
@@ -22,6 +22,20 @@ import { useHistory } from "react-router-dom";
 import FormError from "../components/auth/FormError";
 import Notification from "../components/Notification";
 import { useState } from "react";
+
+const Title = styled(Logo)`
+  font-size: 50px;
+`;
+
+const FormInput = styled(Input)`
+  margin-top: 5px;
+  height: 40px;
+  width: 100%;
+  padding: 7px 10px;
+  &::placeholder {
+    font-size: 12px;
+  }
+`;
 
 const SignUpButton = styled(Button)`
   margin-bottom: 20px;
@@ -127,7 +141,7 @@ function SignUp() {
         <PageTitle title="Sign up" />
         <FormBox>
           <div>
-            <TitleText>{LogoText}</TitleText>
+            <Title>{LogoText}</Title>
             <SubTitleText>
               Sign up to see photos and videos from your friends.
             </SubTitleText>
@@ -138,7 +152,7 @@ function SignUp() {
           </FacebookLogin>
           <Separator />
           <form onSubmit={handleSubmit(onSubmitValid)}>
-            <Input
+            <FormInput
               {...register("email", {
                 required: "email is required.",
               })}
@@ -148,7 +162,7 @@ function SignUp() {
               onFocus={clearSingUpError}
             />
             <FormError message={formState.errors?.email?.message} />
-            <Input
+            <FormInput
               {...register("firstName", {
                 required: "first name is required.",
               })}
@@ -158,13 +172,13 @@ function SignUp() {
               onFocus={clearSingUpError}
             />
             <FormError message={formState.errors?.firstName?.message} />
-            <Input
+            <FormInput
               {...register("lastName")}
               type="text"
               placeholder="last Name(not required)"
               onFocus={clearSingUpError}
             />
-            <Input
+            <FormInput
               {...register("userName", {
                 required: "username is required.",
               })}
@@ -174,7 +188,7 @@ function SignUp() {
               onFocus={clearSingUpError}
             />
             <FormError message={formState.errors?.userName?.message} />
-            <Input
+            <FormInput
               {...register("password", {
                 required: "password is required.",
               })}

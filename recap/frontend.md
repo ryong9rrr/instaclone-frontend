@@ -42,6 +42,7 @@ git config --global core.autocrlf true
 ### Feed
 
 - #11.0.1 Header and Layout 1
+- #11.0.2 Header and Layout 2
 
 ---
 
@@ -249,3 +250,9 @@ export const darkModeVar = makeVar(
 ## #11.0.1 Header and Layout 1
 
 난 Header를 Navigation이라고 할거임. 내식대로 layout 짜는중...
+
+## #11.0.2 Header and Layout 2
+
+- Navigation layout 짜기
+
+- 코드 리팩토링 : 최소한의 공통컴포넌트로 축소시켜서 재활용성을 더욱 높였음, margin, width, height, padding 등 상황에 따라 바뀔 수 있는 요소는 그 스크린에서 직접 바꾸도록.

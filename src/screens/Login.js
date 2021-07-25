@@ -12,14 +12,25 @@ import Footer from "../components/Footer";
 import DownloadApp from "../components/auth/DownloadApp";
 import FormBox from "../components/auth/FormBox";
 import BottomBox from "../components/auth/BottomBox";
-import { TitleText, Button, Input, LogoText } from "../components/shared";
+import { Button, Input, Logo, LogoText } from "../components/shared";
 import PageTitle from "../components/PageTitle";
 import FormError from "../components/auth/FormError";
 import { logUserIn } from "../apollo";
 import { useHistory, useLocation } from "react-router-dom";
 
-const Title = styled(TitleText)`
+const Title = styled(Logo)`
+  font-size: 50px;
   margin-bottom: 35px;
+`;
+
+const FormInput = styled(Input)`
+  margin-top: 5px;
+  height: 40px;
+  width: 100%;
+  padding: 7px 10px;
+  &::placeholder {
+    font-size: 12px;
+  }
 `;
 
 const FacebookLogin = styled.div`
@@ -113,7 +124,7 @@ function Login() {
             <Title>{LogoText}</Title>
           </div>
           <form onSubmit={handleSubmit(onSubmitValid)}>
-            <Input
+            <FormInput
               {...register("username", {
                 required: "username is empty",
               })}
@@ -123,7 +134,7 @@ function Login() {
               onFocus={clearLoginError}
             />
             <FormError message={formState.errors?.username?.message} />
-            <Input
+            <FormInput
               {...register("password", { required: "password is empty" })}
               type="password"
               placeholder="Password"
