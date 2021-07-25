@@ -39,6 +39,10 @@ git config --global core.autocrlf true
 - #10.14 Dark Mode
 - color edit...
 
+### Feed
+
+- #11.0.1 Header and Layout 1
+
 ---
 
 # Front-End Setup
@@ -239,3 +243,9 @@ export const darkModeVar = makeVar(
   Boolean(localStorage.getItem(DARK_MODE) === "enabled")
 );
 ```
+
+# Feed
+
+## #11.0.1 Header and Layout 1
+
+난 Header를 Navigation이라고 할거임. 내식대로 layout 짜는중...

@@ -8,7 +8,13 @@ import Footer from "../components/Footer";
 import DownloadApp from "../components/auth/DownloadApp";
 import FormBox from "../components/auth/FormBox";
 import BottomBox from "../components/auth/BottomBox";
-import { SubTitleText, TitleText, Button, Input } from "../components/shared";
+import {
+  SubTitleText,
+  TitleText,
+  Button,
+  Input,
+  LogoText,
+} from "../components/shared";
 import PageTitle from "../components/PageTitle";
 import { useForm } from "react-hook-form";
 import { gql, useMutation } from "@apollo/client";
@@ -121,7 +127,7 @@ function SignUp() {
         <PageTitle title="Sign up" />
         <FormBox>
           <div>
-            <TitleText>𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓪𝓶</TitleText>
+            <TitleText>{LogoText}</TitleText>
             <SubTitleText>
               Sign up to see photos and videos from your friends.
             </SubTitleText>

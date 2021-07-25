@@ -12,7 +12,7 @@ import Footer from "../components/Footer";
 import DownloadApp from "../components/auth/DownloadApp";
 import FormBox from "../components/auth/FormBox";
 import BottomBox from "../components/auth/BottomBox";
-import { TitleText, Button, Input } from "../components/shared";
+import { TitleText, Button, Input, LogoText } from "../components/shared";
 import PageTitle from "../components/PageTitle";
 import FormError from "../components/auth/FormError";
 import { logUserIn } from "../apollo";
@@ -110,7 +110,7 @@ function Login() {
         <PageTitle title="Login" />
         <FormBox>
           <div>
-            <Title>𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓪𝓶</Title>
+            <Title>{LogoText}</Title>
           </div>
           <form onSubmit={handleSubmit(onSubmitValid)}>
             <Input

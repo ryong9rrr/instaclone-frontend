@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { lightTheme } from "../styles";
 
+export const LogoText = "𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓪𝓶";
+
 export const BaseBox = styled.div`
   width: 100%;
   background-color: ${(props) =>
