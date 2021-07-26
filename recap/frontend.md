@@ -44,6 +44,7 @@ git config --global core.autocrlf true
 - #11.0.1 Header and Layout 1
 - #11.0.2 Header and Layout 2
 - code fix
+- #11.1 ~ 11.2 Header
 
 ---
 
@@ -269,3 +270,23 @@ export const darkModeVar = makeVar(
 - 로고 클릭 시 Home화면으로 가도록 Link를 걸었음.
 
 - 로고 옆에 다크모드버튼을 추가하였음.
+
+## #11.1 ~ 11.2 Header
+
+- `Navigation`을 Logo, Search, Icons로 나눴음.
+
+- `apollo.js` > token을 header에 담아야함.
+
+- hook `useUser`
+
+1. token이 없으면 hook을 실행하지않음
+
+2. token이 있으면 백엔드에서 확인(Query-me)
+
+3. token이 이상하면(if me===null) 강제로그아웃 집행.
+
+> Apollo client authentication
+> https://www.apollographql.com/docs/react/networking/authentication/
+
+> Apollo link
+> https://www.apollographql.com/docs/react/api/link/introduction/

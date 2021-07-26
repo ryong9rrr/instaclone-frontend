@@ -12,13 +12,13 @@ import Footer from "../components/Footer";
 import DownloadApp from "../components/auth/DownloadApp";
 import FormBox from "../components/auth/FormBox";
 import BottomBox from "../components/auth/BottomBox";
-import { Button, Input, Simbol, simbol } from "../components/shared";
+import { Button, Input, Symbol, symbol } from "../components/shared";
 import PageTitle from "../components/PageTitle";
 import FormError from "../components/auth/FormError";
 import { logUserIn } from "../apollo";
 import { useHistory, useLocation } from "react-router-dom";
 
-const Title = styled(Simbol)`
+const Title = styled(Symbol)`
   display: block;
   font-size: 50px;
   margin-bottom: 35px;
@@ -122,7 +122,7 @@ function Login() {
         <PageTitle title="Login" />
         <FormBox>
           <div>
-            <Title>{simbol}</Title>
+            <Title>{symbol}</Title>
           </div>
           <form onSubmit={handleSubmit(onSubmitValid)}>
             <FormInput

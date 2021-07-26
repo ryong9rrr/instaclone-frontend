@@ -3,9 +3,8 @@ import Navigation from "./nav/Navigation";
 
 const Content = styled.main`
   background-color: green;
-  margin-top: 30px;
   max-width: 950px;
-  margin: 0 auto;
+  margin: 30px auto 0px;
   width: 100%;
 `;
 

@@ -1,16 +1,9 @@
 import styled from "styled-components";
-import { Input } from "../shared";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import {
-  faPaperPlane,
-  faCompass,
-  faHeart,
-  faUser,
-} from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { lightTheme } from "../../styles";
 import routes from "../../screens/routes";
 import Logo from "./Logo";
+import Icons from "./Icons";
+import Search from "./Search";
 
 const Nav = styled.nav`
   width: 100%;
@@ -44,24 +37,6 @@ const Column = styled.div`
   }
 `;
 
-const Search = styled(Input)`
-  width: 220px;
-  height: 25px;
-  &::placeholder {
-    text-align: center;
-  }
-`;
-
-const Icons = styled.div`
-  width: 70%;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const Icon = styled.span`
-  font-size: 18px;
-`;
-
 function Navigation() {
   return (
     <Nav>
@@ -70,26 +45,10 @@ function Navigation() {
           <Logo link={routes.home} />
         </Column>
         <Column>
-          <Search type="text" placeholder="search" />
+          <Search />
         </Column>
         <Column>
-          <Icons>
-            <Icon>
-              <FontAwesomeIcon icon={faHome} size="lg" />
-            </Icon>
-            <Icon>
-              <FontAwesomeIcon icon={faPaperPlane} size="lg" />
-            </Icon>
-            <Icon>
-              <FontAwesomeIcon icon={faCompass} size="lg" />
-            </Icon>
-            <Icon>
-              <FontAwesomeIcon icon={faHeart} size="lg" />
-            </Icon>
-            <Icon>
-              <FontAwesomeIcon icon={faUser} size="lg" />
-            </Icon>
-          </Icons>
+          <Icons />
         </Column>
       </Wrapper>
     </Nav>

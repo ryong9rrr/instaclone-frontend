@@ -33,9 +33,9 @@ export const Input = styled.input`
   }
 `;
 
-export const simbol = "𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓪𝓶";
+export const symbol = "𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓪𝓶";
 
-export const Simbol = styled.span`
+export const Symbol = styled.span`
   letter-spacing: -5px;
 `;
 

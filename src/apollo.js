@@ -5,6 +5,7 @@ import {
   from,
   makeVar,
 } from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 import { onError } from "@apollo/client/link/error";
 
 const TOKEN = "TOKEN";
@@ -37,11 +38,21 @@ export const logUserOut = () => {
   isLoggedInVar(false);
 };
 
-//network check
+//header
 const httpLink = new HttpLink({
   uri: "http://localhost:4000/graphql",
 });
 
+const authLink = setContext((_, { headers }) => {
+  return {
+    headers: {
+      ...headers,
+      token: localStorage.getItem(TOKEN),
+    },
+  };
+});
+
+//network check
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors)
     graphQLErrors.forEach(({ message, locations, path }) =>
@@ -60,6 +71,6 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 export const client = new ApolloClient({
   // The `from` function combines an array of individual links
   // into a link chain
-  link: from([errorLink, httpLink]),
+  link: from([errorLink, authLink.concat(httpLink)]),
   cache: new InMemoryCache(),
 });

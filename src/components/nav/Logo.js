@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import DarkMode from "../DarkMode";
-import { simbol, Simbol } from "../shared";
+import { symbol, Symbol } from "../shared";
 
-const SSimbol = styled(Simbol)`
+const SSimbol = styled(Symbol)`
   color: ${(props) => props.theme.fontColor};
 `;
 
@@ -16,7 +16,7 @@ function Logo({ link }) {
   return (
     <>
       <Link to={link}>
-        <SSimbol>{simbol}</SSimbol>
+        <SSimbol>{symbol}</SSimbol>
       </Link>
       <DarkModeBtn>
         <DarkMode />
