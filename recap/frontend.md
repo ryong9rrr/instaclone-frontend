@@ -43,6 +43,7 @@ git config --global core.autocrlf true
 
 - #11.0.1 Header and Layout 1
 - #11.0.2 Header and Layout 2
+- code fix
 
 ---
 
@@ -256,3 +257,15 @@ export const darkModeVar = makeVar(
 - Navigation layout 짜기
 
 - 코드 리팩토링 : 최소한의 공통컴포넌트로 축소시켜서 재활용성을 더욱 높였음, margin, width, height, padding 등 상황에 따라 바뀔 수 있는 요소는 그 스크린에서 직접 바꾸도록.
+
+## code fix
+
+- 다크모드를 컴포넌트로 만들어서 재사용이 가능하게끔 분리하였음.
+
+- `instagram` text와 감싸는 컴포넌트의 이름을 바꿈.
+
+- Home 화면의 Logo를 컴포넌트로 만들었음
+
+- 로고 클릭 시 Home화면으로 가도록 Link를 걸었음.
+
+- 로고 옆에 다크모드버튼을 추가하였음.

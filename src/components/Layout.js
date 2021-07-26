@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Navigation from "./Navigation";
+import Navigation from "./nav/Navigation";
 
 const Content = styled.main`
   background-color: green;

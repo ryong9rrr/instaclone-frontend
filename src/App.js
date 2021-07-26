@@ -9,7 +9,6 @@ import NotFound from "./screens/NotFound";
 import Home from "./screens/Home";
 import Login from "./screens/Login";
 import SignUp from "./screens/SignUp";
-import Navigation from "./components/Navigation";
 import Layout from "./components/Layout";
 
 function App() {

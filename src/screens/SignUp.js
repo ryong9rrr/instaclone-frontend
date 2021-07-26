@@ -12,8 +12,8 @@ import {
   SubTitleText,
   Button,
   Input,
-  LogoText,
-  Logo,
+  simbol,
+  Simbol,
 } from "../components/shared";
 import PageTitle from "../components/PageTitle";
 import { useForm } from "react-hook-form";
@@ -23,7 +23,7 @@ import FormError from "../components/auth/FormError";
 import Notification from "../components/Notification";
 import { useState } from "react";
 
-const Title = styled(Logo)`
+const Title = styled(Simbol)`
   font-size: 50px;
 `;
 
@@ -141,7 +141,7 @@ function SignUp() {
         <PageTitle title="Sign up" />
         <FormBox>
           <div>
-            <Title>{LogoText}</Title>
+            <Title>{simbol}</Title>
             <SubTitleText>
               Sign up to see photos and videos from your friends.
             </SubTitleText>

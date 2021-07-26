@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Input, Logo, LogoText } from "./shared";
+import { Input } from "../shared";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import {
   faPaperPlane,
@@ -8,7 +8,9 @@ import {
   faUser,
 } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { lightTheme } from "../styles";
+import { lightTheme } from "../../styles";
+import routes from "../../screens/routes";
+import Logo from "./Logo";
 
 const Nav = styled.nav`
   width: 100%;
@@ -65,7 +67,7 @@ function Navigation() {
     <Nav>
       <Wrapper>
         <Column>
-          <Logo>{LogoText}</Logo>
+          <Logo link={routes.home} />
         </Column>
         <Column>
           <Search type="text" placeholder="search" />
