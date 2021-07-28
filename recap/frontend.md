@@ -45,6 +45,7 @@ git config --global core.autocrlf true
 - #11.0.2 Header and Layout 2
 - code fix
 - #11.1 ~ 11.2 Header
+- #11.3 Avatar
 
 ---
 
@@ -290,3 +291,15 @@ export const darkModeVar = makeVar(
 
 > Apollo link
 > https://www.apollographql.com/docs/react/api/link/introduction/
+
+## #11.3 Avatar
+
+- feed 에 avatar 추가(img가 없다면 띄우지 않음.)
+
+- 아이콘에 간단한 css추가(hover)
+
+- `Img` 컴포넌트 만들었음.
+
+  강의에서는 뭐 `<SAvatar><Img ..></SAvatar>` 이런식으로 했는데 이것보다는 그냥 Img 컴포넌트 하나로. (해결가능 + 컴포넌트 재사용 수월해 보임.)
+
+아니 근데.. `Avatar`에 지금 widht,height가 25px로 고정이 되어있는데 이걸 나중에 어떻게 재사용하나?

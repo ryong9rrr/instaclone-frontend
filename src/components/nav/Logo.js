@@ -10,6 +10,9 @@ const SSimbol = styled(Symbol)`
 const DarkModeBtn = styled.span`
   margin-left: 15px;
   font-size: 18px;
+  &:hover {
+    font-size: 1.1rem;
+  }
 `;
 
 function Logo({ link }) {

@@ -46,3 +46,10 @@ export const SubTitleText = styled.h3`
   font-weight: 600;
   color: ${(props) => props.theme.gray};
 `;
+
+export const Img = styled.img`
+  max-width: 100%;
+  background-color: #2c2c2c;
+  border: 0.5px solid ${(props) => props.theme.borderColor};
+  border-radius: 50%;
+`;

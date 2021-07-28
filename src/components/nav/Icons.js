@@ -4,7 +4,6 @@ import {
   faPaperPlane,
   faCompass,
   faHeart,
-  faUser,
 } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useReactiveVar } from "@apollo/client";
@@ -12,6 +11,7 @@ import { isLoggedInVar } from "../../apollo";
 import { Link } from "react-router-dom";
 import routes from "../../screens/routes";
 import useUser from "../../hooks/useUser";
+import Avatar from "../Avatar";
 
 const SIcons = styled.div`
   width: 70%;
@@ -21,6 +21,10 @@ const SIcons = styled.div`
 
 const Icon = styled.span`
   font-size: 18px;
+  cursor: pointer;
+  &:hover {
+    font-size: 1.1rem;
+  }
 `;
 
 const Button = styled.span`
@@ -33,7 +37,8 @@ const Button = styled.span`
 
 function Icons() {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
-  const loggedInUser = useUser();
+  const data = useUser();
+
   return (
     <>
       {isLoggedIn ? (
@@ -51,7 +56,7 @@ function Icons() {
             <FontAwesomeIcon icon={faHeart} size="lg" />
           </Icon>
           <Icon>
-            <FontAwesomeIcon icon={faUser} size="lg" />
+            <Avatar url={data?.me?.avatar} />
           </Icon>
         </SIcons>
       ) : (
