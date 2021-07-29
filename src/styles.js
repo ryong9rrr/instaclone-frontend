@@ -49,3 +49,5 @@ export const GlobalStyles = createGlobalStyle`
       color: ${(props) => props.theme.fontColor};
     }
 `;
+
+//fontawesome 은 svg

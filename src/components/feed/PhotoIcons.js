@@ -4,6 +4,7 @@ import {
   faHeart,
   faPaperPlane,
 } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as SolidHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import { Icon } from "../Icon";
@@ -30,12 +31,16 @@ const Column = styled.div`
   }
 `;
 
-function PhotoIcons() {
+function PhotoIcons({ isLiked }) {
   return (
     <Icons>
       <Column>
         <Icon>
-          <FontAwesomeIcon icon={faHeart} size="lg" />
+          <FontAwesomeIcon
+            style={{ color: isLiked ? "tomato" : "inherit" }}
+            icon={isLiked ? SolidHeart : faHeart}
+            size="lg"
+          />
         </Icon>
         <Icon>
           <FontAwesomeIcon icon={faComment} size="lg" />

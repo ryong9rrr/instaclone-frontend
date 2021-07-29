@@ -4,6 +4,8 @@ import { BaseBox, FatText } from "../shared";
 import PhotoHeader from "./PhotoHeader";
 import PhotoIcons from "./PhotoIcons";
 
+//좌우 10px
+
 const Query_seeFeed = gql`
   query seeFeed {
     seeFeed {
@@ -17,6 +19,7 @@ const Query_seeFeed = gql`
       likes
       comments
       isMine
+      isLiked
       createdAt
     }
   }
@@ -33,6 +36,14 @@ const Photo = styled.img`
 
 const Likes = styled(FatText)`
   margin-left: 10px;
+`;
+
+const Caption = styled.div`
+  padding: 5px 10px;
+  ${FatText} {
+    margin-right: 5px;
+    font-size: 0.9rem;
+  }
 `;
 
 const Comments = styled.div``;
@@ -53,12 +64,16 @@ function Feed() {
             location={photo.location}
           />
           <Photo src={photo.file} />
-          <PhotoIcons />
+          <PhotoIcons isLiked={photo.isLiked} />
           {photo.likes === 0 ? null : (
             <Likes>
               {photo.likes === 1 ? "1 like" : `${photo.likes} likes`}
             </Likes>
           )}
+          <Caption>
+            <FatText>{photo.user.userName}</FatText>
+            <span>{photo.caption}</span>
+          </Caption>
           <Comments>comments</Comments>
           <PushComment>push comment</PushComment>
         </Post>

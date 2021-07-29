@@ -65,6 +65,7 @@ git config --global core.autocrlf true
 - #11.3 Avatar
 - code fix
 - #11.4 ~ 11.5 Photo Component
+- #11.6 isLiked
 
 ---
 
@@ -342,3 +343,11 @@ export const darkModeVar = makeVar(
 - `BaseBox`를 props를 이용해서 조금 더 쓸모있게 > `thickBorder`라는 props를 추가하면 border가 2px로.(안하면 1px임.)
 
 - 자주 사용할 것 같은 `FatText`를 span으로 만들었음.
+
+## #11.6 isLiked
+
+내가 좋아요를 눌렀는지 아닌지 판단하는 스키마를 백엔드에서 추가하고 프론트엔드에서 적용함.
+
+- fontawesome은 `<svg>` 태그임. 나중에 css에서 써먹자.
+
+- fontawesome에서 style 적용하기.
