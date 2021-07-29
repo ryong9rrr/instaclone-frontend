@@ -1,19 +1,17 @@
 import styled from "styled-components";
-import { lightTheme } from "../../styles";
 import routes from "../../screens/routes";
-import Logo from "./Logo";
-import Icons from "./Icons";
-import Search from "./Search";
+import NavLogo from "./NavLogo";
+import NavIcons from "./NavIcons";
+import NavSearch from "./NavSearch";
+import { BaseBox } from "../shared";
 
-const Nav = styled.nav`
-  width: 100%;
+const NavContainer = styled(BaseBox)`
+  border: none;
   border-bottom: 1px solid ${(props) => props.theme.borderColor};
-  background-color: ${(props) =>
-    props.theme === lightTheme ? "#FFF" : "#000"};
   padding: 10px 0px;
 `;
 
-const Wrapper = styled.div`
+const Nav = styled.nav`
   max-width: 950px;
   width: 100%;
   margin: 0 auto;
@@ -39,19 +37,19 @@ const Column = styled.div`
 
 function Navigation() {
   return (
-    <Nav>
-      <Wrapper>
+    <NavContainer>
+      <Nav>
         <Column>
-          <Logo link={routes.home} />
+          <NavLogo link={routes.home} />
         </Column>
         <Column>
-          <Search />
+          <NavSearch />
         </Column>
         <Column>
-          <Icons />
+          <NavIcons />
         </Column>
-      </Wrapper>
-    </Nav>
+      </Nav>
+    </NavContainer>
   );
 }
 

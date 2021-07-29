@@ -47,6 +47,7 @@ git config --global core.autocrlf true
 - #11.1 ~ 11.2 Header
 - #11.3 Avatar
 - code fix
+- #11.4 ~ 11.5 Photo Component
 
 ---
 
@@ -312,3 +313,15 @@ export const darkModeVar = makeVar(
 - `AvatarImg`에 width,height props를 통해 컴포넌트를 재사용한다.
 
 - `Symbol`에 props로 color지정
+
+## #11.4 ~ 11.5 Photo Component
+
+`Feed` 작업중 ... > `PhotoHeader`, `img`, `Icons`, `Likes` 까지 완료.
+
+- 자주쓰는 컴포넌트 `AvatarImg`의 width, height는 어차피 동일한 값(circle 이니까)이므로 `size`란 props로 관리한다.
+
+- `Icon`에는 링크 등 추후 필요한 작업이 많을 것으로 생각되니 따로 빼버렸음(나중에 const가 아닌 function으로 만들어야할듯)
+
+- `BaseBox`를 props를 이용해서 조금 더 쓸모있게 > `thickBorder`라는 props를 추가하면 border가 2px로.(안하면 1px임.)
+
+- 자주 사용할 것 같은 `FatText`를 span으로 만들었음.

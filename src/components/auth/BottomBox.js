@@ -13,7 +13,7 @@ const SBottomBox = styled(BaseBox)`
 
 function BottomBox({ cta, link, linkText }) {
   return (
-    <SBottomBox>
+    <SBottomBox thickBorder>
       <span>{cta}</span>
       <Link to={link}>{linkText}</Link>
     </SBottomBox>

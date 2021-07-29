@@ -9,8 +9,8 @@ const SSearch = styled(Input)`
   }
 `;
 
-function Search() {
+function NavSearch() {
   return <SSearch type="text" placeholder="search" />;
 }
 
-export default Search;
+export default NavSearch;

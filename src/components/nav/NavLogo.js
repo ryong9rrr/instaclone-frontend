@@ -11,7 +11,7 @@ const DarkModeBtn = styled.span`
   }
 `;
 
-function Logo({ link }) {
+function NavLogo({ link }) {
   return (
     <>
       <Link to={link}>
@@ -24,4 +24,4 @@ function Logo({ link }) {
   );
 }
 
-export default Logo;
+export default NavLogo;

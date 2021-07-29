@@ -29,6 +29,10 @@ function useUser() {
     }
   }, [data]);
 
+  if (loading) {
+    return;
+  }
+
   return data;
 }
 

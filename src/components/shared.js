@@ -5,7 +5,8 @@ export const BaseBox = styled.div`
   width: 100%;
   background-color: ${(props) =>
     props.theme === lightTheme ? "#FFF" : "#000"};
-  border: 2px solid ${(props) => props.theme.borderColor};
+  border: ${(props) => (props.thickBorder ? "2px" : "1px")} solid
+    ${(props) => props.theme.borderColor};
 `;
 
 export const Button = styled.input`
@@ -49,10 +50,15 @@ export const SubTitleText = styled.h3`
 `;
 
 export const AvatarImg = styled.img`
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
+  width: ${(props) => props.size};
+  height: ${(props) => props.size};
   max-width: 100%;
   background-color: #2c2c2c;
   border: 0.5px solid ${(props) => props.theme.borderColor};
   border-radius: 50%;
+`;
+
+export const FatText = styled.span`
+  font-weight: 600;
+  color: ${(props) => props.theme.fontColor};
 `;

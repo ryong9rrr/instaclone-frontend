@@ -12,19 +12,12 @@ import { Link } from "react-router-dom";
 import routes from "../../screens/routes";
 import useUser from "../../hooks/useUser";
 import Avatar from "../Avatar";
+import { Icon } from "../Icon";
 
-const SIcons = styled.div`
+const Icons = styled.div`
   width: 70%;
   display: flex;
   justify-content: space-between;
-`;
-
-const Icon = styled.span`
-  font-size: 18px;
-  cursor: pointer;
-  &:hover {
-    font-size: 1.1rem;
-  }
 `;
 
 const Button = styled.span`
@@ -35,14 +28,14 @@ const Button = styled.span`
   font-weight: 600;
 `;
 
-function Icons() {
+function NavIcons() {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
   const data = useUser();
 
   return (
     <>
       {isLoggedIn ? (
-        <SIcons>
+        <Icons>
           <Icon>
             <FontAwesomeIcon icon={faHome} size="lg" />
           </Icon>
@@ -58,7 +51,7 @@ function Icons() {
           <Icon>
             <Avatar url={data?.me?.avatar} />
           </Icon>
-        </SIcons>
+        </Icons>
       ) : (
         <Link to={routes.home}>
           <Button>Login</Button>
@@ -68,4 +61,4 @@ function Icons() {
   );
 }
 
-export default Icons;
+export default NavIcons;
