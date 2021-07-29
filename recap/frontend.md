@@ -46,6 +46,7 @@ git config --global core.autocrlf true
 - code fix
 - #11.1 ~ 11.2 Header
 - #11.3 Avatar
+- code fix
 
 ---
 
@@ -303,3 +304,11 @@ export const darkModeVar = makeVar(
   강의에서는 뭐 `<SAvatar><Img ..></SAvatar>` 이런식으로 했는데 이것보다는 그냥 Img 컴포넌트 하나로. (해결가능 + 컴포넌트 재사용 수월해 보임.)
 
 아니 근데.. `Avatar`에 지금 widht,height가 25px로 고정이 되어있는데 이걸 나중에 어떻게 재사용하나?
+
+## code fix
+
+불필요한 코드 정리
+
+- `AvatarImg`에 width,height props를 통해 컴포넌트를 재사용한다.
+
+- `Symbol`에 props로 color지정

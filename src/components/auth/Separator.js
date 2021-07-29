@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { darkTheme, lightTheme } from "../../styles";
+import { lightTheme } from "../../styles";
 
 const SSeparator = styled.div`
   margin: 20px 0px;

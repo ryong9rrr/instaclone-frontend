@@ -37,6 +37,7 @@ export const symbol = "𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓪𝓶";
 
 export const Symbol = styled.span`
   letter-spacing: -5px;
+  color: ${(props) => props.theme.fontColor};
 `;
 
 export const SubTitleText = styled.h3`
@@ -47,7 +48,9 @@ export const SubTitleText = styled.h3`
   color: ${(props) => props.theme.gray};
 `;
 
-export const Img = styled.img`
+export const AvatarImg = styled.img`
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
   max-width: 100%;
   background-color: #2c2c2c;
   border: 0.5px solid ${(props) => props.theme.borderColor};
