@@ -66,6 +66,7 @@ git config --global core.autocrlf true
 - code fix
 - #11.4 ~ 11.5 Photo Component
 - #11.6 isLiked
+- #11.7 prop-types, Liking Photos
 
 ---
 
@@ -351,3 +352,13 @@ export const darkModeVar = makeVar(
 - fontawesome은 `<svg>` 태그임. 나중에 css에서 써먹자.
 
 - fontawesome에서 style 적용하기.
+
+## #11.7 prop-types, Liking Photos
+
+- prop-types
+
+  (타입스크립트가 아니라면) 백엔드에서 data를 받아오거나 넘겨주는 경우 type-checking을 잘 해야함. 따라서 data를 한꺼번에 받는 `Post.js` 컴포넌트를 생성, 여기서 type체크를 하고 하위 컴포넌트(`PostHeader` 나 `PostIcons`)로 넘겨준다.
+
+- Liking Photos
+
+  `photo`의 id에 접근(props로 넘겨줌)해서 `useMutation`. 작동은 한다. 하지만 실시간으로 변화를 감지하려면 어떻게 해야할까? 새로고침을 하지 않고도 컴포넌트가 변화하도록. 예전에 jsp로 to-do list를 만들었을때도 똑같은 상황이 있었음. 그때는 수동으로 html과 css를 조작했었다.

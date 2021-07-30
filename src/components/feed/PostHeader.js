@@ -37,7 +37,7 @@ const Location = styled.div`
   margin-top: 3px;
 `;
 
-function PhotoHeader({ avatarUrl, username, location }) {
+function PostHeader({ avatarUrl, username, location }) {
   return (
     <Container>
       <Column>
@@ -58,4 +58,4 @@ function PhotoHeader({ avatarUrl, username, location }) {
   );
 }
 
-export default PhotoHeader;
+export default PostHeader;
