@@ -1,7 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import Post from "./Post";
 
-const Query_seeFeed = gql`
+export const Query_seeFeed = gql`
   query seeFeed {
     seeFeed {
       id

@@ -67,6 +67,7 @@ git config --global core.autocrlf true
 - #11.4 ~ 11.5 Photo Component
 - #11.6 isLiked
 - #11.7 prop-types, Liking Photos
+- #11.8 refetchQueries
 
 ---
 
@@ -362,3 +363,7 @@ export const darkModeVar = makeVar(
 - Liking Photos
 
   `photo`의 id에 접근(props로 넘겨줌)해서 `useMutation`. 작동은 한다. 하지만 실시간으로 변화를 감지하려면 어떻게 해야할까? 새로고침을 하지 않고도 컴포넌트가 변화하도록. 예전에 jsp로 to-do list를 만들었을때도 똑같은 상황이 있었음. 그때는 수동으로 html과 css를 조작했었다.
+
+## #11.8 refetchQueries
+
+좋아요 UI를 해결할 수 있는 방법 중 하나.. 하지만 고작 좋아요 누르는거에 Feed 전체를 refetch하는 쿼리를 불러오는 것은 딱봐도 넘 비효율적. 쿼리의 규모가 작다면 좋은 방법이겠지만 여기서는 아님. 다음에 써먹을 수도 있으니 일단 알아만 두자.

@@ -9,6 +9,7 @@ import { faHeart as SolidHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import { Icon } from "../Icon";
+import { Query_seeFeed } from "./Feed";
 
 const MUTATION_toggleLike = gql`
   mutation toggleLike($id: Int!) {
@@ -48,6 +49,7 @@ function PostIcons({ id, isLiked }) {
       variables: {
         id,
       },
+      refetchQueries: [{ query: Query_seeFeed }],
     }
   );
 
