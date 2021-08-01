@@ -68,6 +68,7 @@ git config --global core.autocrlf true
 - #11.6 isLiked
 - #11.7 prop-types, Liking Photos
 - #11.8 refetchQueries
+- #11.9 ~ 11.10.1 updating cache, method 1
 
 ---
 
@@ -366,4 +367,12 @@ export const darkModeVar = makeVar(
 
 ## #11.8 refetchQueries
 
-좋아요 UI를 해결할 수 있는 방법 중 하나.. 하지만 고작 좋아요 누르는거에 Feed 전체를 refetch하는 쿼리를 불러오는 것은 딱봐도 넘 비효율적. 쿼리의 규모가 작다면 좋은 방법이겠지만 여기서는 아님. 다음에 써먹을 수도 있으니 일단 알아만 두자.
+> https://www.apollographql.com/docs/react/data/mutations/#updating-local-data
+
+좋아요 UI를 해결할 수 있는 방법 중 하나.. 하지만 고작 좋아요 누르는거에 Feed 전체를 refetch하는 쿼리를 불러오는 것은 딱봐도 넘 비효율적(jsp-todolist할 때 써먹어봤던 방법들 중 하나였지..). 쿼리의 규모가 작다면 좋은 방법이겠지만 여기서는 아님. 다음에 써먹을 수도 있으니 일단 알아만 두자.
+
+## #11.9 ~ 11.10.1 updating cache, method 1
+
+> https://www.apollographql.com/docs/react/data/mutations/#updating-the-cache-directly
+
+props를 온전히 전달받아서 apollo client의 캐시를 직접적으로 업데이트하기

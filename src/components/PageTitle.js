@@ -5,13 +5,13 @@ function PageTitle({ title }) {
   return (
     <Helmet>
       <meta charSet="utf-8" />
-      <title>{title} | Instagram</title>
+      <title>{title ? `${title} | Instagram` : "Instagram"}</title>
     </Helmet>
   );
 }
 
 PageTitle.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
 };
 
 export default PageTitle;

@@ -42,14 +42,39 @@ const Column = styled.div`
   }
 `;
 
-function PostIcons({ id, isLiked }) {
+function PostIcons({ id, isLiked, likes }) {
+  const updateToggleLike = (cache, result) => {
+    const {
+      data: {
+        toggleLike: { ok },
+      },
+    } = result;
+
+    if (ok) {
+      console.log(
+        cache.writeFragment({
+          id: `Photo:${id}`,
+          fragment: gql`
+            fragment BSName on Photo {
+              isLiked
+              likes
+            }
+          `,
+          data: {
+            isLiked: !isLiked,
+            likes: isLiked ? likes - 1 : likes + 1,
+          },
+        })
+      );
+    }
+  };
   const [toggleLike, { data, loading, error }] = useMutation(
     MUTATION_toggleLike,
     {
       variables: {
         id,
       },
-      refetchQueries: [{ query: Query_seeFeed }],
+      update: updateToggleLike,
     }
   );
 
