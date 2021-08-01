@@ -69,6 +69,7 @@ git config --global core.autocrlf true
 - #11.7 prop-types, Liking Photos
 - #11.8 refetchQueries
 - #11.9 ~ 11.10.1 updating cache, method 1
+- #11.10.2 updating cache, method 2
 
 ---
 
@@ -376,3 +377,9 @@ export const darkModeVar = makeVar(
 > https://www.apollographql.com/docs/react/data/mutations/#updating-the-cache-directly
 
 props를 온전히 전달받아서 apollo client의 캐시를 직접적으로 업데이트하기
+
+## #11.10.2 updating cache, method 2
+
+> https://www.apollographql.com/docs/react/caching/cache-interaction/#readfragment
+
+props를 전달받지 못한 경우, `readFragment`로 캐시를 읽어들인 후, 직접 찾아서 `writeFragment`로 업데이트.

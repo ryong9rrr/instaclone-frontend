@@ -9,7 +9,6 @@ import { faHeart as SolidHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import { Icon } from "../Icon";
-import { Query_seeFeed } from "./Feed";
 
 const MUTATION_toggleLike = gql`
   mutation toggleLike($id: Int!) {
@@ -42,7 +41,7 @@ const Column = styled.div`
   }
 `;
 
-function PostIcons({ id, isLiked, likes }) {
+function PostIcons({ id, isLiked }) {
   const updateToggleLike = (cache, result) => {
     const {
       data: {
@@ -51,21 +50,29 @@ function PostIcons({ id, isLiked, likes }) {
     } = result;
 
     if (ok) {
-      console.log(
+      const photoId = `Photo:${id}`;
+      const fragment = gql`
+        fragment BSName on Photo {
+          isLiked
+          likes
+        }
+      `;
+      const result = cache.readFragment({
+        id: photoId,
+        fragment,
+      });
+
+      if ("isLiked" in result && "likes" in result) {
+        const { isLiked: cacheIsLiked, likes: cacheLikes } = result;
         cache.writeFragment({
-          id: `Photo:${id}`,
-          fragment: gql`
-            fragment BSName on Photo {
-              isLiked
-              likes
-            }
-          `,
+          id: photoId,
+          fragment,
           data: {
-            isLiked: !isLiked,
-            likes: isLiked ? likes - 1 : likes + 1,
+            isLiked: !cacheIsLiked,
+            likes: isLiked ? cacheLikes - 1 : cacheLikes + 1,
           },
-        })
-      );
+        });
+      }
     }
   };
   const [toggleLike, { data, loading, error }] = useMutation(

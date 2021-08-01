@@ -40,7 +40,7 @@ function Post({ id, user, location, file, isLiked, likes, caption }) {
         location={location}
       />
       <Photo src={file} />
-      <PostIcons id={id} isLiked={isLiked} likes={likes} />
+      <PostIcons id={id} isLiked={isLiked} />
       {likes === 0 ? null : (
         <Likes>{likes === 1 ? "1 like" : `${likes} likes`}</Likes>
       )}
