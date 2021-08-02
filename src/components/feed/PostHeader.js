@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Icon } from "../Icon";
 import { AvatarImg, FatText } from "../shared";
 
-const Container = styled.div`
+const Container = styled.header`
   display: flex;
   align-items: center;
   padding: 10px 0px;

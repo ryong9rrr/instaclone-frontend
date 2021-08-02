@@ -70,6 +70,7 @@ git config --global core.autocrlf true
 - #11.8 refetchQueries
 - #11.9 ~ 11.10.1 updating cache, method 1
 - #11.10.2 updating cache, method 2
+- code fix
 
 ---
 
@@ -383,3 +384,11 @@ props를 온전히 전달받아서 apollo client의 캐시를 직접적으로 �
 > https://www.apollographql.com/docs/react/caching/cache-interaction/#readfragment
 
 props를 전달받지 못한 경우, `readFragment`로 캐시를 읽어들인 후, 직접 찾아서 `writeFragment`로 업데이트.
+
+## code fix
+
+- `Post`안에 사진과 아이콘들을 포함하는 `PhotoBox`를 만들고 컴포넌트를 옮김.
+
+- `Post`안에 좋아요, 캡션을 포함하는 `PhotoInfo`를 만들고 컴포넌트를 옮김.
+
+- `PostIcons`에 margin 10px을 주고 `PhotoInfo - <div className="photoInfoContainer" style={{ margin: "10px" }}>` 하여 의도적으로 collapse을 일으켰음.

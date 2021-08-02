@@ -21,7 +21,7 @@ const MUTATION_toggleLike = gql`
 
 const Icons = styled.div`
   display: flex;
-  padding: 10px;
+  margin: 10px;
 `;
 
 const Column = styled.div`

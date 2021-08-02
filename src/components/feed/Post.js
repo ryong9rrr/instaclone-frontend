@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import { BaseBox, FatText } from "../shared";
+import { BaseBox } from "../shared";
 import PostHeader from "./PostHeader";
-import PostIcons from "./PostIcons";
 import PropTypes from "prop-types";
+import PhotoBox from "./PhotoBox";
+import PhotoInfo from "./PhotoInfo";
 
 //좌우 10px
 
@@ -10,24 +11,6 @@ const PostContainer = styled(BaseBox)`
   max-width: 615px;
   margin-bottom: 25px;
 `;
-
-const Photo = styled.img`
-  width: 100%;
-`;
-
-const Likes = styled(FatText)`
-  margin-left: 10px;
-`;
-
-const Caption = styled.div`
-  padding: 5px 10px;
-  ${FatText} {
-    margin-right: 5px;
-    font-size: 0.9rem;
-  }
-`;
-
-const Comments = styled.div``;
 
 const PushComment = styled.div``;
 
@@ -39,16 +22,8 @@ function Post({ id, user, location, file, isLiked, likes, caption }) {
         username={user.userName}
         location={location}
       />
-      <Photo src={file} />
-      <PostIcons id={id} isLiked={isLiked} />
-      {likes === 0 ? null : (
-        <Likes>{likes === 1 ? "1 like" : `${likes} likes`}</Likes>
-      )}
-      <Caption>
-        <FatText>{user.userName}</FatText>
-        <span>{caption}</span>
-      </Caption>
-      <Comments>comments</Comments>
+      <PhotoBox id={id} file={file} isLiked={isLiked} />
+      <PhotoInfo likes={likes} username={user.userName} caption={caption} />
       <PushComment>push comment</PushComment>
     </PostContainer>
   );
