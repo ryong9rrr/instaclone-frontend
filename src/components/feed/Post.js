@@ -4,17 +4,29 @@ import PostHeader from "./PostHeader";
 import PropTypes from "prop-types";
 import PhotoBox from "./PhotoBox";
 import PhotoInfo from "./PhotoInfo";
+import Comments from "./Comments";
 
 //좌우 10px
 
 const PostContainer = styled(BaseBox)`
+  border-radius: 3px;
   max-width: 615px;
   margin-bottom: 25px;
 `;
 
 const PushComment = styled.div``;
 
-function Post({ id, user, location, file, isLiked, likes, caption }) {
+function Post({
+  id,
+  user,
+  location,
+  file,
+  isLiked,
+  likes,
+  caption,
+  commentsNumber,
+  comments,
+}) {
   return (
     <PostContainer key={id}>
       <PostHeader
@@ -22,8 +34,12 @@ function Post({ id, user, location, file, isLiked, likes, caption }) {
         username={user.userName}
         location={location}
       />
-      <PhotoBox id={id} file={file} isLiked={isLiked} />
-      <PhotoInfo likes={likes} username={user.userName} caption={caption} />
+      <PhotoBox id={id} file={file} isLiked={isLiked} likes={likes} />
+      <PhotoInfo username={user.userName} caption={caption} />
+      {commentsNumber === 0 ? null : (
+        <Comments commentsNumber={commentsNumber} comments={comments} />
+      )}
+      <span>n시간전</span>
       <PushComment>push comment</PushComment>
     </PostContainer>
   );
@@ -41,6 +57,23 @@ Post.propTypes = {
   isLiked: PropTypes.bool.isRequired,
   likes: PropTypes.number.isRequired,
   caption: PropTypes.string,
+  commentsNumber: PropTypes.number.isRequired,
+  comments: PropTypes.array,
 };
+
+/*
+comments: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      payload: PropTypes.string.isRequired,
+      isMine: PropTypes.bool.isRequired,
+      createdAt: PropTypes.string.isRequired,
+      user: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        userName: PropTypes.string.isRequired,
+      }),
+    })
+  ).isRequired
+*/
 
 export default Post;

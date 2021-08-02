@@ -71,6 +71,7 @@ git config --global core.autocrlf true
 - #11.9 ~ 11.10.1 updating cache, method 1
 - #11.10.2 updating cache, method 2
 - code fix
+- #11.11 ~ 11.12 Comments
 
 ---
 
@@ -392,3 +393,15 @@ props를 전달받지 못한 경우, `readFragment`로 캐시를 읽어들인 �
 - `Post`안에 좋아요, 캡션을 포함하는 `PhotoInfo`를 만들고 컴포넌트를 옮김.
 
 - `PostIcons`에 margin 10px을 주고 `PhotoInfo - <div className="photoInfoContainer" style={{ margin: "10px" }}>` 하여 의도적으로 collapse을 일으켰음.
+
+## #11.11 ~ 11.12 Comments
+
+- `Icon.js`에서 마우스 갖다댔을때 font 커지는것을 삭제함.
+
+- 컴포넌트 아키텍처 수정
+
+  - `PhotoBox` 에는 사진, icons, 좋아요가 포함된다.
+  - `PhotoInfo` 에는 `username : caption` 만 포함된다.
+  - 따라서 `Comments`를 분리해놨다. (Comments에서 map(comment..))
+
+- 추가적으로 약간의 css 수정...

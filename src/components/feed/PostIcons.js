@@ -27,21 +27,24 @@ const Icons = styled.div`
 const Column = styled.div`
   width: 33%;
   &:first-child {
+    width: 100%;
     * {
       margin-right: 5px;
     }
   }
   &:nth-child(2) {
+    width: 100%;
     display: flex;
     justify-content: center;
   }
   &:last-child {
+    width: 100%;
     display: flex;
     justify-content: flex-end;
   }
 `;
 
-function PostIcons({ id, isLiked }) {
+function PostIcons({ id, isLiked, likes }) {
   const updateToggleLike = (cache, result) => {
     const {
       data: {
@@ -57,22 +60,15 @@ function PostIcons({ id, isLiked }) {
           likes
         }
       `;
-      const result = cache.readFragment({
+
+      cache.writeFragment({
         id: photoId,
         fragment,
+        data: {
+          isLiked: !isLiked,
+          likes: isLiked ? likes - 1 : likes + 1,
+        },
       });
-
-      if ("isLiked" in result && "likes" in result) {
-        const { isLiked: cacheIsLiked, likes: cacheLikes } = result;
-        cache.writeFragment({
-          id: photoId,
-          fragment,
-          data: {
-            isLiked: !cacheIsLiked,
-            likes: isLiked ? cacheLikes - 1 : cacheLikes + 1,
-          },
-        });
-      }
     }
   };
   const [toggleLike, { data, loading, error }] = useMutation(

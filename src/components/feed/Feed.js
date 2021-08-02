@@ -12,7 +12,17 @@ export const Query_seeFeed = gql`
       file
       caption
       likes
-      comments
+      commentsNumber
+      comments {
+        id
+        payload
+        isMine
+        createdAt
+        user {
+          id
+          userName
+        }
+      }
       isMine
       isLiked
       createdAt
@@ -21,7 +31,17 @@ export const Query_seeFeed = gql`
 `;
 
 function Feed() {
-  const { data } = useQuery(Query_seeFeed);
+  const { data, loading, error } = useQuery(Query_seeFeed);
+
+  console.log(data, loading, error);
+
+  if (loading) {
+    return <div>loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
     <>

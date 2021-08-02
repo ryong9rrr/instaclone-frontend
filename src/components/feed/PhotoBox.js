@@ -1,15 +1,25 @@
 import styled from "styled-components";
+import { FatText } from "../shared";
 import PostIcons from "./PostIcons";
 
 const Photo = styled.img`
   width: 100%;
 `;
 
-function PhotoBox({ id, file, isLiked }) {
+const Likes = styled(FatText)`
+  display: block;
+  margin: 10px;
+  cursor: pointer;
+`;
+
+function PhotoBox({ id, file, isLiked, likes }) {
   return (
     <>
       <Photo src={file} />
-      <PostIcons id={id} isLiked={isLiked} />
+      <PostIcons id={id} isLiked={isLiked} likes={likes} />
+      {likes === 0 ? null : (
+        <Likes>{likes === 1 ? "1 like" : `${likes} likes`}</Likes>
+      )}
     </>
   );
 }
