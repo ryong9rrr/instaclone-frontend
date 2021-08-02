@@ -72,6 +72,7 @@ git config --global core.autocrlf true
 - #11.10.2 updating cache, method 2
 - code fix
 - #11.11 ~ 11.12 Comments
+- #11.13 Parsing Hashtags 1
 
 ---
 
@@ -405,3 +406,15 @@ props를 전달받지 못한 경우, `readFragment`로 캐시를 읽어들인 �
   - 따라서 `Comments`를 분리해놨다. (Comments에서 map(comment..))
 
 - 추가적으로 약간의 css 수정...
+
+## #11.13 Parsing Hashtags 1
+
+- text에 html태그를 제어하도록 하는 라이브러리
+
+  📌`npm i sanitize-html`
+
+  그리고 `dangerouslySetInnerHTML`를 이용하여 react안에 html을 생성한다.
+
+- caption이나 payload에서 hashtag를 찾아내는 함수 `markHashtags`를 만들었음.
+
+- caption과 payload가 공통으로 사용하는 컴포넌트 `HashtagText`를 만들었음.

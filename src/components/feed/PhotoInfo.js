@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FatText } from "../shared";
+import { FatText, HashtagText, markHashtags } from "../shared";
 
 const Username = styled(FatText)`
   cursor: pointer;
@@ -9,6 +9,7 @@ const Username = styled(FatText)`
 `;
 
 const Info = styled.div`
+  display: flex;
   margin: 0px 10px 5px;
   ${Username} {
     margin-right: 7px;
@@ -16,11 +17,17 @@ const Info = styled.div`
   }
 `;
 
-function PhotoInfo({ username, caption, commentsNumber }) {
+const Caption = styled(HashtagText)``;
+
+function PhotoInfo({ username, caption }) {
   return (
     <Info>
       <Username>{username}</Username>
-      <span>{caption}</span>
+      <Caption
+        dangerouslySetInnerHTML={{
+          __html: markHashtags(caption),
+        }}
+      />
     </Info>
   );
 }

@@ -1,3 +1,4 @@
+import sanitizeHtml from "sanitize-html";
 import styled from "styled-components";
 import { lightTheme } from "../styles";
 
@@ -49,16 +50,25 @@ export const SubTitleText = styled.h3`
   color: ${(props) => props.theme.gray};
 `;
 
-export const AvatarImg = styled.img`
-  width: ${(props) => props.size};
-  height: ${(props) => props.size};
-  max-width: 100%;
-  background-color: #2c2c2c;
-  border: 0.5px solid ${(props) => props.theme.borderColor};
-  border-radius: 50%;
-`;
-
 export const FatText = styled.span`
   font-weight: 600;
   color: ${(props) => props.theme.fontColor};
+`;
+
+export const markHashtags = (text) => {
+  const result = sanitizeHtml(text?.replace(/#[\w]+/g, "<mark>$&</mark>"), {
+    allowedTags: ["mark"],
+  });
+  return result;
+};
+
+export const HashtagText = styled.div`
+  mark {
+    background-color: inherit;
+    color: ${(props) => props.theme.hashtag};
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `;

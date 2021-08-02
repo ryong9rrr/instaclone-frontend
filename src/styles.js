@@ -11,6 +11,7 @@ export const lightTheme = {
   fontColor: "rgb(38, 38, 38)",
   borderColor: "rgb(219, 219, 219)",
   facebookColor: "#385285",
+  hashtag: "#007BBE",
 };
 
 export const darkTheme = {
@@ -20,6 +21,7 @@ export const darkTheme = {
   fontColor: white,
   borderColor: white,
   facebookColor: "#385285",
+  hashtag: "#0095f6",
 };
 
 export const GlobalStyles = createGlobalStyle`

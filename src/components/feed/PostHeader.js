@@ -1,8 +1,9 @@
 import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
+import Avatar from "../Avatar";
 import { Icon } from "../Icon";
-import { AvatarImg, FatText } from "../shared";
+import { FatText } from "../shared";
 
 const Container = styled.header`
   display: flex;
@@ -41,7 +42,9 @@ function PostHeader({ avatarUrl, username, location }) {
   return (
     <Container>
       <Column>
-        <AvatarImg src={avatarUrl} size="35px" />
+        <Icon>
+          <Avatar url={avatarUrl} size="35px" />
+        </Icon>
       </Column>
       <Column>
         <div>
