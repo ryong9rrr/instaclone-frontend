@@ -1,4 +1,5 @@
-import sanitizeHtml from "sanitize-html";
+import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { lightTheme } from "../styles";
 
@@ -55,15 +56,21 @@ export const FatText = styled.span`
   color: ${(props) => props.theme.fontColor};
 `;
 
+/**************************************** Hashtag ************************************/
+
+/* 
+//import sanitizeHtml from "sanitize-html";
+
 export const markHashtags = (text) => {
   const result = sanitizeHtml(text?.replace(/#[\w]+/g, "<mark>$&</mark>"), {
     allowedTags: ["mark"],
   });
   return result;
 };
+*/
 
-export const HashtagText = styled.div`
-  mark {
+export const CaptionOrPayload = styled.div`
+  a {
     background-color: inherit;
     color: ${(props) => props.theme.hashtag};
     cursor: pointer;
@@ -72,3 +79,38 @@ export const HashtagText = styled.div`
     }
   }
 `;
+
+export const extractHashtags = (text) => {
+  if (!text) {
+    return;
+  }
+
+  const condition = (word) => /#[\w]+/g.test(word);
+
+  return text?.split(" ").map((word, index) => {
+    //console.log(word, index);
+    return (
+      <React.Fragment key={index}>
+        {condition(word) ? (
+          <>
+            <Link to={`/explore/tags/${word}`}>{word}</Link>{" "}
+          </>
+        ) : (
+          <>{word} </>
+        )}
+      </React.Fragment>
+    );
+  });
+};
+
+/*
+return condition(word) ? (
+      <React.Fragment key={index}>
+        <Link to={`/explore/tags/${word}`}>{word}</Link>{" "}
+      </React.Fragment>
+    ) : (
+      `${word} `
+    );
+*/
+
+/////////////////////////////////////////////////////////////////////////////////////

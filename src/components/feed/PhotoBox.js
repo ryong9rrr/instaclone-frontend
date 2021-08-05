@@ -7,7 +7,6 @@ const Photo = styled.img`
 `;
 
 const Likes = styled(FatText)`
-  display: block;
   margin: 10px;
   cursor: pointer;
 `;

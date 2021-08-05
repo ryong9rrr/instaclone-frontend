@@ -3,7 +3,7 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import { Icon } from "../Icon";
-import { FatText, HashtagText, markHashtags } from "../shared";
+import { CaptionOrPayload, extractHashtags, FatText } from "../shared";
 
 const Username = styled(FatText)`
   cursor: pointer;
@@ -11,8 +11,6 @@ const Username = styled(FatText)`
     text-decoration: underline;
   }
 `;
-
-const Payload = styled(HashtagText)``;
 
 const CommentsBox = styled.div`
   display: flex;
@@ -22,7 +20,7 @@ const CommentsBox = styled.div`
     margin-right: 7px;
     font-size: 0.9rem;
   }
-  ${Payload} {
+  ${CaptionOrPayload} {
     width: 100%;
   }
   &:last-child {
@@ -34,11 +32,7 @@ function Comment({ username, payload }) {
   return (
     <CommentsBox>
       <Username>{username}</Username>
-      <Payload
-        dangerouslySetInnerHTML={{
-          __html: markHashtags(payload),
-        }}
-      />
+      <CaptionOrPayload>{extractHashtags(payload)}</CaptionOrPayload>
       <Icon size="0.8rem">
         <FontAwesomeIcon icon={faHeart} />
       </Icon>

@@ -16,7 +16,7 @@ const ViewAllComment = styled.div`
 const SomeComments = styled.div``;
 
 function Comments({ commentsNumber, comments }) {
-  console.log(comments);
+  //console.log(comments);
   return (
     <Container>
       {commentsNumber > 2 ? (

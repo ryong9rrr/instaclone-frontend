@@ -73,6 +73,7 @@ git config --global core.autocrlf true
 - code fix
 - #11.11 ~ 11.12 Comments
 - #11.13 Parsing Hashtags 1
+- #11.14 Parsing Hashtags 2
 
 ---
 
@@ -418,3 +419,21 @@ props를 전달받지 못한 경우, `readFragment`로 캐시를 읽어들인 �
 - caption이나 payload에서 hashtag를 찾아내는 함수 `markHashtags`를 만들었음.
 
 - caption과 payload가 공통으로 사용하는 컴포넌트 `HashtagText`를 만들었음.
+
+## #11.14 Parsing Hashtags 2
+
+- `sanitize-html` 삭제했음, hashtag 로직변경.
+
+- text(caption, payload..)에서 해쉬태그word와 그냥 word를 분리하는 `extractHashtags()` 함수 만들었음. 처음에는 아래와 같이 만들었는데 이렇게 하면 잘 되긴하지만 F12하면 띄어쓰기가.. 좀 거슬렸다. (어떻게해야 깔끔한 코드일까 ㅠㅠ)
+
+  ```js
+  condition(word) ? (
+    <React.Fragment key={index}>
+      <Link to={`/explore/tags/${word}`}>{word}</Link>{" "}
+    </React.Fragment>
+  ) : (
+    `${word} `
+  );
+  ```
+
+- caption이나 payload를 담당하는 컴포넌트 `CaptionOrPayload`를 만들고 공통으로 사용.

@@ -33,7 +33,7 @@ export const Query_seeFeed = gql`
 function Feed() {
   const { data, loading, error } = useQuery(Query_seeFeed);
 
-  console.log(data, loading, error);
+  //console.log(loading, error);
 
   if (loading) {
     return <div>loading...</div>;

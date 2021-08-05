@@ -117,7 +117,7 @@ function Login() {
   const clearLoginError = () => clearErrors();
 
   return (
-    <React.StrictMode>
+    <React.Fragment>
       <AuthLayout>
         <PageTitle title="Login" />
         <FormBox>
@@ -167,7 +167,7 @@ function Login() {
         <DownloadApp />
       </AuthLayout>
       <Footer />
-    </React.StrictMode>
+    </React.Fragment>
   );
 }
 
