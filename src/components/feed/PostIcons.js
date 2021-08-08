@@ -54,32 +54,29 @@ function PostIcons({ id, isLiked, likes }) {
 
     if (ok) {
       const photoId = `Photo:${id}`;
-      const fragment = gql`
-        fragment BSName on Photo {
-          isLiked
-          likes
-        }
-      `;
-
-      cache.writeFragment({
+      cache.modify({
         id: photoId,
-        fragment,
-        data: {
-          isLiked: !isLiked,
-          likes: isLiked ? likes - 1 : likes + 1,
+        fields: {
+          isLiked(prev) {
+            return !prev;
+          },
+          likes(prev) {
+            return isLiked ? prev - 1 : prev + 1;
+          },
         },
       });
     }
   };
-  const [toggleLike, { data, loading, error }] = useMutation(
-    MUTATION_toggleLike,
-    {
-      variables: {
-        id,
-      },
-      update: updateToggleLike,
-    }
-  );
+  const [toggleLike, { error }] = useMutation(MUTATION_toggleLike, {
+    variables: {
+      id,
+    },
+    update: updateToggleLike,
+  });
+
+  if (error) {
+    return <div>PostIcons.js error</div>;
+  }
 
   return (
     <Icons>

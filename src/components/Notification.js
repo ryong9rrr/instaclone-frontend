@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const SNotification = styled.div`
   box-sizing: border-box;
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0px;
   width: 100%;

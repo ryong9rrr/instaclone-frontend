@@ -103,14 +103,4 @@ export const extractHashtags = (text) => {
   });
 };
 
-/*
-return condition(word) ? (
-      <React.Fragment key={index}>
-        <Link to={`/explore/tags/${word}`}>{word}</Link>{" "}
-      </React.Fragment>
-    ) : (
-      `${word} `
-    );
-*/
-
 /////////////////////////////////////////////////////////////////////////////////////
