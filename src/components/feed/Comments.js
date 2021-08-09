@@ -9,11 +9,13 @@ const Container = styled.div`
 const ViewAllComment = styled.div`
   cursor: pointer;
   opacity: 0.7;
-  font-size: 0.8rem;
-  margin: 10px 0px 7px;
+  font-size: 0.9rem;
+  margin: 10px 0px;
 `;
 
-const SomeComments = styled.div``;
+const SomeComments = styled.div`
+  margin: 10px 0px;
+`;
 
 function Comments({ commentsNumber, comments }) {
   //console.log(comments);

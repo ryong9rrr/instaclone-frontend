@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import PhotoBox from "./PhotoBox";
 import PhotoInfo from "./PhotoInfo";
 import Comments from "./Comments";
+import TimeLag from "../TimeLag";
 
 //좌우 10px
 
@@ -26,6 +27,7 @@ function Post({
   caption,
   commentsNumber,
   comments,
+  createdAt,
 }) {
   return (
     <PostContainer key={id}>
@@ -39,7 +41,7 @@ function Post({
       {commentsNumber === 0 ? null : (
         <Comments commentsNumber={commentsNumber} comments={comments} />
       )}
-      <span>n시간전</span>
+      <TimeLag createdAt={createdAt} />
       <PushComment>push comment</PushComment>
     </PostContainer>
   );
@@ -59,6 +61,7 @@ Post.propTypes = {
   caption: PropTypes.string,
   commentsNumber: PropTypes.number.isRequired,
   comments: PropTypes.array,
+  createdAt: PropTypes.string.isRequired,
 };
 
 /*

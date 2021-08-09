@@ -22,6 +22,8 @@ git config --global core.autocrlf true
 
 - 로그아웃하고 로그인하면 전 계정의 캐시가 남아있음..(좋아요 문제 등) 새로고침을 하면 다시 캐시가 초기화 되니까 괜찮은데.. 해결방안을 생각해보자.
 
+- Feed에서 comments 2개씩 보이도록 하기
+
 ---
 
 ## 📖 목차
@@ -77,6 +79,7 @@ git config --global core.autocrlf true
 - #11.13 Parsing Hashtags 1
 - #11.14 Parsing Hashtags 2
 - #11.15 cache Modify
+- Timelag
 
 ---
 
@@ -444,3 +447,7 @@ props를 전달받지 못한 경우, `readFragment`로 캐시를 읽어들인 �
 ## #11.15 cache Modify
 
 `readFragment`, `writeFragment`말고 다른 방식으로 캐시 update하기
+
+## Timelag
+
+`createdAt`에서 `Date.now`를 통해 얼마 전인지 계산한 후 초, 분, 시간 등으로 리턴하는 함수와 컴포넌트를 만들었음.

@@ -10,10 +10,13 @@ import Home from "./screens/Home";
 import Login from "./screens/Login";
 import SignUp from "./screens/SignUp";
 import Layout from "./components/Layout";
+import useUser from "./hooks/useUser";
 
 function App() {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
   const darkMode = useReactiveVar(darkModeVar);
+  const rootData = useUser();
+  console.log(rootData);
 
   return (
     <HelmetProvider>

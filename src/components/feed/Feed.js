@@ -31,7 +31,10 @@ export const Query_seeFeed = gql`
 `;
 
 function Feed() {
-  const { data, loading, error } = useQuery(Query_seeFeed);
+  const { data, loading, error } = useQuery(Query_seeFeed, {
+    fetchPolicy: "network-only",
+    nextFetchPolicy: "cache-first",
+  });
 
   //console.log(loading, error);
 
