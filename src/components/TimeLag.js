@@ -22,7 +22,6 @@ const timelag = (time) => {
 };
 
 const STimeLag = styled.span`
-  margin: 10px;
   font-size: ${(props) => props.size};
   opacity: 0.7;
 `;

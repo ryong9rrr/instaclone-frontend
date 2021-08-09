@@ -8,22 +8,18 @@ import { FatText } from "../shared";
 const Container = styled.header`
   display: flex;
   align-items: center;
-  padding: 10px 0px;
+  padding: 1rem;
 `;
 
 const Column = styled.div`
   &:first-child {
-    width: 10%;
-    display: flex;
-    justify-content: center;
-  }
-  &:nth-child(2) {
-    width: 80%;
+    width: 9%;
   }
   &:last-child {
-    width: 10%;
+    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
   }
   div {
     width: 100%;
@@ -36,6 +32,8 @@ const Username = styled(FatText)`
 
 const Location = styled.div`
   margin-top: 3px;
+  opacity: 0.9;
+  font-size: 0.9em;
 `;
 
 function PostHeader({ avatarUrl, username, location }) {
@@ -51,8 +49,6 @@ function PostHeader({ avatarUrl, username, location }) {
           <Username>{username}</Username>
           {location ? <Location>{location}</Location> : null}
         </div>
-      </Column>
-      <Column>
         <Icon size="none">
           <FontAwesomeIcon icon={faEllipsisH} />
         </Icon>

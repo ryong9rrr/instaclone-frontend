@@ -10,7 +10,7 @@ const Username = styled(FatText)`
 
 const Info = styled.div`
   display: flex;
-  margin: 10px 10px 5px;
+  margin-bottom: 10px;
   ${Username} {
     margin-right: 7px;
     font-size: 0.9rem;

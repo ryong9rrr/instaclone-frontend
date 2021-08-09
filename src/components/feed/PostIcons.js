@@ -19,9 +19,9 @@ const MUTATION_toggleLike = gql`
   }
 `;
 
-const Icons = styled.div`
+const Icons = styled.section`
   display: flex;
-  margin: 10px;
+  padding: 10px 16px;
 `;
 
 const Column = styled.div`
@@ -44,7 +44,7 @@ const Column = styled.div`
   }
 `;
 
-function PostIcons({ id, isLiked, likes }) {
+function PostIcons({ id, isLiked }) {
   const updateToggleLike = (cache, result) => {
     const {
       data: {

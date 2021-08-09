@@ -80,6 +80,7 @@ git config --global core.autocrlf true
 - #11.14 Parsing Hashtags 2
 - #11.15 cache Modify
 - Timelag
+- PushComment CSS
 
 ---
 
@@ -451,3 +452,7 @@ props를 전달받지 못한 경우, `readFragment`로 캐시를 읽어들인 �
 ## Timelag
 
 `createdAt`에서 `Date.now`를 통해 얼마 전인지 계산한 후 초, 분, 시간 등으로 리턴하는 함수와 컴포넌트를 만들었음.
+
+## PushComment CSS
+
+`pushComment`를 만들고 `Post` 부분 css를 좀 수정했음.

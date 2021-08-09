@@ -6,6 +6,8 @@ import PhotoBox from "./PhotoBox";
 import PhotoInfo from "./PhotoInfo";
 import Comments from "./Comments";
 import TimeLag from "../TimeLag";
+import PushComment from "../PushComment";
+import { FatText } from "../shared";
 
 //좌우 10px
 
@@ -15,7 +17,15 @@ const PostContainer = styled(BaseBox)`
   margin-bottom: 25px;
 `;
 
-const PushComment = styled.div``;
+const Contents = styled.section`
+  padding: 0px 16px;
+`;
+
+const Likes = styled(FatText)`
+  display: inline-block;
+  cursor: pointer;
+  margin-bottom: 10px;
+`;
 
 function Post({
   id,
@@ -37,12 +47,17 @@ function Post({
         location={location}
       />
       <PhotoBox id={id} file={file} isLiked={isLiked} likes={likes} />
-      <PhotoInfo username={user.userName} caption={caption} />
-      {commentsNumber === 0 ? null : (
-        <Comments commentsNumber={commentsNumber} comments={comments} />
-      )}
-      <TimeLag createdAt={createdAt} />
-      <PushComment>push comment</PushComment>
+      <Contents>
+        {likes === 0 ? null : (
+          <Likes>{likes === 1 ? "1 like" : `${likes} likes`}</Likes>
+        )}
+        <PhotoInfo username={user.userName} caption={caption} />
+        {commentsNumber === 0 ? null : (
+          <Comments commentsNumber={commentsNumber} comments={comments} />
+        )}
+        <TimeLag createdAt={createdAt} />
+      </Contents>
+      <PushComment />
     </PostContainer>
   );
 }

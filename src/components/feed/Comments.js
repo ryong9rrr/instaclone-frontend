@@ -2,25 +2,21 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import Comment from "./Comment";
 
-const Container = styled.div`
-  margin: 0px 10px;
-`;
-
 const ViewAllComment = styled.div`
+  margin-bottom: 10px;
   cursor: pointer;
   opacity: 0.7;
   font-size: 0.9rem;
-  margin: 10px 0px;
 `;
 
 const SomeComments = styled.div`
-  margin: 10px 0px;
+  margin-bottom: 10px;
 `;
 
 function Comments({ commentsNumber, comments }) {
   //console.log(comments);
   return (
-    <Container>
+    <>
       {commentsNumber > 2 ? (
         <>
           <ViewAllComment>View all {commentsNumber} comments</ViewAllComment>
@@ -45,7 +41,7 @@ function Comments({ commentsNumber, comments }) {
           ))}
         </SomeComments>
       )}
-    </Container>
+    </>
   );
 }
 
