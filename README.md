@@ -81,6 +81,7 @@ git config --global core.autocrlf true
 - #11.15 cache Modify
 - Timelag
 - PushComment CSS
+- #11.16 PushComment Form
 
 ---
 
@@ -456,3 +457,9 @@ props를 전달받지 못한 경우, `readFragment`로 캐시를 읽어들인 �
 ## PushComment CSS
 
 `pushComment`를 만들고 `Post` 부분 css를 좀 수정했음.
+
+## #11.16 PushComment Form
+
+- `useForm`을 사용해서 댓글을 단다. 하지만 새로고침을 해야 댓글이 보이게 됨.
+
+- `mode: onChange`를 통해 push버튼 `disable` 구현.

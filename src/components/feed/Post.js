@@ -57,7 +57,7 @@ function Post({
         )}
         <TimeLag createdAt={createdAt} />
       </Contents>
-      <PushComment />
+      <PushComment photoId={id} />
     </PostContainer>
   );
 }

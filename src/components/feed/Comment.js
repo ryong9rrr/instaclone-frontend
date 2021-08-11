@@ -15,7 +15,7 @@ const Username = styled(FatText)`
 const CommentsBox = styled.div`
   display: flex;
   width: 100%;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
   ${Username} {
     margin-right: 7px;
     font-size: 0.9rem;
