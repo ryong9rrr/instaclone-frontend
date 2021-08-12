@@ -4,12 +4,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSmile } from "@fortawesome/free-regular-svg-icons";
 import { useForm } from "react-hook-form";
 import { gql, useMutation } from "@apollo/client";
+import useUser from "../hooks/useUser";
 
 const MUTATION_createComment = gql`
   mutation createComment($photoId: Int!, $payload: String!) {
     createComment(photoId: $photoId, payload: $payload) {
       ok
       error
+      id
     }
   }
 `;
@@ -57,11 +59,63 @@ const PushBtn = styled.button`
 `;
 
 function PushComment({ photoId }) {
-  const { register, handleSubmit, setValue, formState } = useForm({
+  const userData = useUser();
+  const { register, handleSubmit, setValue, formState, getValues } = useForm({
     mode: "onChange",
   });
 
-  const [createComment, { loading }] = useMutation(MUTATION_createComment);
+  const createCommentUpdate = (cache, result) => {
+    const { comment } = getValues();
+    setValue("comment", "");
+    const {
+      data: {
+        createComment: { ok, error, id },
+      },
+    } = result;
+    if (userData?.me && ok) {
+      const newComment = {
+        id,
+        __typename: "Comment",
+        payload: comment,
+        isMine: true,
+        createdAt: Date.now() + "",
+        user: {
+          __ref: `User:${userData.me.id}`,
+        },
+      };
+
+      const newCacheComment = cache.writeFragment({
+        data: newComment,
+        fragment: gql`
+          fragment BSName on Comment {
+            id
+            payload
+            isMine
+            createdAt
+            user {
+              userName
+            }
+          }
+        `,
+      });
+
+      cache.modify({
+        id: `Photo:${photoId}`,
+        fields: {
+          comments(prev) {
+            return [...prev, newCacheComment];
+          },
+          commentsNumber(prev) {
+            return prev + 1;
+          },
+        },
+      });
+    }
+  };
+
+  const [createComment, { loading }] = useMutation(MUTATION_createComment, {
+    update: createCommentUpdate,
+  });
 
   const onValid = (data) => {
     const { comment } = data;
@@ -75,7 +129,6 @@ function PushComment({ photoId }) {
         payload: comment,
       },
     });
-    setValue("comment", "");
   };
 
   return (
