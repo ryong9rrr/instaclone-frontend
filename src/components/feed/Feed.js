@@ -30,7 +30,7 @@ export const Query_seeFeed = gql`
   }
 `;
 
-function Feed() {
+function Feed({ openCommentModal }) {
   const { data, loading, error } = useQuery(Query_seeFeed, {
     fetchPolicy: "network-only",
     nextFetchPolicy: "cache-first",
@@ -49,7 +49,7 @@ function Feed() {
   return (
     <>
       {data?.seeFeed?.map((photo) => (
-        <Post key={photo.id} {...photo} />
+        <Post openCommentModal={openCommentModal} key={photo.id} {...photo} />
       ))}
     </>
   );

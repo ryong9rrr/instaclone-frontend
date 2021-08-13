@@ -85,7 +85,7 @@ export const extractHashtags = (text) => {
     return;
   }
 
-  const condition = (word) => /#[\w]+/g.test(word);
+  const condition = (word) => /#[\w | 가-힣]+/g.test(word);
 
   return text?.split(" ").map((word, index) => {
     //console.log(word, index);

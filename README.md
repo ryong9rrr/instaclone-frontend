@@ -83,6 +83,7 @@ git config --global core.autocrlf true
 - PushComment CSS
 - #11.16 PushComment Form
 - #11.17 ~ 18 PushComment cache update
+- CommentModal
 
 ---
 
@@ -481,3 +482,9 @@ const arr = [1, 2, 3];
 - cache를 조작하기 위해 fake로 캐시를 만들었음. 그래서 `me`에서 id를 추가로 가져왔다.
 
 - comment 캐시를 따로 만듬.
+
+## CommentModal
+
+- hashtag 한글추가
+
+- 나의 댓글일때, 삭제할 수 있는 모달버튼, 모달창 추가(너무 힘들었다..)

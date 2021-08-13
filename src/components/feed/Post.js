@@ -38,10 +38,13 @@ function Post({
   commentsNumber,
   comments,
   createdAt,
+  isMine,
+  openCommentModal,
 }) {
   return (
     <PostContainer key={id}>
       <PostHeader
+        photoId={id}
         avatarUrl={user.avatar}
         username={user.userName}
         location={location}
@@ -53,7 +56,12 @@ function Post({
         )}
         <PhotoInfo username={user.userName} caption={caption} />
         {commentsNumber === 0 ? null : (
-          <Comments commentsNumber={commentsNumber} comments={comments} />
+          <Comments
+            commentsNumber={commentsNumber}
+            comments={comments}
+            isMine={isMine}
+            openCommentModal={openCommentModal}
+          />
         )}
         <TimeLag createdAt={createdAt} />
       </Contents>
@@ -77,6 +85,7 @@ Post.propTypes = {
   commentsNumber: PropTypes.number.isRequired,
   comments: PropTypes.array,
   createdAt: PropTypes.string.isRequired,
+  isMine: PropTypes.bool.isRequired,
 };
 
 /*

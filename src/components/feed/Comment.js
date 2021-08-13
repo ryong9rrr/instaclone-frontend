@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import { Icon } from "../Icon";
 import { CaptionOrPayload, extractHashtags, FatText } from "../shared";
+import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 
 const Username = styled(FatText)`
   cursor: pointer;
@@ -14,6 +15,8 @@ const Username = styled(FatText)`
 
 const CommentsBox = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   margin-bottom: 5px;
   ${Username} {
@@ -23,19 +26,34 @@ const CommentsBox = styled.div`
   ${CaptionOrPayload} {
     width: 100%;
   }
-  &:last-child {
-    margin-right: auto;
+`;
+
+const Icons = styled.div`
+  display: flex;
+  ${Icon} {
+    margin-left: 5px;
   }
 `;
 
-function Comment({ username, payload }) {
+function Comment({ username, payload, isMine, openCommentModal, commentId }) {
   return (
     <CommentsBox>
       <Username>{username}</Username>
       <CaptionOrPayload>{extractHashtags(payload)}</CaptionOrPayload>
-      <Icon size="0.8rem">
-        <FontAwesomeIcon icon={faHeart} />
-      </Icon>
+      <Icons>
+        {isMine ? (
+          <Icon
+            className="comment"
+            onClick={() => openCommentModal(commentId)}
+            size="0.8rem"
+          >
+            <FontAwesomeIcon icon={faEllipsisH} />
+          </Icon>
+        ) : null}
+        <Icon size="0.8rem">
+          <FontAwesomeIcon icon={faHeart} />
+        </Icon>
+      </Icons>
     </CommentsBox>
   );
 }
@@ -43,6 +61,7 @@ function Comment({ username, payload }) {
 Comment.propTypes = {
   username: PropTypes.string.isRequired,
   payload: PropTypes.string.isRequired,
+  isMine: PropTypes.bool.isRequired,
 };
 
 export default Comment;
