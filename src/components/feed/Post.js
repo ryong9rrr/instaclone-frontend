@@ -61,6 +61,7 @@ function Post({
             comments={comments}
             isMine={isMine}
             openCommentModal={openCommentModal}
+            photoId={id}
           />
         )}
         <TimeLag createdAt={createdAt} />

@@ -13,7 +13,7 @@ const SomeComments = styled.div`
   margin-bottom: 10px;
 `;
 
-function Comments({ commentsNumber, comments, openCommentModal }) {
+function Comments({ commentsNumber, comments, openCommentModal, photoId }) {
   //console.log(comments);
   return (
     <>
@@ -29,6 +29,7 @@ function Comments({ commentsNumber, comments, openCommentModal }) {
                 isMine={comment.isMine}
                 openCommentModal={openCommentModal}
                 commentId={comment.id}
+                photoId={photoId}
               />
             ))}
           </SomeComments>
@@ -43,6 +44,7 @@ function Comments({ commentsNumber, comments, openCommentModal }) {
               isMine={comment.isMine}
               openCommentModal={openCommentModal}
               commentId={comment.id}
+              photoId={photoId}
             />
           ))}
         </SomeComments>

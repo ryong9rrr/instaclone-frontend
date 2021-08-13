@@ -35,7 +35,14 @@ const Icons = styled.div`
   }
 `;
 
-function Comment({ username, payload, isMine, openCommentModal, commentId }) {
+function Comment({
+  username,
+  payload,
+  isMine,
+  openCommentModal,
+  commentId,
+  photoId,
+}) {
   return (
     <CommentsBox>
       <Username>{username}</Username>
@@ -44,7 +51,7 @@ function Comment({ username, payload, isMine, openCommentModal, commentId }) {
         {isMine ? (
           <Icon
             className="comment"
-            onClick={() => openCommentModal(commentId)}
+            onClick={() => openCommentModal(commentId, photoId)}
             size="0.8rem"
           >
             <FontAwesomeIcon icon={faEllipsisH} />

@@ -1,5 +1,15 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { gql, useMutation } from "@apollo/client";
+import { useEffect } from "react";
+
+const MUTATION_deleteComment = gql`
+  mutation deleteComment($id: Int!) {
+    deleteComment(id: $id) {
+      ok
+    }
+  }
+`;
 
 const ModalOverlay = styled.div`
   z-index: 999;
@@ -46,15 +56,58 @@ const ModalContents = styled.div`
   }
 `;
 
-function CommentModal({ state, closeCommentModal, commentId }) {
+function CommentModal({ state, closeCommentModal, commentId, photoId }) {
+  const updateDeleteComment = (cache, result) => {
+    const {
+      data: {
+        deleteComment: { ok },
+      },
+    } = result;
+    if (ok) {
+      cache.evict({
+        id: `Comment:${commentId}`,
+      });
+      cache.modify({
+        id: `Photo:${photoId}`,
+        fields: {
+          commentsNumber(prev) {
+            return prev - 1;
+          },
+        },
+      });
+    }
+  };
+
+  const [deleteCommentMutation, { loading }] = useMutation(
+    MUTATION_deleteComment,
+    {
+      variables: {
+        id: commentId,
+      },
+      update: updateDeleteComment,
+    }
+  );
+
+  const onDeleteClick = () => {
+    deleteCommentMutation();
+  };
+
+  useEffect(() => {
+    if (!loading) {
+      closeCommentModal();
+    }
+  }, [loading]);
   return (
     <>
       {state ? (
         <ModalOverlay>
           <ModalWrapper tabIndex="-1">
             <ModalContents>
-              {commentId}
-              <Btn tabIndex="0" style={{ color: "tomato" }}>
+              <Btn
+                onClick={onDeleteClick}
+                tabIndex="0"
+                style={{ color: "tomato" }}
+              >
                 삭제
               </Btn>
               <Btn onClick={closeCommentModal} tabIndex="0">
@@ -71,6 +124,7 @@ function CommentModal({ state, closeCommentModal, commentId }) {
 CommentModal.propTypes = {
   state: PropTypes.bool.isRequired,
   commentId: PropTypes.number,
+  photoId: PropTypes.number,
 };
 
 export default CommentModal;

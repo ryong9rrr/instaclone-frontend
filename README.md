@@ -84,6 +84,7 @@ git config --global core.autocrlf true
 - #11.16 PushComment Form
 - #11.17 ~ 18 PushComment cache update
 - CommentModal
+- #11.19 DeleteComment
 
 ---
 
@@ -488,3 +489,9 @@ const arr = [1, 2, 3];
 - hashtag 한글추가
 
 - 나의 댓글일때, 삭제할 수 있는 모달버튼, 모달창 추가(너무 힘들었다..)
+
+## #11.19 DeleteComment
+
+- comment 삭제, 캐시삭제
+
+- comment를 삭제할 때 photo의 캐쉬데이터인 commentsNumber를 -1 하기 위해 photoId를 꺼내왔다.
