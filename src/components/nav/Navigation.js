@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import routes from "../../screens/routes";
 import NavLogo from "./NavLogo";
 import NavIcons from "./NavIcons";
 import NavSearch from "./NavSearch";
 import { BaseBox } from "../shared";
+import { routes } from "../../screens/routes";
 
 const NavContainer = styled(BaseBox)`
   border: none;

@@ -85,6 +85,7 @@ git config --global core.autocrlf true
 - #11.17 ~ 18 PushComment cache update
 - CommentModal
 - #11.19 DeleteComment
+- networkerror, RestrictRoute
 
 ---
 
@@ -495,3 +496,13 @@ const arr = [1, 2, 3];
 - comment 삭제, 캐시삭제
 
 - comment를 삭제할 때 photo의 캐쉬데이터인 commentsNumber를 -1 하기 위해 photoId를 꺼내왔다.
+
+## networkerror, RestrictRoute
+
+- networkerror 처리를 어떻게 할지 삽질... 어떻게 처리를 해야 좋을까.
+
+  1. `throw error`
+  2. `window.location.href`를 이용한 리다이렉팅.. 이거는 정상적으로 서버연결이 된 상태에도 보여지게 되는데...이 문제는 또 어떻게 할까..
+
+- `<RestrictRoute>`
+  커스텀 라우트, 로그인한 상태에서 sign-up화면으로 가려하면 home으로 리다이렉팅 시킨다. 이때, props로 `isLoggedIn`을 주게 되므로 `Route`안에서는 isLoggedIn 조건문을 삭제했다.

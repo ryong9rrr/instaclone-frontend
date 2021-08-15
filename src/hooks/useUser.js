@@ -18,10 +18,14 @@ function useUser() {
   token을 건드려서 로그인화면으로 redirecting되는데
   캐시가 남아있어서 로그인이 안됨 > fetchPolicy
   */
-  const { loading, data } = useQuery(QUERY_me, {
+  const { loading, data, error } = useQuery(QUERY_me, {
     skip: !hasToken,
     fetchPolicy: "no-cache",
   });
+
+  if (error) {
+    console.log(error, "useUser error");
+  }
 
   //user가 임의로 ls의 token을 바꿨을 경우
   useEffect(() => {

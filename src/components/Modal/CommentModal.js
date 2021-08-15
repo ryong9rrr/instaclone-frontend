@@ -90,13 +90,19 @@ function CommentModal({ state, closeCommentModal, commentId, photoId }) {
 
   const onDeleteClick = () => {
     deleteCommentMutation();
+    if (!loading) {
+      closeCommentModal();
+    }
   };
 
+  /*
   useEffect(() => {
     if (!loading) {
       closeCommentModal();
     }
   }, [loading]);
+  */
+
   return (
     <>
       {state ? (

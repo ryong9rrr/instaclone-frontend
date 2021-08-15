@@ -1,7 +1,7 @@
 import { faFacebookSquare } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
-import routes from "./routes";
+import { routes } from "./routes";
 import AuthLayout from "../components/auth/AuthLayout";
 import Separator from "../components/auth/Separator";
 import Footer from "../components/Footer";

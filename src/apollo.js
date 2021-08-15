@@ -23,18 +23,24 @@ const authLink = setContext((_, { headers }) => {
 });
 
 //network check
-const errorLink = onError(({ graphQLErrors, networkError }) => {
-  if (graphQLErrors)
-    graphQLErrors.forEach(({ message, locations, path }) =>
-      console.log(
-        `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
-      )
-    );
+const errorLink = onError(
+  ({ graphQLErrors, networkError, response, operation }) => {
+    console.log(operation);
+    if (graphQLErrors)
+      graphQLErrors.forEach(({ message, locations, path }) =>
+        console.log(
+          `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
+        )
+      );
 
-  if (networkError) {
-    console.log(`[Network error]: ${networkError}`);
+    if (networkError) {
+      console.log(`[Network error]: ${networkError}`);
+      //이걸 대체 어떻게 해야할지...
+      window.location.href = "http://localhost:3000/serverError";
+      throw new Error("network error!");
+    }
   }
-});
+);
 
 // If you provide a link chain to ApolloClient, you
 // don't provide the `uri` option.
