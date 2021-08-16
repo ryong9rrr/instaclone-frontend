@@ -28,9 +28,8 @@ const Button = styled.span`
   font-weight: 600;
 `;
 
-function NavIcons() {
+function NavIcons({ myData }) {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
-  const data = useUser();
 
   return (
     <>
@@ -49,7 +48,9 @@ function NavIcons() {
             <FontAwesomeIcon icon={faHeart} size="lg" />
           </Icon>
           <Icon>
-            <Avatar url={data?.me?.avatar} />
+            <Link to={`/${myData?.userName}/`}>
+              <Avatar url={myData?.avatar} />
+            </Link>
           </Icon>
         </Icons>
       ) : (

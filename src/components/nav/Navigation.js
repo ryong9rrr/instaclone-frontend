@@ -35,7 +35,7 @@ const Column = styled.div`
   }
 `;
 
-function Navigation() {
+function Navigation({ myData }) {
   return (
     <NavContainer>
       <Nav>
@@ -46,7 +46,7 @@ function Navigation() {
           <NavSearch />
         </Column>
         <Column>
-          <NavIcons />
+          <NavIcons myData={myData} />
         </Column>
       </Nav>
     </NavContainer>

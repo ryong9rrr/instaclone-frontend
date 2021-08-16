@@ -1,9 +1,10 @@
 import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Avatar from "../Avatar";
 import { Icon } from "../Icon";
-import { FatText } from "../shared";
+import { FatText, Username } from "../shared";
 
 const Container = styled.header`
   display: flex;
@@ -26,12 +27,8 @@ const Column = styled.div`
   }
 `;
 
-const Username = styled(FatText)`
-  display: block;
-`;
-
 const Location = styled.div`
-  margin-top: 3px;
+  margin-top: 5px;
   opacity: 0.9;
   font-size: 0.9em;
 `;
@@ -46,8 +43,10 @@ function PostHeader({ avatarUrl, username, location }) {
       </Column>
       <Column>
         <div>
-          <Username>{username}</Username>
-          {location ? <Location>{location}</Location> : null}
+          <Username>
+            <Link to={`/${username}/`}>{username}</Link>
+          </Username>
+          {location && <Location>{location}</Location>}
         </div>
         <Icon size="none">
           <FontAwesomeIcon icon={faEllipsisH} />

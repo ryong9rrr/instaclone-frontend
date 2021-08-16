@@ -3,15 +3,9 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import { Icon } from "../Icon";
-import { CaptionOrPayload, extractHashtags, FatText } from "../shared";
+import { CaptionOrPayload, extractHashtags, Username } from "../shared";
 import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
-
-const Username = styled(FatText)`
-  cursor: pointer;
-  &:hover {
-    text-decoration: underline;
-  }
-`;
+import { Link } from "react-router-dom";
 
 const CommentsBox = styled.div`
   display: flex;
@@ -45,7 +39,9 @@ function Comment({
 }) {
   return (
     <CommentsBox>
-      <Username>{username}</Username>
+      <Username>
+        <Link to={`/${username}/`}>{username}</Link>
+      </Username>
       <CaptionOrPayload>{extractHashtags(payload)}</CaptionOrPayload>
       <Icons>
         {isMine ? (

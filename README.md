@@ -87,6 +87,10 @@ git config --global core.autocrlf true
 - #11.19 DeleteComment
 - networkerror, RestrictRoute
 
+### Profile
+
+- #12.0 useParams
+
 ---
 
 # Front-End Setup
@@ -506,3 +510,15 @@ const arr = [1, 2, 3];
 
 - `<RestrictRoute>`
   커스텀 라우트, 로그인한 상태에서 sign-up화면으로 가려하면 home으로 리다이렉팅 시킨다. 이때, props로 `isLoggedIn`을 주게 되므로 `Route`안에서는 isLoggedIn 조건문을 삭제했다.
+
+## #12.0 useParams
+
+- `client`를 다시 `index.js`로 옮김.
+
+- (처음부터) `App`에서 로그인한 유저 데이터(`useUser` 실행)를 받아와서 Header로 보낸다.
+
+- `Username` 컴포넌트를 만들어서 PostHeader, PhotoInfo, Comment에 재활용하고 그 안에 `<Link to...>`를 추가(누르면 프로필화면으로 갈 수 있도록).
+
+- `App`에서 profile로 가는 Route 작업을 하고 `useParams`를 활용한 `<Profile>`화면을 만들었음.
+
+즉 우리가 평소에 보는 프로필 화면은 그 링크에 데이터가 처음부터 있는 것이 아니라 링크를 통해 해당 데이터의 id 등을 확인하고 그것을 통해서 data를 fetch하는 것.

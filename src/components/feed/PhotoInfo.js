@@ -1,12 +1,6 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { FatText, extractHashtags, CaptionOrPayload } from "../shared";
-
-const Username = styled(FatText)`
-  cursor: pointer;
-  &:hover {
-    text-decoration: underline;
-  }
-`;
+import { extractHashtags, CaptionOrPayload, Username } from "../shared";
 
 const Info = styled.div`
   display: flex;
@@ -20,7 +14,9 @@ const Info = styled.div`
 function PhotoInfo({ username, caption }) {
   return (
     <Info>
-      <Username>{username}</Username>
+      <Username>
+        <Link to={`/${username}/`}>{username}</Link>
+      </Username>
       <CaptionOrPayload>{extractHashtags(caption)}</CaptionOrPayload>
     </Info>
   );

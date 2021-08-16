@@ -56,6 +56,17 @@ export const FatText = styled.span`
   color: ${(props) => props.theme.fontColor};
 `;
 
+export const Username = styled(FatText)`
+  display: inline-block;
+  a {
+    color: ${(props) => props.theme.fontColor};
+  }
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
 /**************************************** Hashtag ************************************/
 
 /* 
