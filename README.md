@@ -90,6 +90,7 @@ git config --global core.autocrlf true
 ### Profile
 
 - #12.0 useParams
+- #12.1 Queries and Fragments
 
 ---
 
@@ -522,3 +523,11 @@ const arr = [1, 2, 3];
 - `App`에서 profile로 가는 Route 작업을 하고 `useParams`를 활용한 `<Profile>`화면을 만들었음.
 
 즉 우리가 평소에 보는 프로필 화면은 그 링크에 데이터가 처음부터 있는 것이 아니라 링크를 통해 해당 데이터의 id 등을 확인하고 그것을 통해서 data를 fetch하는 것.
+
+## #12.1 Queries and Fragments
+
+중복되는 스키마를 Fragment로 묶기.
+
+- `Profile`을 `Layout`로 감쌈.
+
+- `Navigation`에 가입하기 버튼 추가.

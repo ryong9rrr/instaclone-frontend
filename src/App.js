@@ -41,7 +41,11 @@ function App() {
               component={SignUp}
               exact
             />
-            <Route path={`/:username/`} component={Profile} exact />
+            <Route path={`/:username/`} exact>
+              <Layout myData={myData?.me}>
+                <Profile />
+              </Layout>
+            </Route>
             <Route path={routes.serverError} component={ServerError} />
             <Route component={NotFound} />
           </Switch>

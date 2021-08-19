@@ -10,7 +10,6 @@ import { useReactiveVar } from "@apollo/client";
 import { isLoggedInVar } from "../../apollo";
 import { Link } from "react-router-dom";
 import { routes } from "../../screens/routes";
-import useUser from "../../hooks/useUser";
 import Avatar from "../Avatar";
 import { Icon } from "../Icon";
 
@@ -20,11 +19,20 @@ const Icons = styled.div`
   justify-content: space-between;
 `;
 
-const Button = styled.span`
+const LoginButton = styled.span`
   background-color: ${(props) => props.theme.accent};
   border-radius: 3px;
   padding: 5px 15px;
   color: white;
+  font-weight: 600;
+`;
+
+const SignUpButton = styled.span`
+  margin-left: 5px;
+  background-color: inherit;
+  border-radius: 3px;
+  padding: 5px 15px;
+  color: ${(props) => props.theme.accent};
   font-weight: 600;
 `;
 
@@ -54,9 +62,14 @@ function NavIcons({ myData }) {
           </Icon>
         </Icons>
       ) : (
-        <Link to={routes.home}>
-          <Button>Login</Button>
-        </Link>
+        <>
+          <Link to={routes.home}>
+            <LoginButton>로그인</LoginButton>
+          </Link>
+          <Link to={routes.signUp}>
+            <SignUpButton>가입하기</SignUpButton>
+          </Link>
+        </>
       )}
     </>
   );

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import PropTypes from "prop-types";
 import NavLogo from "./NavLogo";
 import NavIcons from "./NavIcons";
 import NavSearch from "./NavSearch";
@@ -52,5 +53,13 @@ function Navigation({ myData }) {
     </NavContainer>
   );
 }
+
+Navigation.propTypes = {
+  myData: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    userName: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired,
+  }),
+};
 
 export default Navigation;

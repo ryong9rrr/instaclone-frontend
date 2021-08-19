@@ -1,37 +1,29 @@
 import { gql, useQuery } from "@apollo/client";
+import { COMMENT_FRAGMENT, PHOTO_FRAGMENT } from "../../fragments";
 import Post from "./Post";
 
-export const Query_seeFeed = gql`
+export const QUERY_seeFeed = gql`
+  ${PHOTO_FRAGMENT}
+  ${COMMENT_FRAGMENT}
   query seeFeed {
     seeFeed {
-      id
+      ...PhotoFragment
       user {
         userName
         avatar
       }
-      file
       caption
-      likes
-      commentsNumber
       comments {
-        id
-        payload
-        isMine
-        createdAt
-        user {
-          id
-          userName
-        }
+        ...CommentFragment
       }
       isMine
-      isLiked
       createdAt
     }
   }
 `;
 
 function Feed({ openCommentModal }) {
-  const { data, loading, error } = useQuery(Query_seeFeed, {
+  const { data, loading, error } = useQuery(QUERY_seeFeed, {
     fetchPolicy: "network-only",
     nextFetchPolicy: "cache-first",
   });

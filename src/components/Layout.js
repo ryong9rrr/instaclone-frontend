@@ -2,7 +2,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import Navigation from "./nav/Navigation";
 
-const Content = styled.main`
+const MainContent = styled.main`
   max-width: 950px;
   margin: 30px auto 0px;
   width: 100%;
@@ -12,7 +12,7 @@ function Layout({ children, myData }) {
   return (
     <>
       <Navigation myData={myData} />
-      <Content>{children}</Content>
+      <MainContent>{children}</MainContent>
     </>
   );
 }

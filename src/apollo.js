@@ -36,8 +36,8 @@ const errorLink = onError(
     if (networkError) {
       console.log(`[Network error]: ${networkError}`);
       //이걸 대체 어떻게 해야할지...
-      window.location.href = "http://localhost:3000/serverError";
-      throw new Error("network error!");
+      //window.location.href = "http://localhost:3000/serverError";
+      //throw new Error("network error!");
     }
   }
 );
