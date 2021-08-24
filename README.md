@@ -91,6 +91,7 @@ git config --global core.autocrlf true
 
 - #12.0 useParams
 - #12.1 Queries and Fragments
+- #12.2 apollo keyFields
 
 ---
 
@@ -531,3 +532,7 @@ const arr = [1, 2, 3];
 - `Profile`을 `Layout`로 감쌈.
 
 - `Navigation`에 가입하기 버튼 추가.
+
+## #12.2 apollo keyFields
+
+apollo cache에서 유니크한 필드를 따로 관리한다.

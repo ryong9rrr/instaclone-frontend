@@ -48,7 +48,13 @@ export const client = new ApolloClient({
   // The `from` function combines an array of individual links
   // into a link chain
   link: from([errorLink, authLink.concat(httpLink)]),
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    typePolicies: {
+      User: {
+        keyFields: (obj) => `User:${obj.userName}`,
+      },
+    },
+  }),
 });
 
 const TOKEN = "TOKEN";

@@ -6,6 +6,7 @@ const QUERY_seeProfile = gql`
   ${PHOTO_FRAGMENT}
   query seeProfile($userName: String!) {
     seeProfile(userName: $userName) {
+      id
       firstName
       lastName
       userName
