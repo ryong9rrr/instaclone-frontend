@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Avatar from "../Avatar";
 import { Icon } from "../Icon";
-import { FatText, Username } from "../shared";
+import { Username } from "../shared";
 
 const Container = styled.header`
   display: flex;
@@ -14,15 +14,9 @@ const Container = styled.header`
 
 const Column = styled.div`
   &:first-child {
-    width: 9%;
+    margin-right: 10px;
   }
-  &:last-child {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  div {
+  &:nth-child(2) {
     width: 100%;
   }
 `;
@@ -42,12 +36,12 @@ function PostHeader({ avatarUrl, username, location }) {
         </Icon>
       </Column>
       <Column>
-        <div>
-          <Username>
-            <Link to={`/${username}/`}>{username}</Link>
-          </Username>
-          {location && <Location>{location}</Location>}
-        </div>
+        <Username>
+          <Link to={`/${username}/`}>{username}</Link>
+        </Username>
+        {location && <Location>{location}</Location>}
+      </Column>
+      <Column>
         <Icon size="none">
           <FontAwesomeIcon icon={faEllipsisH} />
         </Icon>

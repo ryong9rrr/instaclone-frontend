@@ -1,5 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
+import PageTitle from "../components/PageTitle";
+import UserHeader from "../components/profile/UserHeader";
 import { PHOTO_FRAGMENT } from "../fragments";
 
 const QUERY_seeProfile = gql`
@@ -35,7 +37,25 @@ function Profile() {
 
   console.log(data, loading, error);
 
-  return <h1>{username} profile!</h1>;
+  return (
+    <>
+      <PageTitle
+        title={`${data?.seeProfile?.lastName + data?.seeProfile?.firstName}(@${
+          data?.seeProfile?.userName
+        })`}
+      />
+      <UserHeader
+        avatar={data?.seeProfile?.avatar}
+        username={data?.seeProfile?.userName}
+        bio={data?.seeProfile?.bio}
+        totalPhotos={data?.seeProfile?.totalPhotos}
+        totalFollowers={data?.seeProfile?.totalFollowers}
+        totalFollowing={data?.seeProfile?.totalFollowing}
+        isFollowing={data?.seeProfile?.isFollowing}
+        isMe={data?.seeProfile?.isMe}
+      />
+    </>
+  );
 }
 
 export default Profile;

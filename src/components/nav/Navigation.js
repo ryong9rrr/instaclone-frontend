@@ -58,7 +58,7 @@ Navigation.propTypes = {
   myData: PropTypes.shape({
     id: PropTypes.number.isRequired,
     userName: PropTypes.string.isRequired,
-    avatar: PropTypes.string.isRequired,
+    avatar: PropTypes.string,
   }),
 };
 

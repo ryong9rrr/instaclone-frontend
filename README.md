@@ -92,6 +92,7 @@ git config --global core.autocrlf true
 - #12.0 useParams
 - #12.1 Queries and Fragments
 - #12.2 apollo keyFields
+- Profile screen Header + react img
 
 ---
 
@@ -536,3 +537,11 @@ const arr = [1, 2, 3];
 ## #12.2 apollo keyFields
 
 apollo cache에서 유니크한 필드를 따로 관리한다.
+
+## Profile screen Header + react img
+
+- Profile화면의 `UserHeader`작업중...
+
+- react 이미지 불러오기(`Avatar.js`)
+
+  avatar가 없다면 `public > img`폴더안의 `noneUser.png`를 불러온다.
