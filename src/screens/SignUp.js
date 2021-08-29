@@ -37,9 +37,13 @@ const FormInput = styled(Input)`
   }
 `;
 
-const SignUpButton = styled(Button)`
-  margin-bottom: 20px;
+const Btn = styled(Button)`
+  margin: 15px 0px 20px;
+  width: 100%;
+  padding: 6px 0px;
 `;
+
+const SignUpButton = styled(Button)``;
 
 const FacebookLogin = styled.button`
   width: 100%;
@@ -199,11 +203,9 @@ function SignUp() {
             />
             <FormError message={formState.errors?.password?.message} />
             <FormError message={formState.errors?.result?.message} />
-            <SignUpButton
-              type="submit"
-              value={loading ? "Loading..." : "Sign up"}
-              disabled={!formState.isValid || loading}
-            />
+            <Btn type="submit" disabled={!formState.isValid || loading}>
+              {loading ? "Loading..." : "Sign up"}
+            </Btn>
           </form>
         </FormBox>
         <BottomBox

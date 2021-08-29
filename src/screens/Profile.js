@@ -2,6 +2,8 @@ import { gql, useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import PageTitle from "../components/PageTitle";
 import UserHeader from "../components/profile/UserHeader";
+import UserLink from "../components/profile/UserLink";
+import UserPosts from "../components/profile/UserPosts";
 import { PHOTO_FRAGMENT } from "../fragments";
 
 const QUERY_seeProfile = gql`
@@ -35,6 +37,10 @@ function Profile() {
     },
   });
 
+  if (loading) {
+    return <div>loading...</div>;
+  }
+
   console.log(data, loading, error);
 
   return (
@@ -54,6 +60,8 @@ function Profile() {
         isFollowing={data?.seeProfile?.isFollowing}
         isMe={data?.seeProfile?.isMe}
       />
+      <UserLink />
+      <UserPosts />
     </>
   );
 }

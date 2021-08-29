@@ -11,18 +11,28 @@ export const BaseBox = styled.div`
     ${(props) => props.theme.borderColor};
 `;
 
-export const Button = styled.input`
-  margin-top: 15px;
-  width: 100%;
+export const Button = styled.button`
+  font-size: ${(props) => props.fontsize || "16px"};
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   background-color: ${(props) => props.theme.accent};
   color: white;
   font-weight: 600;
-  padding: 8px 0px;
   text-align: center;
   cursor: ${(props) => (props.disabled ? "auto" : "pointer")};
   opacity: ${(props) => (props.disabled ? "0.4" : "1")};
+  padding: 5px ${(props) => props.side};
+`;
+
+export const NormalButton = styled.button`
+  border: 1px solid ${(props) => props.theme.borderColor};
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 5px ${(props) => props.side};
+  background-color: #fafafa;
+  text-align: center;
 `;
 
 export const Input = styled.input`

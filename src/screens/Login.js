@@ -43,6 +43,12 @@ const FacebookLogin = styled.div`
   }
 `;
 
+const Btn = styled(Button)`
+  margin-top: 15px;
+  width: 100%;
+  padding: 6px 0px;
+`;
+
 const LossPassword = styled.div`
   color: ${(props) => props.theme.facebookColor};
   font-size: 12px;
@@ -144,11 +150,9 @@ function Login() {
             />
             <FormError message={formState.errors?.password?.message} />
             <FormError message={formState.errors?.result?.message} />
-            <Button
-              type="submit"
-              value={loading ? "Loading..." : "Log In"}
-              disabled={!formState.isValid || loading}
-            />
+            <Btn type="submit" disabled={!formState.isValid || loading}>
+              {loading ? "Loading..." : "Log In"}
+            </Btn>
           </form>
           <Separator />
           <FacebookLogin>

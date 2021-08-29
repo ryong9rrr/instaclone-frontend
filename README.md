@@ -24,6 +24,8 @@ git config --global core.autocrlf true
 
 - Feed에서 comments 2개씩 보이도록 하기
 
+- "프로필 편집"을 누르면 내 프로필을 편집할 수 있도록 해야 하는데... 단순한 useParams가 아닌 authorization이 필요하다... 어떻게 해야할까?
+
 ---
 
 ## 📖 목차
@@ -93,6 +95,7 @@ git config --global core.autocrlf true
 - #12.1 Queries and Fragments
 - #12.2 apollo keyFields
 - Profile screen Header + react img
+- Profile screen Header 2
 
 ---
 
@@ -545,3 +548,29 @@ apollo cache에서 유니크한 필드를 따로 관리한다.
 - react 이미지 불러오기(`Avatar.js`)
 
   avatar가 없다면 `public > img`폴더안의 `noneUser.png`를 불러온다.
+
+## Profile screen Header 2
+
+Profile 화면 작업중...
+
+- box-sizing 선언위치에 따라서 적용이 달라짐.
+
+```
+* {
+      box-sizing: border-box;
+  }
+
+의 선언 위치에 따라 적용되는 것이 달라짐 (body 전에 선언하면 Feed의 comment가 무너짐)
+```
+
+- `Icon`안에 보통 fontawesome icon을 넣는데, 가운데 정렬을 위해 `display: inline-flex; align-items: center;` 을 적용.
+
+- `NormalButton`을 추가,(기존 Button은 파란색바탕에 흰색글씨) 두 버튼의 가로방향 padding을 조절하는 props를 추가했음.
+
+- `Button`의 이름을 바꾸고 싶지만... 그냥 내비둠. 본래 `input`이었지만 `button`으로 변경, 그에 따라 다른 screen들 수정.
+
+다음으로 할 것
+
+- Profile에서 가운데 버튼들은 Link버튼이다. 내부에 작은 라우터를 설정해줘야 할듯?
+
+- Navigation에서 모달창 추가해보기

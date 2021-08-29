@@ -41,14 +41,14 @@ export const GlobalStyles = createGlobalStyle`
       color: ${(props) => props.theme.accent};
     }
 
-    * {
-        box-sizing: border-box;
-    }
-
     body {
       background-color: ${(props) => props.theme.bgColor};
-      font-size:14px;
+      font-size:16px;
       color: ${(props) => props.theme.fontColor};
+    }
+
+    * {
+      box-sizing: border-box;
     }
 `;
 
