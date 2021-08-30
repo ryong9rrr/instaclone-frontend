@@ -96,6 +96,7 @@ git config --global core.autocrlf true
 - #12.2 apollo keyFields
 - Profile screen Header + react img
 - Profile screen Header 2
+- Profile NavLink
 
 ---
 
@@ -574,3 +575,12 @@ Profile 화면 작업중...
 - Profile에서 가운데 버튼들은 Link버튼이다. 내부에 작은 라우터를 설정해줘야 할듯?
 
 - Navigation에서 모달창 추가해보기
+
+## Profile NavLink
+
+- 없는 유저를 주소창에 검색한 경우 `NotFound`를 리턴한다.
+
+Router 설정
+
+- `NavLink`를 이용하여 `NavLink`의 주소와 설정된 주소가 같다면 css를 추가 할 수 있도록 하였음.
+- `App.js`에서 profile에 exact를 해제, 마찬가지로 Profile 내부 라우터에서도 게시물(첫화면)은 exact를 해제.
