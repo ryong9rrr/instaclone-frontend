@@ -8,7 +8,6 @@ import { gql, useMutation } from "@apollo/client";
 //components
 import AuthLayout from "../components/auth/AuthLayout";
 import Separator from "../components/auth/Separator";
-import Footer from "../components/Footer";
 import DownloadApp from "../components/auth/DownloadApp";
 import FormBox from "../components/auth/FormBox";
 import BottomBox from "../components/auth/BottomBox";
@@ -17,6 +16,7 @@ import PageTitle from "../components/PageTitle";
 import FormError from "../components/auth/FormError";
 import { logUserIn } from "../apollo";
 import { useHistory, useLocation } from "react-router-dom";
+import Footer from "../components/footer/Footer";
 
 const Title = styled(Symbol)`
   display: block;
@@ -170,7 +170,7 @@ function Login() {
         />
         <DownloadApp />
       </AuthLayout>
-      <Footer />
+      <Footer screen="auth" />
     </React.Fragment>
   );
 }

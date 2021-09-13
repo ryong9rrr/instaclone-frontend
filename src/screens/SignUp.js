@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { routes } from "./routes";
 import AuthLayout from "../components/auth/AuthLayout";
 import Separator from "../components/auth/Separator";
-import Footer from "../components/Footer";
 import DownloadApp from "../components/auth/DownloadApp";
 import FormBox from "../components/auth/FormBox";
 import BottomBox from "../components/auth/BottomBox";
@@ -22,6 +21,7 @@ import { useHistory } from "react-router-dom";
 import FormError from "../components/auth/FormError";
 import Notification from "../components/Notification";
 import { useState } from "react";
+import Footer from "../components/footer/Footer";
 
 const Title = styled(Symbol)`
   font-size: 50px;
@@ -42,8 +42,6 @@ const Btn = styled(Button)`
   width: 100%;
   padding: 6px 0px;
 `;
-
-const SignUpButton = styled(Button)``;
 
 const FacebookLogin = styled.button`
   width: 100%;
@@ -140,7 +138,7 @@ function SignUp() {
   };
 
   return (
-    <div>
+    <>
       <AuthLayout>
         <PageTitle title="Sign up" />
         <FormBox>
@@ -215,12 +213,12 @@ function SignUp() {
         />
         <DownloadApp />
       </AuthLayout>
-      <Footer />
+      <Footer screen="auth" />
       <Notification
         state={notification}
         message="Account created. Please log in."
       />
-    </div>
+    </>
   );
 }
 

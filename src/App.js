@@ -41,7 +41,7 @@ function App() {
               component={SignUp}
               exact
             />
-            <Route path={`/:username/`}>
+            <Route path={"/:username/"}>
               <Layout myData={myData?.me}>
                 <Profile />
               </Layout>

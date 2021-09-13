@@ -97,6 +97,7 @@ git config --global core.autocrlf true
 - Profile screen Header + react img
 - Profile screen Header 2
 - Profile NavLink
+- Profile NavLink, Footer, grid 작업중...
 
 ---
 
@@ -584,3 +585,12 @@ Router 설정
 
 - `NavLink`를 이용하여 `NavLink`의 주소와 설정된 주소가 같다면 css를 추가 할 수 있도록 하였음.
 - `App.js`에서 profile에 exact를 해제, 마찬가지로 Profile 내부 라우터에서도 게시물(첫화면)은 exact를 해제.
+- profile에서 이상한 주소를 입력할 때 화면 전체로 `NotFound`를 띄우려면 `Router`안에다가 `ProfileHeader, Link..`를 다 복붙해야하는데 그건 너무 구려서 그냥 링크버튼 아래에만 띄우는 걸로..
+
+## Profile NavLink, Footer, grid 작업중...
+
+- Profile에서 NavLink 만들었음.
+
+- Footer를 조금 더 구체적으로 만들었음.
+
+- Profile - `UserPosts.js`에서 사진이 보여지는 것을 grid로 할지..flex-box로 할지 고민중..
