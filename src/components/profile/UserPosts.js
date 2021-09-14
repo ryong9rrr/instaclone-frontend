@@ -1,29 +1,32 @@
 import styled from "styled-components";
 
-const Contatiner = styled.section`
-  display: flex;
-  width: 100%;
+const Container = styled.section`
+  display: block;
+  border: 3px solid red;
 `;
-
+//gap을 %로 주면 튀어나감
 const Grid = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: auto;
   gap: 28px;
 `;
 
-const PhotoBox = styled.div`
-  display: flex;
-  width: 298px;
-  height: 298px;
-  background-color: blue;
-  img {
+const PhotoContainer = styled.div`
+  width: 100%;
+  position: relative;
+  background-color: green;
+  &::after {
     display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    content: "";
+    padding-bottom: 100%;
   }
+`;
+
+const PhotoBox = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
 `;
 
 function UserPosts({ photos }) {
@@ -33,15 +36,21 @@ function UserPosts({ photos }) {
   console.log(photos);
 
   return (
-    <Contatiner>
+    <Container>
       <Grid>
-        {photos?.map((photo, index) => (
-          <PhotoBox key={index}>
-            <img src="https://instaclone-uploads-ryong9rrr.s3.ap-northeast-2.amazonaws.com/uploads/1-1623339037723-me.jpg" />
-          </PhotoBox>
-        ))}
+        <PhotoContainer>
+          <PhotoBox>hi</PhotoBox>
+        </PhotoContainer>
+        <PhotoContainer></PhotoContainer>
+        <PhotoContainer></PhotoContainer>
+        <PhotoContainer>
+          <PhotoBox>hi</PhotoBox>
+        </PhotoContainer>
+        <PhotoContainer></PhotoContainer>
+        <PhotoContainer></PhotoContainer>
+        <PhotoContainer></PhotoContainer>
       </Grid>
-    </Contatiner>
+    </Container>
   );
 }
 

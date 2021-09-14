@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const Container = styled.footer`
+  box-sizing: border-box;
   position: ${(props) => props.fix && "fixed"};
   bottom: 0;
   left: 0;
@@ -32,12 +33,20 @@ function Footer({ fix, screen }) {
       <LinkBox>
         <Row>
           <Btn>
-            <a href="https://about.instagram.com/" target="_blank">
+            <a
+              href="https://about.instagram.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
               소개
             </a>
           </Btn>
           <Btn>
-            <a href="https://about.instagram.com/blog" target="_blank">
+            <a
+              href="https://about.instagram.com/blog"
+              target="_blank"
+              rel="noreferrer"
+            >
               블로그
             </a>
           </Btn>
@@ -45,12 +54,17 @@ function Footer({ fix, screen }) {
             <a
               href="https://about.instagram.com/about-us/careers"
               target="_blank"
+              rel="noreferrer"
             >
               채용 정보
             </a>
           </Btn>
           <Btn>
-            <a href="https://about.instagram.com/" target="_blank">
+            <a
+              href="https://about.instagram.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
               도움말
             </a>
           </Btn>
@@ -58,6 +72,7 @@ function Footer({ fix, screen }) {
             <a
               href="https://developers.facebook.com/docs/instagram"
               target="_blank"
+              rel="noreferrer"
             >
               API
             </a>
@@ -66,6 +81,7 @@ function Footer({ fix, screen }) {
             <a
               href="https://help.instagram.com/519522125107875"
               target="_blank"
+              rel="noreferrer"
             >
               개인정보처리방침
             </a>
@@ -74,27 +90,28 @@ function Footer({ fix, screen }) {
             <a
               href="https://help.instagram.com/581066165581870"
               target="_blank"
+              rel="noreferrer"
             >
               약관
             </a>
           </Btn>
           <Btn>
-            <a href="/" target="_blank">
+            <a href="/" target="_blank" rel="noreferrer">
               인기 계정
             </a>
           </Btn>
           <Btn>
-            <a href="/" target="_blank">
+            <a href="/" target="_blank" rel="noreferrer">
               해시태그
             </a>
           </Btn>
           <Btn>
-            <a href="/" target="_blank">
+            <a href="/" target="_blank" rel="noreferrer">
               위치
             </a>
           </Btn>
           <Btn>
-            <a href="/" target="_blank">
+            <a href="/" target="_blank" rel="noreferrer">
               Instagram Lite
             </a>
           </Btn>

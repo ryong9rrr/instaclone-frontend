@@ -98,6 +98,7 @@ git config --global core.autocrlf true
 - Profile screen Header 2
 - Profile NavLink
 - Profile NavLink, Footer, grid 작업중...
+- Profile Grid
 
 ---
 
@@ -594,3 +595,7 @@ Router 설정
 - Footer를 조금 더 구체적으로 만들었음.
 
 - Profile - `UserPosts.js`에서 사진이 보여지는 것을 grid로 할지..flex-box로 할지 고민중..
+
+## Profile Grid
+
+- CSS grid를 이용하여 바둑판식 배열 나타내기(반응형)
