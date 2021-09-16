@@ -99,6 +99,7 @@ git config --global core.autocrlf true
 - Profile NavLink
 - Profile NavLink, Footer, grid 작업중...
 - Profile Grid
+- Profile Grid + media query
 
 ---
 
@@ -599,3 +600,7 @@ Router 설정
 ## Profile Grid
 
 - CSS grid를 이용하여 바둑판식 배열 나타내기(반응형)
+
+## Profile Grid + media query
+
+- media query를 이용하여 화면이 작아졌을 때 grid의 gap을 축소.

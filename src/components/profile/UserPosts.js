@@ -1,15 +1,17 @@
 import styled from "styled-components";
 
 const Container = styled.section`
-  display: block;
   border: 3px solid red;
 `;
-//gap을 %로 주면 튀어나감
+//gap을 %로 주면 튀어나감, 따라서 미디어쿼리로 화면이 작아졌을 때 반응형css를 추가.
 const Grid = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
+  @media screen and (max-width: 718px) {
+    gap: 3px;
+  }
 `;
 
 const PhotoContainer = styled.div`
