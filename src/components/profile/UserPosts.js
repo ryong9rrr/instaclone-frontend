@@ -1,34 +1,9 @@
 import styled from "styled-components";
+import Card from "../Card";
+import GridContainer from "../grid/GridContainer";
 
 const Container = styled.section`
-  border: 3px solid red;
-`;
-//gap을 %로 주면 튀어나감, 따라서 미디어쿼리로 화면이 작아졌을 때 반응형css를 추가.
-const Grid = styled.div`
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  @media screen and (max-width: 718px) {
-    gap: 3px;
-  }
-`;
-
-const PhotoContainer = styled.div`
-  width: 100%;
-  position: relative;
-  background-color: green;
-  &::after {
-    display: block;
-    content: "";
-    padding-bottom: 100%;
-  }
-`;
-
-const PhotoBox = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
 `;
 
 function UserPosts({ photos }) {
@@ -39,19 +14,18 @@ function UserPosts({ photos }) {
 
   return (
     <Container>
-      <Grid>
-        <PhotoContainer>
-          <PhotoBox>hi</PhotoBox>
-        </PhotoContainer>
-        <PhotoContainer></PhotoContainer>
-        <PhotoContainer></PhotoContainer>
-        <PhotoContainer>
-          <PhotoBox>hi</PhotoBox>
-        </PhotoContainer>
-        <PhotoContainer></PhotoContainer>
-        <PhotoContainer></PhotoContainer>
-        <PhotoContainer></PhotoContainer>
-      </Grid>
+      <GridContainer>
+        {photos?.map((photo, index) => (
+          <Card
+            key={index}
+            id={photo.id}
+            file={photo.file}
+            commentsNumber={photo.commentsNumber}
+            isLiked={photo.isLiked}
+            likes={photo.likes}
+          />
+        ))}
+      </GridContainer>
     </Container>
   );
 }

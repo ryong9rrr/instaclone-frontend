@@ -100,6 +100,7 @@ git config --global core.autocrlf true
 - Profile NavLink, Footer, grid 작업중...
 - Profile Grid
 - Profile Grid + media query
+- Profile Card
 
 ---
 
@@ -604,3 +605,13 @@ Router 설정
 ## Profile Grid + media query
 
 - media query를 이용하여 화면이 작아졌을 때 grid의 gap을 축소.
+
+## Profile Card
+
+- `UserPosts`에서 `GridContainer`, `Card`를 분리하였음.
+
+**Card**
+
+- file이 http..로 시작하지 않는다면 `noneImage.jpg`가 뜨도록 하였음.
+
+- `Card`에 hover기능을 넣었음. 기존에 나는 hover를 적용시킬때 `onMouseOver, onMouseOut`을 사용해서 hover부분이 깜빡이는 현상이 있었는데 이 2가지 이벤트는 계속해서 실행되기 때문이었음. 따라서 hover를 적용시킬 때는 `onMouseEnter, onMouseLeave`를 사용해야한다.
