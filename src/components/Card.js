@@ -51,10 +51,13 @@ const HoverBox = styled.div`
   color: white;
   font-weight: 600;
   font-size: 1rem;
+  opacity: 0;
+  &:hover {
+    opacity: 1;
+  }
 `;
 
 function Card({ id, file, commentsNumber, isLiked, likes }) {
-  const [hover, setHover] = useState(false);
   return (
     <Container url={file}>
       {Array.isArray(file) && (
@@ -62,15 +65,10 @@ function Card({ id, file, commentsNumber, isLiked, likes }) {
           <FontAwesomeIcon icon={faClone} />
         </TopIcon>
       )}
-      <Box
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-      >
-        {hover && (
-          <HoverBox>
-            {commentsNumber}/{likes}
-          </HoverBox>
-        )}
+      <Box>
+        <HoverBox>
+          {commentsNumber}/{likes}
+        </HoverBox>
       </Box>
     </Container>
   );
