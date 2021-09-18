@@ -102,6 +102,7 @@ git config --global core.autocrlf true
 - Profile Grid + media query
 - Profile Card
 - Profile Card hover
+- Card Icon, clean-up bug
 
 ---
 
@@ -620,3 +621,9 @@ Router 설정
 ## Profile Card hover
 
 - `useState`를 사용하지 않고 단순히 구현하기. `useState`를 사용하는 방법과 단순히 구현하는 법 2가지를 적절히 사용해보자.
+
+## Card Icon, clean-up bug
+
+- Card Icon 부분 업데이트함.
+
+- <img src="public/img/cleanup.png" /> 라는 버그 발생... `Feed`에서 좋아요를 누르거나 코멘트를 다는 등의 data를 변경하고 프로필에 갔다가 다시 좋아요를 누르거나 코멘트를 달면 발생... 원인은 대충 알겠는데 어떻게 해결을 해야하나...

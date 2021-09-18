@@ -24,6 +24,7 @@ function Home() {
     setCommentModal(true);
     document.body.style.overflow = "hidden";
   };
+
   return (
     <>
       <PageTitle />
