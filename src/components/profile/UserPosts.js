@@ -10,7 +10,6 @@ function UserPosts({ photos }) {
   if (!photos) {
     return <span>게시물</span>;
   }
-  console.log(photos);
 
   return (
     <Container>

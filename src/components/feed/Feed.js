@@ -25,8 +25,6 @@ const QUERY_seeFeed = gql`
 function Feed({ openCommentModal }) {
   const { data, loading, error } = useQuery(QUERY_seeFeed);
 
-  //console.log(loading, error);
-
   if (loading) {
     return <div>loading...</div>;
   }

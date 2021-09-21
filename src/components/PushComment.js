@@ -16,7 +16,7 @@ const MUTATION_createComment = gql`
   }
 `;
 
-const PushCommentContainer = styled.section`
+const PushCommentContainer = styled.div`
   width: 100%;
   margin-top: 5px;
   border-top: 0.5px solid ${(props) => props.theme.borderColor};

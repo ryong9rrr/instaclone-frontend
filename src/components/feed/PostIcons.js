@@ -19,7 +19,7 @@ const MUTATION_toggleLike = gql`
   }
 `;
 
-const Icons = styled.section`
+const Icons = styled.div`
   display: flex;
   padding: 10px 16px;
 `;

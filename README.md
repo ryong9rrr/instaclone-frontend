@@ -103,6 +103,7 @@ git config --global core.autocrlf true
 - Profile Card
 - Profile Card hover
 - Card Icon, clean-up bug
+- #12.3 ~ 12.4 Follow - UnFollow ViewButton
 
 ---
 
@@ -627,3 +628,9 @@ Router 설정
 - Card Icon 부분 업데이트함.
 
 - <img src="public/img/cleanup.png" /> 라는 버그 발생... `Feed`에서 좋아요를 누르거나 코멘트를 다는 등의 data를 변경하고 프로필에 갔다가 다시 좋아요를 누르거나 코멘트를 달면 발생... 원인은 대충 알겠는데 어떻게 해결을 해야하나...
+
+## #12.3 ~ 12.4 Follow - UnFollow ViewButton
+
+- `styled-component` 태그 바꾸기. 이미 만들어놓은 컴포넌트를 쉐어링할때, 만들어놓은 컴포넌트가 `div`인데 이거를 `section`으로 쓰고싶다면, `attr`메소드를 이용하여 태그를 바꿀 수 있음.
+
+- `UserBox` - `ViewButton()` 접속한 사람이 "나"라면 `EditButton`을 보여주고, 또 팔로우 여부에 따라 각기 다른 버튼을 보여주고 싶을 때, 삼항연산자 안에 삼항연산자를 또 넣고 하는 것은 좀 가독성이 좋지 않다. 따라서 컴포넌트를 따로 분리해놓고 함수를 이용하여 각기 다른 버튼을 리턴하게 하는 방법.

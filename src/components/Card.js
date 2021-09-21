@@ -2,7 +2,7 @@ import { faClone, faComment, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 
-const Container = styled.div`
+const Container = styled.article`
   width: 100%;
   position: relative;
   background: ${(props) =>

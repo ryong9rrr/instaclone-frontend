@@ -11,13 +11,15 @@ import { FatText } from "../shared";
 
 //좌우 10px
 
-const PostContainer = styled(BaseBox)`
+const PostContainer = styled(BaseBox).attrs({
+  as: "article",
+})`
   border-radius: 3px;
   max-width: 615px;
   margin-bottom: 25px;
 `;
 
-const Contents = styled.section`
+const Contents = styled.div`
   padding: 0px 16px;
 `;
 

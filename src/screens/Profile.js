@@ -1,7 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import PageTitle from "../components/PageTitle";
-import UserHeader from "../components/profile/UserHeader";
+import UserBox from "../components/profile/UserBox";
 import UserPosts from "../components/profile/UserPosts";
 import { PHOTO_FRAGMENT } from "../fragments";
 import { Route, Switch } from "react-router-dom";
@@ -63,7 +63,7 @@ function Profile() {
           data?.seeProfile?.userName
         })`}
       />
-      <UserHeader
+      <UserBox
         avatar={data?.seeProfile?.avatar}
         username={data?.seeProfile?.userName}
         bio={data?.seeProfile?.bio}
