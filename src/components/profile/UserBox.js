@@ -59,7 +59,7 @@ const UserBio = styled.div`
   width: 100%;
 `;
 
-function ViewButton({ isMe, isFollowing }) {
+function ViewButton({ isMe, isFollowing, username }) {
   if (isMe) {
     return (
       <Btns>
@@ -69,7 +69,7 @@ function ViewButton({ isMe, isFollowing }) {
   }
   return (
     <Btns>
-      <FollowButton isFollowing={isFollowing} />
+      <FollowButton isFollowing={isFollowing} username={username} />
     </Btns>
   );
 }
@@ -94,7 +94,7 @@ function UserBox({
       <UserInfo>
         <User>
           <h2>{username}</h2>
-          {ViewButton({ isMe, isFollowing })}
+          {ViewButton({ isMe, isFollowing, username })}
         </User>
         <UserTotal>
           <li>

@@ -9,7 +9,7 @@ import NotFound from "./NotFound";
 import UserLink from "../components/profile/UserLink";
 import Footer from "../components/footer/Footer";
 
-const QUERY_seeProfile = gql`
+export const QUERY_seeProfile = gql`
   ${PHOTO_FRAGMENT}
   query seeProfile($userName: String!) {
     seeProfile(userName: $userName) {

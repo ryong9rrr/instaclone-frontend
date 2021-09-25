@@ -9,6 +9,9 @@ import { Button, NormalButton as Btn } from "../shared";
 import styled from "styled-components";
 import { Icon } from "../Icon";
 import gql from "graphql-tag";
+import { useMutation } from "@apollo/client";
+import { QUERY_seeProfile } from "../../screens/Profile";
+import useUser, { QUERY_me } from "../../hooks/useUser";
 
 const MUTATION_followUser = gql`
   mutation followUser($userName: String!) {
@@ -34,13 +37,40 @@ const FollowBtn = styled(Button)`
 
 const iconStyle = { opacity: "0.7" };
 
-function FollowButton({ isFollowing }) {
+function FollowButton({ isFollowing, username }) {
+  const userData = useUser();
+
+  const [followUser] = useMutation(MUTATION_followUser, {
+    variables: {
+      userName: username,
+    },
+    refetchQueries: [
+      { query: QUERY_seeProfile, variables: { userName: username } },
+      {
+        query: QUERY_seeProfile,
+        variables: { userName: userData?.me?.userName },
+      },
+    ],
+  });
+
+  const [unfollowUser] = useMutation(MUTATION_unfollowUser, {
+    variables: {
+      userName: username,
+    },
+    refetchQueries: [
+      { query: QUERY_seeProfile, variables: { userName: username } },
+      {
+        query: QUERY_me,
+      },
+    ],
+  });
+
   return isFollowing ? (
     <>
       <Btn className="message" side="7px">
         메세지 보내기
       </Btn>
-      <Btn className="isFollow" side="20px">
+      <Btn onClick={unfollowUser} className="isFollow" side="20px">
         <FontAwesomeIcon icon={faUser} size="sm" />
         <FontAwesomeIcon icon={faCheck} size="sm" />
       </Btn>
@@ -53,7 +83,7 @@ function FollowButton({ isFollowing }) {
     </>
   ) : (
     <>
-      <FollowBtn>팔로우</FollowBtn>
+      <FollowBtn onClick={followUser}>팔로우</FollowBtn>
       <Button className="recommend" fontsize="10px" side="12px">
         <FontAwesomeIcon icon={faChevronDown} size="sm" style={iconStyle} />
       </Button>

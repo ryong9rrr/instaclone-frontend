@@ -104,6 +104,7 @@ git config --global core.autocrlf true
 - Profile Card hover
 - Card Icon, clean-up bug
 - #12.3 ~ 12.4 Follow - UnFollow ViewButton
+- #12.5 Follow-unFollow refetchQuery
 
 ---
 
@@ -634,3 +635,11 @@ Router 설정
 - `styled-component` 태그 바꾸기. 이미 만들어놓은 컴포넌트를 쉐어링할때, 만들어놓은 컴포넌트가 `div`인데 이거를 `section`으로 쓰고싶다면, `attr`메소드를 이용하여 태그를 바꿀 수 있음.
 
 - `UserBox` - `ViewButton()` 접속한 사람이 "나"라면 `EditButton`을 보여주고, 또 팔로우 여부에 따라 각기 다른 버튼을 보여주고 싶을 때, 삼항연산자 안에 삼항연산자를 또 넣고 하는 것은 좀 가독성이 좋지 않다. 따라서 컴포넌트를 따로 분리해놓고 함수를 이용하여 각기 다른 버튼을 리턴하게 하는 방법.
+
+## #12.5 Follow-unFollow refetchQuery
+
+팔로우/언팔로우를 했을 때 `seeProfile`쿼리를 다시 불러와서 화면 업데이트 하기. 많은 양의 데이터를 불러와야한다면 refetchQuery는 그다지 좋은 방법이 되지 않을 수 있다.
+
+`useUser`의 `me`쿼리를 export해서 팔로우/언팔로우를 하고 "내 프로필"에 들어갔을 때 팔로워/팔로잉 수가 적용되도록 함. 따라서 `me`쿼리에 `totalFollowers, totalFollowing` 필드를 추가했음.
+
+내 프로필 업데이트 방법 2가지 👉 `FollowButton`에서 2가지 mutation의 refetchQueries에 하나는 `seeProfile`쿼리를 불러와서 내 프로필을 업데이트하고, 하나는 필드를 추가한 `me`쿼리를 이용해서 내 프로필을 업데이트 시켰음.
