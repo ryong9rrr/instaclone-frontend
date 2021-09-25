@@ -105,6 +105,7 @@ git config --global core.autocrlf true
 - Card Icon, clean-up bug
 - #12.3 ~ 12.4 Follow - UnFollow ViewButton
 - #12.5 Follow-unFollow refetchQuery
+- #12.6 ~ 12.8 Follow-unFollow cache update
 
 ---
 
@@ -643,3 +644,7 @@ Router 설정
 `useUser`의 `me`쿼리를 export해서 팔로우/언팔로우를 하고 "내 프로필"에 들어갔을 때 팔로워/팔로잉 수가 적용되도록 함. 따라서 `me`쿼리에 `totalFollowers, totalFollowing` 필드를 추가했음.
 
 내 프로필 업데이트 방법 2가지 👉 `FollowButton`에서 2가지 mutation의 refetchQueries에 하나는 `seeProfile`쿼리를 불러와서 내 프로필을 업데이트하고, 하나는 필드를 추가한 `me`쿼리를 이용해서 내 프로필을 업데이트 시켰음.
+
+## #12.6 ~ 12.8 Follow-unFollow cache update
+
+`update`와 `onCompleted` 2가지를 이용해 cache를 업데이트하기. `oncompleted`에서는 `useApolloClient`를 이용해 cache를 불러와야한다.

@@ -9,9 +9,8 @@ import { Button, NormalButton as Btn } from "../shared";
 import styled from "styled-components";
 import { Icon } from "../Icon";
 import gql from "graphql-tag";
-import { useMutation } from "@apollo/client";
-import { QUERY_seeProfile } from "../../screens/Profile";
-import useUser, { QUERY_me } from "../../hooks/useUser";
+import { useApolloClient, useMutation } from "@apollo/client";
+import useUser from "../../hooks/useUser";
 
 const MUTATION_followUser = gql`
   mutation followUser($userName: String!) {
@@ -38,31 +37,85 @@ const FollowBtn = styled(Button)`
 const iconStyle = { opacity: "0.7" };
 
 function FollowButton({ isFollowing, username }) {
+  //"내정보" 업데이트를 위해 불러옴.
   const userData = useUser();
+  // apollo에서 캐시를 업데이트 하는 2가지 방법
+  // 1. update 사용
+  const followUserUpdate = (cache, result) => {
+    const {
+      data: {
+        followUser: { ok },
+      },
+    } = result;
+
+    if (!ok) {
+      return;
+    }
+    cache.modify({
+      id: `User:${username}`,
+      fields: {
+        isFollowing(prev) {
+          return true;
+        },
+        totalFollowers(prev) {
+          return prev + 1;
+        },
+      },
+    });
+    cache.modify({
+      id: `User:${userData?.me?.userName}`,
+      fields: {
+        totalFollowing(prev) {
+          return prev + 1;
+        },
+      },
+    });
+  };
 
   const [followUser] = useMutation(MUTATION_followUser, {
     variables: {
       userName: username,
     },
-    refetchQueries: [
-      { query: QUERY_seeProfile, variables: { userName: username } },
-      {
-        query: QUERY_seeProfile,
-        variables: { userName: userData?.me?.userName },
-      },
-    ],
+    update: followUserUpdate,
   });
+
+  // 2. onCompleted 사용(apllo-client를 이용해 캐시에 접근)
+  const client = useApolloClient();
+  const unfollowUserCompleted = (data) => {
+    const {
+      unfollowUser: { ok },
+    } = data;
+
+    if (!ok) {
+      return;
+    }
+    const { cache } = client;
+    cache.modify({
+      id: `User:${username}`,
+      fields: {
+        isFollowing(prev) {
+          return false;
+        },
+        totalFollowers(prev) {
+          return prev - 1;
+        },
+      },
+    });
+    cache.modify({
+      id: `User:${userData?.me?.userName}`,
+      fields: {
+        totalFollowing(prev) {
+          return prev - 1;
+        },
+      },
+    });
+  };
 
   const [unfollowUser] = useMutation(MUTATION_unfollowUser, {
     variables: {
       userName: username,
     },
-    refetchQueries: [
-      { query: QUERY_seeProfile, variables: { userName: username } },
-      {
-        query: QUERY_me,
-      },
-    ],
+    onCompleted: unfollowUserCompleted,
   });
 
   return isFollowing ? (
