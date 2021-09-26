@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { gql, useMutation } from "@apollo/client";
-import { useEffect } from "react";
+import ModalContainer from "./ModalContainer";
 
 const MUTATION_deleteComment = gql`
   mutation deleteComment($id: Int!) {
@@ -9,26 +9,6 @@ const MUTATION_deleteComment = gql`
       ok
     }
   }
-`;
-
-const ModalOverlay = styled.div`
-  z-index: 999;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  outline: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-`;
-
-const ModalWrapper = styled.div`
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
 `;
 
 const Btn = styled.button`
@@ -106,22 +86,20 @@ function CommentModal({ state, closeCommentModal, commentId, photoId }) {
   return (
     <>
       {state ? (
-        <ModalOverlay>
-          <ModalWrapper tabIndex="-1">
-            <ModalContents>
-              <Btn
-                onClick={onDeleteClick}
-                tabIndex="0"
-                style={{ color: "tomato" }}
-              >
-                삭제
-              </Btn>
-              <Btn onClick={closeCommentModal} tabIndex="0">
-                취소
-              </Btn>
-            </ModalContents>
-          </ModalWrapper>
-        </ModalOverlay>
+        <ModalContainer>
+          <ModalContents>
+            <Btn
+              onClick={onDeleteClick}
+              tabIndex="0"
+              style={{ color: "tomato" }}
+            >
+              삭제
+            </Btn>
+            <Btn onClick={closeCommentModal} tabIndex="0">
+              취소
+            </Btn>
+          </ModalContents>
+        </ModalContainer>
       ) : null}
     </>
   );

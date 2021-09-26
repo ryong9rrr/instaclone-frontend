@@ -106,6 +106,7 @@ git config --global core.autocrlf true
 - #12.3 ~ 12.4 Follow - UnFollow ViewButton
 - #12.5 Follow-unFollow refetchQuery
 - #12.6 ~ 12.8 Follow-unFollow cache update
+- NavModal : z-index, overflow:hidden
 
 ---
 
@@ -648,3 +649,11 @@ Router 설정
 ## #12.6 ~ 12.8 Follow-unFollow cache update
 
 `update`와 `onCompleted` 2가지를 이용해 cache를 업데이트하기. `oncompleted`에서는 `useApolloClient`를 이용해 cache를 불러와야한다.
+
+## NavModal : z-index, overflow:hidden
+
+NavModal 작업중...
+
+- `z-index`를 통해 컴포넌트의 쌓임 정하기
+
+- `overflow:hidden`으로 부모 컴포넌트의 모서리를 둥글게 만들었을 때 자식 컴포넌트의 모서리가 튀어나오지 않도록 하였음.

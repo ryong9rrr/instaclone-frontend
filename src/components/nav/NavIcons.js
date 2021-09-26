@@ -12,11 +12,17 @@ import { Link } from "react-router-dom";
 import { routes } from "../../screens/routes";
 import Avatar from "../Avatar";
 import { Icon } from "../Icon";
+import NavModal from "../modal/NavModal";
 
 const Icons = styled.div`
-  width: 70%;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  position: relative;
+`;
+
+const Btn = styled(Icon)`
+  margin-left: 7%;
 `;
 
 const LoginButton = styled.span`
@@ -43,23 +49,24 @@ function NavIcons({ myData }) {
     <>
       {isLoggedIn ? (
         <Icons>
-          <Icon>
+          <Btn>
             <FontAwesomeIcon icon={faHome} size="lg" />
-          </Icon>
-          <Icon>
+          </Btn>
+          <Btn>
             <FontAwesomeIcon icon={faPaperPlane} size="lg" />
-          </Icon>
-          <Icon>
+          </Btn>
+          <Btn>
             <FontAwesomeIcon icon={faCompass} size="lg" />
-          </Icon>
-          <Icon>
+          </Btn>
+          <Btn>
             <FontAwesomeIcon icon={faHeart} size="lg" />
-          </Icon>
-          <Icon>
+          </Btn>
+          <Btn>
             <Link to={`/${myData?.userName}/`}>
               <Avatar url={myData?.avatar} />
             </Link>
-          </Icon>
+          </Btn>
+          <NavModal />
         </Icons>
       ) : (
         <>
