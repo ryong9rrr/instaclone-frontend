@@ -1,4 +1,3 @@
-import {} from "@fortawesome/free-regular-svg-icons";
 import styled from "styled-components";
 import DarkMode from "../DarkMode";
 

@@ -26,6 +26,8 @@ git config --global core.autocrlf true
 
 - "프로필 편집"을 누르면 내 프로필을 편집할 수 있도록 해야 하는데... 단순한 useParams가 아닌 authorization이 필요하다... 어떻게 해야할까?
 
+- `Edit screen` - 추후 `Layout`과 `Navigation`을 포함하여 스크린을 띄우도록 해야할 것 + 추가적인 내부 라우터 설정
+
 ---
 
 ## 📖 목차
@@ -107,6 +109,7 @@ git config --global core.autocrlf true
 - #12.5 Follow-unFollow refetchQuery
 - #12.6 ~ 12.8 Follow-unFollow cache update
 - NavModal : z-index, overflow:hidden
+- NavModal UI, FaIcons, Edit screen
 
 ---
 
@@ -657,3 +660,19 @@ NavModal 작업중...
 - `z-index`를 통해 컴포넌트의 쌓임 정하기
 
 - `overflow:hidden`으로 부모 컴포넌트의 모서리를 둥글게 만들었을 때 자식 컴포넌트의 모서리가 튀어나오지 않도록 하였음.
+
+## NavModal UI, FaIcons, Edit screen
+
+NavModal UI 작업중..
+
+- icon의 양옆이 잘 맞지 않아 margin을 props로 줘서 조절하도록함 (왼쪽에서 늘린만큼 오른쪽에서 줄임)
+
+- `fontawesome`에서 아이콘을 삽일할때 "그 아이콘이 뭐였지...?" 하며 자꾸 다시 찾는게 싫어서 `FaIcons`라는 아이콘 통합 파일을 생성함.
+
+- Edit screen
+
+  - `NavModal`을 생성하면서 "설정"버튼을 누르면 Edit screen으로 가지도록 하였음
+
+  - `App.js`에 `Edit screen`으로 가지도록 하는 `router` 추가, `RestrictRoute`를 이용하여 로그인하지 않았을 때는 "홈화면" 즉, "로그인"화면으로 리다이렉팅 시키도록 함.
+
+  - 추후, `Layout`과 `Navigation`을 포함하여 스크린을 띄우도록 해야할 것 + 추가적인 내부 라우터 설정

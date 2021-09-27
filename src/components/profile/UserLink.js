@@ -2,8 +2,7 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { Icon } from "../Icon";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBorderAll, faUserTag } from "@fortawesome/free-solid-svg-icons";
-import { faBookmark, faPlayCircle } from "@fortawesome/free-regular-svg-icons";
+import { regular, solid } from "../FaIcons";
 
 const clickedStyle = {
   borderTop: "1px solid black",
@@ -51,7 +50,7 @@ function UserLink({ data }) {
           <NavBtn to={`/${data?.userName}/`} exact activeStyle={clickedStyle}>
             <Btn>
               <Icon size="12px">
-                <FontAwesomeIcon icon={faBorderAll} size="sm" />
+                <FontAwesomeIcon icon={solid.post} size="sm" />
               </Icon>
               <span>게시물</span>
             </Btn>
@@ -65,7 +64,7 @@ function UserLink({ data }) {
           >
             <Btn>
               <Icon size="12px">
-                <FontAwesomeIcon icon={faPlayCircle} size="sm" />
+                <FontAwesomeIcon icon={regular.video} size="sm" />
               </Icon>
               <span>동영상</span>
             </Btn>
@@ -79,7 +78,7 @@ function UserLink({ data }) {
           >
             <Btn>
               <Icon size="12px">
-                <FontAwesomeIcon icon={faBookmark} size="sm" />
+                <FontAwesomeIcon icon={regular.bookmark} size="sm" />
               </Icon>
               <span>저장됨</span>
             </Btn>
@@ -93,7 +92,7 @@ function UserLink({ data }) {
           >
             <Btn>
               <Icon size="12px">
-                <FontAwesomeIcon icon={faUserTag} size="sm" />
+                <FontAwesomeIcon icon={solid.userTag} size="sm" />
               </Icon>
               <span>태그됨</span>
             </Btn>

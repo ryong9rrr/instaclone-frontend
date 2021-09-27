@@ -1,8 +1,8 @@
-import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Avatar from "../Avatar";
+import { solid } from "../FaIcons";
 import { Icon } from "../Icon";
 import { Username } from "../shared";
 
@@ -43,7 +43,7 @@ function PostHeader({ avatarUrl, username, location }) {
       </Column>
       <Column>
         <Icon size="none">
-          <FontAwesomeIcon icon={faEllipsisH} />
+          <FontAwesomeIcon icon={solid.dotdotdot} />
         </Icon>
       </Column>
     </Container>

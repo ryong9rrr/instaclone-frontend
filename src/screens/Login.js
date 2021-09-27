@@ -1,5 +1,4 @@
 import React from "react";
-import { faFacebookSquare } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import { routes } from "./routes";
@@ -17,6 +16,7 @@ import FormError from "../components/auth/FormError";
 import { logUserIn } from "../apollo";
 import { useHistory, useLocation } from "react-router-dom";
 import Footer from "../components/footer/Footer";
+import { solid } from "../components/FaIcons";
 
 const Title = styled(Symbol)`
   display: block;
@@ -156,7 +156,7 @@ function Login() {
           </form>
           <Separator />
           <FacebookLogin>
-            <FontAwesomeIcon icon={faFacebookSquare} />
+            <FontAwesomeIcon icon={solid.facebook} />
             <span>Log in with Facebook</span>
           </FacebookLogin>
           <LossPassword>

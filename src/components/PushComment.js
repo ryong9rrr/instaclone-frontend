@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSmile } from "@fortawesome/free-regular-svg-icons";
 import { useForm } from "react-hook-form";
 import { gql, useMutation } from "@apollo/client";
 import useUser from "../hooks/useUser";
+import { regular } from "./FaIcons";
 
 const MUTATION_createComment = gql`
   mutation createComment($photoId: Int!, $payload: String!) {
@@ -135,7 +135,7 @@ function PushComment({ photoId }) {
     <PushCommentContainer>
       <PushCommentForm onSubmit={handleSubmit(onValid)}>
         <Emoji type="button">
-          <FontAwesomeIcon icon={faSmile} />
+          <FontAwesomeIcon icon={regular.smile} />
         </Emoji>
         <input
           {...register("comment", { required: true })}

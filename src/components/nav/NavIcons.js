@@ -1,10 +1,4 @@
 import styled from "styled-components";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import {
-  faPaperPlane,
-  faCompass,
-  faHeart,
-} from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useReactiveVar } from "@apollo/client";
 import { isLoggedInVar } from "../../apollo";
@@ -13,6 +7,7 @@ import { routes } from "../../screens/routes";
 import Avatar from "../Avatar";
 import { Icon } from "../Icon";
 import NavModal from "../modal/NavModal";
+import { regular, solid } from "../FaIcons";
 
 const Icons = styled.div`
   width: 100%;
@@ -50,23 +45,21 @@ function NavIcons({ myData }) {
       {isLoggedIn ? (
         <Icons>
           <Btn>
-            <FontAwesomeIcon icon={faHome} size="lg" />
+            <FontAwesomeIcon icon={solid.home} size="lg" />
           </Btn>
           <Btn>
-            <FontAwesomeIcon icon={faPaperPlane} size="lg" />
+            <FontAwesomeIcon icon={regular.message} size="lg" />
           </Btn>
           <Btn>
-            <FontAwesomeIcon icon={faCompass} size="lg" />
+            <FontAwesomeIcon icon={regular.compass} size="lg" />
           </Btn>
           <Btn>
-            <FontAwesomeIcon icon={faHeart} size="lg" />
+            <FontAwesomeIcon icon={regular.heart} size="lg" />
           </Btn>
           <Btn>
-            <Link to={`/${myData?.userName}/`}>
-              <Avatar url={myData?.avatar} />
-            </Link>
+            <Avatar url={myData?.avatar} />
           </Btn>
-          <NavModal />
+          <NavModal loggedUsername={myData?.userName} />
         </Icons>
       ) : (
         <>

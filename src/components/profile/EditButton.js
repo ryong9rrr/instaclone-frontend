@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import { solid } from "../FaIcons";
 import { Icon } from "../Icon";
 import { NormalButton as Btn } from "../shared";
-import { faCog } from "@fortawesome/free-solid-svg-icons";
 
 function EditButton() {
   return (
@@ -13,7 +13,7 @@ function EditButton() {
         </Btn>
       </Link>
       <Icon>
-        <FontAwesomeIcon icon={faCog} size="lg" />
+        <FontAwesomeIcon icon={solid.cog} size="lg" />
       </Icon>
     </>
   );

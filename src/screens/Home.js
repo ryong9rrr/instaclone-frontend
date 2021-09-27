@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { logUserOut } from "../apollo";
 import Feed from "../components/feed/Feed";
 import CommentModal from "../components/modal/CommentModal";
 import PageTitle from "../components/PageTitle";
@@ -29,7 +28,6 @@ function Home() {
     <>
       <PageTitle />
       <Feed openCommentModal={openCommentModal} />
-      <button onClick={() => logUserOut()}>Log out</button>
       <CommentModal
         state={commentModal}
         closeCommentModal={closeCommentModal}

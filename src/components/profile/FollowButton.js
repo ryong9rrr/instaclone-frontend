@@ -1,16 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCheck,
-  faChevronDown,
-  faEllipsisH,
-  faUser,
-} from "@fortawesome/free-solid-svg-icons";
 import { Button, NormalButton as Btn } from "../shared";
 import styled from "styled-components";
 import { Icon } from "../Icon";
 import gql from "graphql-tag";
 import { useApolloClient, useMutation } from "@apollo/client";
 import useUser from "../../hooks/useUser";
+import { solid } from "../FaIcons";
 
 const MUTATION_followUser = gql`
   mutation followUser($userName: String!) {
@@ -124,24 +119,24 @@ function FollowButton({ isFollowing, username }) {
         메세지 보내기
       </Btn>
       <Btn onClick={unfollowUser} className="isFollow" side="20px">
-        <FontAwesomeIcon icon={faUser} size="sm" />
-        <FontAwesomeIcon icon={faCheck} size="sm" />
+        <FontAwesomeIcon icon={solid.user} size="sm" />
+        <FontAwesomeIcon icon={solid.check} size="sm" />
       </Btn>
       <Btn className="recommend" side="12px">
-        <FontAwesomeIcon icon={faChevronDown} size="sm" style={iconStyle} />
+        <FontAwesomeIcon icon={solid.downArrow} size="sm" style={iconStyle} />
       </Btn>
       <Icon>
-        <FontAwesomeIcon icon={faEllipsisH} />
+        <FontAwesomeIcon icon={solid.dotdotdot} />
       </Icon>
     </>
   ) : (
     <>
       <FollowBtn onClick={followUser}>팔로우</FollowBtn>
       <Button className="recommend" fontsize="10px" side="12px">
-        <FontAwesomeIcon icon={faChevronDown} size="sm" style={iconStyle} />
+        <FontAwesomeIcon icon={solid.downArrow} size="sm" style={iconStyle} />
       </Button>
       <Icon>
-        <FontAwesomeIcon icon={faEllipsisH} />
+        <FontAwesomeIcon icon={solid.dotdotdot} />
       </Icon>
     </>
   );

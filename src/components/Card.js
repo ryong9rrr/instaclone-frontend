@@ -1,6 +1,6 @@
-import { faClone, faComment, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
+import { solid } from "./FaIcons";
 
 const Container = styled.article`
   width: 100%;
@@ -74,18 +74,18 @@ function Card({ id, file, commentsNumber, isLiked, likes }) {
     <Container url={file}>
       {Array.isArray(file) && (
         <TopIcon>
-          <FontAwesomeIcon icon={faClone} />
+          <FontAwesomeIcon icon={solid.manyPost} />
         </TopIcon>
       )}
       <Box>
         <HoverBox>
           <Icons>
             <Icon>
-              <FontAwesomeIcon icon={faHeart} />
+              <FontAwesomeIcon icon={solid.heart} />
               {likes}
             </Icon>
             <Icon>
-              <FontAwesomeIcon icon={faComment} />
+              <FontAwesomeIcon icon={solid.comment} />
               {commentsNumber}
             </Icon>
           </Icons>

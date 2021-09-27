@@ -14,6 +14,7 @@ import ServerError from "./screens/ServerError";
 import useUser from "./hooks/useUser";
 import React from "react";
 import Profile from "./screens/Profile";
+import Edit from "./screens/Edit";
 
 function App() {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
@@ -39,6 +40,12 @@ function App() {
               isLoggedIn={isLoggedIn}
               path={routes.signUp}
               component={SignUp}
+              exact
+            />
+            <RestrictRoute
+              isLoggedIn={!isLoggedIn}
+              path={routes.edit}
+              component={Edit}
               exact
             />
             <Route path={"/:username/"}>

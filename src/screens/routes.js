@@ -4,6 +4,7 @@ export const routes = {
   home: "/",
   signUp: "/sign-up",
   serverError: "/serverError",
+  edit: "/accounts/edit",
 };
 
 export const RestrictRoute = ({ component: Component, path, isLoggedIn }) => {

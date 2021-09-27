@@ -1,11 +1,10 @@
 import PropTypes from "prop-types";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import { Icon } from "../Icon";
 import { CaptionOrPayload, extractHashtags, Username } from "../shared";
-import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { regular, solid } from "../FaIcons";
 
 const CommentsBox = styled.div`
   display: flex;
@@ -50,11 +49,11 @@ function Comment({
             onClick={() => openCommentModal(commentId, photoId)}
             size="0.8rem"
           >
-            <FontAwesomeIcon icon={faEllipsisH} />
+            <FontAwesomeIcon icon={solid.dotdotdot} />
           </Icon>
         ) : null}
         <Icon size="0.8rem">
-          <FontAwesomeIcon icon={faHeart} />
+          <FontAwesomeIcon icon={regular.heart} />
         </Icon>
       </Icons>
     </CommentsBox>

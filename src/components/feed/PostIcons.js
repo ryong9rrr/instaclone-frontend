@@ -1,13 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
-import {
-  faBookmark,
-  faComment,
-  faHeart,
-  faPaperPlane,
-} from "@fortawesome/free-regular-svg-icons";
-import { faHeart as SolidHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
+import { regular, solid } from "../FaIcons";
 import { Icon } from "../Icon";
 
 const MUTATION_toggleLike = gql`
@@ -84,21 +78,21 @@ function PostIcons({ id, isLiked }) {
         <Icon onClick={toggleLike}>
           <FontAwesomeIcon
             style={{ color: isLiked ? "tomato" : "inherit" }}
-            icon={isLiked ? SolidHeart : faHeart}
+            icon={isLiked ? solid.heart : regular.heart}
             size="lg"
           />
         </Icon>
         <Icon>
-          <FontAwesomeIcon icon={faComment} size="lg" />
+          <FontAwesomeIcon icon={regular.comment} size="lg" />
         </Icon>
         <Icon>
-          <FontAwesomeIcon icon={faPaperPlane} size="lg" />
+          <FontAwesomeIcon icon={regular.message} size="lg" />
         </Icon>
       </Column>
       <Column>..</Column>
       <Column>
         <Icon>
-          <FontAwesomeIcon icon={faBookmark} size="lg" />
+          <FontAwesomeIcon icon={regular.bookmark} size="lg" />
         </Icon>
       </Column>
     </Icons>
