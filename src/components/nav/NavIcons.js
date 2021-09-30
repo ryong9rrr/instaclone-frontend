@@ -2,12 +2,13 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useReactiveVar } from "@apollo/client";
 import { isLoggedInVar } from "../../apollo";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { routes } from "../../screens/routes";
 import Avatar from "../Avatar";
 import { Icon } from "../Icon";
 import NavModal from "../modal/NavModal";
 import { regular, solid } from "../FaIcons";
+import { useEffect, useState } from "react";
 
 const Icons = styled.div`
   width: 100%;
@@ -39,6 +40,15 @@ const SignUpButton = styled.span`
 
 function NavIcons({ myData }) {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
+  //const { pathname } = useLocation();
+  const [modal, setModal] = useState(false);
+  const toggleModal = () => setModal((prev) => !prev);
+
+  /*
+  useEffect(() => {
+    return () => setModal(false);
+  }, [pathname]);
+  */
 
   return (
     <>
@@ -56,10 +66,15 @@ function NavIcons({ myData }) {
           <Btn>
             <FontAwesomeIcon icon={regular.heart} size="lg" />
           </Btn>
-          <Btn>
+          <Btn onClick={toggleModal}>
             <Avatar url={myData?.avatar} />
           </Btn>
-          <NavModal loggedUsername={myData?.userName} />
+          {modal && (
+            <NavModal
+              toggleModal={toggleModal}
+              loggedUsername={myData?.userName}
+            />
+          )}
         </Icons>
       ) : (
         <>

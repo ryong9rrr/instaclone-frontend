@@ -4,6 +4,7 @@ import { lightTheme } from "../../styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { regular, solid } from "../FaIcons";
 import { logUserOut } from "../../apollo";
+import { routes } from "../../screens/routes";
 
 const ModalOverlay = styled.div`
   position: fixed;
@@ -112,14 +113,14 @@ function Button({ link, icon, ctx, left }) {
   );
 }
 
-function NavModal({ loggedUsername }) {
+function NavModal({ loggedUsername, toggleModal }) {
   return (
     <>
-      <ModalOverlay />
+      <ModalOverlay onClick={toggleModal} />
       <ModalWrapper>
         <ModalContents>
           <Arrow />
-          <Box>
+          <Box onClick={toggleModal}>
             <Button
               link={`/${loggedUsername}/`}
               icon={regular.userCircle}
@@ -131,7 +132,7 @@ function NavModal({ loggedUsername }) {
               ctx="저장됨"
               left="1px"
             />
-            <Button link={`/accounts/edit`} icon={solid.cog} ctx="설정" />
+            <Button link={routes.edit} icon={solid.cog} ctx="설정" />
             <Button link="/" icon={solid.exchange} ctx="계정 전환" />
             <Line />
             <Btn onClick={() => logUserOut()}>로그아웃</Btn>

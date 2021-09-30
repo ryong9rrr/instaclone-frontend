@@ -26,7 +26,7 @@ git config --global core.autocrlf true
 
 - "프로필 편집"을 누르면 내 프로필을 편집할 수 있도록 해야 하는데... 단순한 useParams가 아닌 authorization이 필요하다... 어떻게 해야할까?
 
-- `Edit screen` - 추후 `Layout`과 `Navigation`을 포함하여 스크린을 띄우도록 해야할 것 + 추가적인 내부 라우터 설정
+- `Edit screen` - 추후 `Layout`과 `Navigation`을 포함하여 스크린을 띄우도록 해야할 것 + 추가적인 내부 라우터 설정 (내부에 스위치를 해줘서 "/", "...", "..." 하면 될듯?)
 
 ---
 
@@ -110,6 +110,7 @@ git config --global core.autocrlf true
 - #12.6 ~ 12.8 Follow-unFollow cache update
 - NavModal : z-index, overflow:hidden
 - NavModal UI, FaIcons, Edit screen
+- NavModal toggle
 
 ---
 
@@ -676,3 +677,11 @@ NavModal UI 작업중..
   - `App.js`에 `Edit screen`으로 가지도록 하는 `router` 추가, `RestrictRoute`를 이용하여 로그인하지 않았을 때는 "홈화면" 즉, "로그인"화면으로 리다이렉팅 시키도록 함.
 
   - 추후, `Layout`과 `Navigation`을 포함하여 스크린을 띄우도록 해야할 것 + 추가적인 내부 라우터 설정
+
+## NavModal toggle
+
+- `useState(prev)`를 이용한 open, close toggle 구현
+
+- 모달을 열고 "프로필"이나 "저장됨" 등 링크가 바뀔 때 모달이 닫히지 않는 이슈를 2가지 방법으로 해결.
+  1. 링크가 바뀔때마다 `useEffect`의 클린업을 사용하거나...
+  2. 그냥 `toggleModal`을 `ModalOverlay`뿐만 아니라 `Button`의 부모컴포넌트에도 `onClick`적용.
