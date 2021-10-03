@@ -24,6 +24,7 @@ import {
   faComment as SolidCommment,
   faMoon,
   faSun,
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 
 export const regular = {
@@ -53,4 +54,5 @@ export const solid = {
   moon: faMoon,
   sun: faSun,
   facebook: faFacebookSquare,
+  close: faTimes,
 };

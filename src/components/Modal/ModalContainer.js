@@ -20,10 +20,22 @@ const ModalWrapper = styled.div`
   height: 100%;
 `;
 
+const ModalContents = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid ${(props) => props.theme.borderColor};
+  border-radius: 0.8em;
+  width: 400px;
+  background-color: ${(props) => props.theme.bgColor};
+  overflow: hidden;
+`;
+
 function ModalContainer({ children }) {
   return (
     <ModalOverlay>
-      <ModalWrapper tabIndex="-1">{children}</ModalWrapper>
+      <ModalWrapper tabIndex="-1">
+        <ModalContents>{children}</ModalContents>
+      </ModalWrapper>
     </ModalOverlay>
   );
 }

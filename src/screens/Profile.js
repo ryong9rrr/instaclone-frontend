@@ -8,6 +8,8 @@ import { Route, Switch } from "react-router-dom";
 import NotFound from "./NotFound";
 import UserLink from "../components/profile/UserLink";
 import Footer from "../components/footer/Footer";
+import Followers from "../components/profile/Followers";
+import Followings from "../components/profile/Followings";
 
 export const QUERY_seeProfile = gql`
   ${PHOTO_FRAGMENT}
@@ -75,21 +77,20 @@ function Profile() {
       />
       <UserLink data={data?.seeProfile} />
       <Switch>
-        <Route path={"/:username/"} exact>
+        <Route path={"/:username/channel/"}>channel</Route>
+        <Route path={"/:username/saved/"}>saved</Route>
+        <Route path={"/:username/tagged/"}>tagged</Route>
+        <Route path={"/:username/"}>
           <UserPosts photos={data?.seeProfile?.photos} />
         </Route>
-        <Route path={"/:username/channel/"} exact>
-          channel
-        </Route>
-        <Route path={"/:username/saved/"} exact>
-          saved
-        </Route>
-        <Route path={"/:username/tagged/"} exact>
-          tagged
-        </Route>
-        <Route component={NotFound} />
       </Switch>
       <Footer />
+      <Route path={"/:username/followers/"} exact>
+        <Followers />
+      </Route>
+      <Route path={"/:username/followings/"} exact>
+        <Followings />
+      </Route>
     </>
   );
 }

@@ -28,12 +28,13 @@ function Home() {
     <>
       <PageTitle />
       <Feed openCommentModal={openCommentModal} />
-      <CommentModal
-        state={commentModal}
-        closeCommentModal={closeCommentModal}
-        commentId={commentId}
-        photoId={photoId}
-      />
+      {commentModal && (
+        <CommentModal
+          closeCommentModal={closeCommentModal}
+          commentId={commentId}
+          photoId={photoId}
+        />
+      )}
     </>
   );
 }

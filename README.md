@@ -111,6 +111,7 @@ git config --global core.autocrlf true
 - NavModal : z-index, overflow:hidden
 - NavModal UI, FaIcons, Edit screen
 - NavModal toggle
+- Profile Followers Followings Box - Router & UI 1
 
 ---
 
@@ -685,3 +686,15 @@ NavModal UI 작업중..
 - 모달을 열고 "프로필"이나 "저장됨" 등 링크가 바뀔 때 모달이 닫히지 않는 이슈를 2가지 방법으로 해결.
   1. 링크가 바뀔때마다 `useEffect`의 클린업을 사용하거나...
   2. 그냥 `toggleModal`을 `ModalOverlay`뿐만 아니라 `Button`의 부모컴포넌트에도 `onClick`적용.
+
+## Profile Followers Followings Box - Router & UI 1
+
+- `ModalContainer`에 `overlay, wrapper, contents` 를 모두 통합.
+
+- `CommentModal` 내부에 있던 `state`를 제거, 컴포넌트 안에 state를 두는 것은 별로 좋지 않은 것 같았기 때문.
+
+- `utills.js` - `handleToggleModal` : `setState`를 파라미터로 받아 toggle버튼을 생성하는 함수
+
+- 프로필에서 "팔로우", "팔로잉" 버튼을 누르면 친구들이 보이는 것을 `router`로 구현.
+
+- `FollowBox` : "팔로우", "팔로잉" 화면에서 공통적으로 감싸주는 컴포넌트

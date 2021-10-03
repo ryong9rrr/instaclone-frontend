@@ -24,19 +24,7 @@ const Btn = styled.button`
   }
 `;
 
-const ModalContents = styled.div`
-  display: flex;
-  flex-direction: column;
-  border: 1px solid ${(props) => props.theme.borderColor};
-  border-radius: 1em;
-  width: 400px;
-  background-color: ${(props) => props.theme.bgColor};
-  ${Btn}:first-child {
-    border-top: none;
-  }
-`;
-
-function CommentModal({ state, closeCommentModal, commentId, photoId }) {
+function CommentModal({ closeCommentModal, commentId, photoId }) {
   const updateDeleteComment = (cache, result) => {
     const {
       data: {
@@ -84,29 +72,18 @@ function CommentModal({ state, closeCommentModal, commentId, photoId }) {
   */
 
   return (
-    <>
-      {state ? (
-        <ModalContainer>
-          <ModalContents>
-            <Btn
-              onClick={onDeleteClick}
-              tabIndex="0"
-              style={{ color: "tomato" }}
-            >
-              삭제
-            </Btn>
-            <Btn onClick={closeCommentModal} tabIndex="0">
-              취소
-            </Btn>
-          </ModalContents>
-        </ModalContainer>
-      ) : null}
-    </>
+    <ModalContainer>
+      <Btn onClick={onDeleteClick} tabIndex="0" style={{ color: "tomato" }}>
+        삭제
+      </Btn>
+      <Btn onClick={closeCommentModal} tabIndex="0">
+        취소
+      </Btn>
+    </ModalContainer>
   );
 }
 
 CommentModal.propTypes = {
-  state: PropTypes.bool.isRequired,
   commentId: PropTypes.number,
   photoId: PropTypes.number,
 };

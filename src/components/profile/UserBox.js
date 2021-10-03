@@ -5,6 +5,7 @@ import { FatText } from "../shared";
 import PropTypes from "prop-types";
 import EditButton from "./EditButton";
 import FollowButton from "./FollowButton";
+import { Link } from "react-router-dom";
 
 const Contatiner = styled.section`
   display: flex;
@@ -46,6 +47,9 @@ const Btns = styled.div`
 const UserTotal = styled.ul`
   display: flex;
   margin-bottom: 15px;
+  a {
+    color: inherit;
+  }
   li {
     margin-right: 35px;
   }
@@ -100,12 +104,16 @@ function UserBox({
           <li>
             게시물 <FatText>{totalPhotos}</FatText>
           </li>
-          <li className="btn">
-            팔로워 <FatText>{totalFollowers}</FatText>
-          </li>
-          <li className="btn">
-            팔로잉 <FatText>{totalFollowing}</FatText>
-          </li>
+          <Link to={`/${username}/followers/`}>
+            <li className="btn">
+              팔로워 <FatText>{totalFollowers}</FatText>
+            </li>
+          </Link>
+          <Link to={`/${username}/followings/`}>
+            <li className="btn">
+              팔로잉 <FatText>{totalFollowing}</FatText>
+            </li>
+          </Link>
         </UserTotal>
         <div>
           <FatText>{username}</FatText>
