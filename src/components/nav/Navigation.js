@@ -6,9 +6,7 @@ import NavSearch from "./NavSearch";
 import { BaseBox } from "../shared";
 import { routes } from "../../screens/routes";
 
-const NavContainer = styled(BaseBox).attrs({
-  as: "header",
-})`
+const NavContainer = styled(BaseBox)`
   border: none;
   border-bottom: 1px solid ${(props) => props.theme.borderColor};
   padding: 15px 0px;

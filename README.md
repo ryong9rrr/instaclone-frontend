@@ -16,7 +16,7 @@ git config --global core.autocrlf true
 
 - server error시 어떻게 처리를 해야하누...
 
-- `Navigation` position fix 해야함.
+- <del>`Navigation` position fix 해야함.</del> (완료)
 
 - 버튼(아이콘 등)에 각종 기능 추가해야함.
 
@@ -112,6 +112,7 @@ git config --global core.autocrlf true
 - NavModal UI, FaIcons, Edit screen
 - NavModal toggle
 - Profile Followers Followings Box - Router & UI 1
+- Navigation Header fix(postion sticky)
 
 ---
 
@@ -698,3 +699,7 @@ NavModal UI 작업중..
 - 프로필에서 "팔로우", "팔로잉" 버튼을 누르면 친구들이 보이는 것을 `router`로 구현.
 
 - `FollowBox` : "팔로우", "팔로잉" 화면에서 공통적으로 감싸주는 컴포넌트
+
+## Navigation Header fix(postion sticky)
+
+`postion: sticky`를 통해 간단하게 해결. (복잡하게 할 것 없이 `Layout`에서 컴포넌트 레이아웃을 모두 관리)

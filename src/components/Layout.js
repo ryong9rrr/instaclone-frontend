@@ -2,18 +2,33 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import Navigation from "./nav/Navigation";
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Header = styled.header`
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+`;
+
 const MainContent = styled.main`
   max-width: 950px;
-  margin: 30px auto 0px;
+  margin: 0 auto;
   width: 100%;
+  padding-top: 30px;
 `;
 
 function Layout({ children, myData }) {
   return (
-    <>
-      <Navigation myData={myData} />
+    <Container>
+      <Header>
+        <Navigation myData={myData} />
+      </Header>
       <MainContent>{children}</MainContent>
-    </>
+    </Container>
   );
 }
 
