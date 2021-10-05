@@ -5,7 +5,7 @@ git config --global core.autocrlf true
 - react
 - react-native > expo / CLI, CLI는 기업에서 쓰인다. 둘다 배울거임
 
-## 추가해야할 작업
+## 🤔 추가할기능 생각해보기
 
 - `Footer.js`, `DownloadApp.js` 나중에 수정해야함
 
